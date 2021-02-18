@@ -47,11 +47,11 @@ What we are going to do is take CSS positioning and Forms button and make someth
    }"></td>
    <td></td></tr>
 
-   <tr><td><input type=button value="right" onClick="{
+   <tr><td><input type=button value="left" onClick="{
  // alert(   parseInt(document.getElementById('mySpan01').style.left)   )
                                                          
     document.getElementById('mySpan01').style.left =
-       parseInt(document.getElementById('mySpan01').style.left) + 10
+       parseInt(document.getElementById('mySpan01').style.left) - 10
                                                          
   if(myHitOther('mySpan01','mySpan02')){
   //                                                       alert('hit')
@@ -67,11 +67,11 @@ What we are going to do is take CSS positioning and Forms button and make someth
                                                          
       }"></td>
       <td></td>
-<td><input type=button value="left" onClick="{
+<td><input type=button value="right" onClick="{
  // alert(   parseInt(document.getElementById('mySpan01').style.left)   )
                                                          
     document.getElementById('mySpan01').style.left =
-       parseInt(document.getElementById('mySpan01').style.left) - 10
+       parseInt(document.getElementById('mySpan01').style.left) + 10
                                                         
   if(myHitOther('mySpan01','mySpan02')){
   //                                                       alert('hit')
