@@ -24,6 +24,27 @@ function myHitOther(my1,my2){
 
 What we are going to do is take CSS positioning and Forms button and make something that moves across the screen<br>
 
+<input type=button value="up" onClick="{
+ // alert(   parseInt(document.getElementById('mySpan01').style.top)   )
+                                                         
+    document.getElementById('mySpan01').style.top =
+       parseInt(document.getElementById('mySpan01').style.top) - 10
+                                                        
+  if(myHitOther('mySpan01','mySpan02')){
+  //                                                       alert('hit')
+                                                         document.getElementById('mySpan02').style.left = '-400px'
+                                                         
+  }
+                                                         
+  if(myHitOther('mySpan01','mySpan03')){
+  //                                                       alert('hit')
+                                                         document.getElementById('mySpan03').style.left = '-400px'
+                                                         
+  }
+                                                         
+ }">
+ 
+
 <input type=button value="right" onClick="{
  // alert(   parseInt(document.getElementById('mySpan01').style.left)   )
                                                          
@@ -84,26 +105,7 @@ What we are going to do is take CSS positioning and Forms button and make someth
                                                          
  }">
 
-<input type=button value="up" onClick="{
- // alert(   parseInt(document.getElementById('mySpan01').style.top)   )
-                                                         
-    document.getElementById('mySpan01').style.top =
-       parseInt(document.getElementById('mySpan01').style.top) - 10
-                                                        
-  if(myHitOther('mySpan01','mySpan02')){
-  //                                                       alert('hit')
-                                                         document.getElementById('mySpan02').style.left = '-400px'
-                                                         
-  }
-                                                         
-  if(myHitOther('mySpan01','mySpan03')){
-  //                                                       alert('hit')
-                                                         document.getElementById('mySpan03').style.left = '-400px'
-                                                         
-  }
-                                                         
- }">
- 
+
  <span id="mySpan01" style="position:absolute; left:100; top:150; width:45; height:10;">span 1</span><br>
  <span id="mySpan02" style="position:absolute; left:200; top:150; width:45; height:10;">span 2</span><br>
  <span id="mySpan03" style="position:absolute; left:100; top:300; width:45; height:10;">span 3</span><br>
