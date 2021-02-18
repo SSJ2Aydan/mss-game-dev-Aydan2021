@@ -37,11 +37,33 @@ What we are going to do is take CSS positioning and Forms button and make someth
   }
                                                          
  }">
+
 <input type=button value="Move 10 pixels left" onClick="{
  // alert(   parseInt(document.getElementById('mySpan01').style.left)   )
                                                          
     document.getElementById('mySpan01').style.left =
        parseInt(document.getElementById('mySpan01').style.left) - 10
+                                                        
+                                                        if(myHitOther('mySpan01','mySpan02')){
+  //                                                       alert('hit')
+                                                         document.getElementById('mySpan02').style.left = '-400px'
+                                                         
+  }
+                                                        
+ }"><br>
+
+<input type=button value="Move 10 pixels down" onClick="{
+ // alert(   parseInt(document.getElementById('mySpan01').style.top)   )
+                                                         
+    document.getElementById('mySpan01').style.top =
+       parseInt(document.getElementById('mySpan01').style.top) + 10
+                                                         
+  if(myHitOther('mySpan01','mySpan03')){
+  //                                                       alert('hit')
+                                                         document.getElementById('mySpan02').style.left = '-400px'
+                                                         
+  }
+                                                         
  }">
  
  <span id="mySpan01" style="position:absolute; left:100; top:150; width:45; height:30;">span 1</span><br>
