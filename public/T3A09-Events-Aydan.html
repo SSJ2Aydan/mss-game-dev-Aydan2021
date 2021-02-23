@@ -32,8 +32,14 @@ Traditional onclick event: <input type=button value="onclick event" onclick="{
 }"> <br><br>
 
 This is <b> bold </b> this isn't<br>
-This is <b on MouseOver="{
+This is <b onMouseOver="{
     document.getElementById('mySpan01').innerHTML = 'Hi from onMouseOver'
 }"> bold and onMouseOver </b> this isn't<br><br>
+  
+Select the bold <b onSelect="{
+    document.getElementById('mySpan01').innerHTML = 'Hi from select'
+  }"> HERE </b><br><br>
+  
+
 
 </body>
