@@ -351,72 +351,72 @@ class myCat extends myAnimal {
     
     <span style="position:absolute; left:1000; top:200;">All inputs underneath.<br>
     <input id="myButtonAll" type="button" value="all" onclick="{
-      document.getElementById('myDiv123').innerHTML = document.getElementById('myTextIn01').value // note: use value not innerHTML                                                    
+      document.getElementById('theDiv123').innerHTML = document.getElementById('myTextIn01').value // note: use value not innerHTML                                                    
 }
                                                                {
 
    var my1 = document.getElementById('myTextIn1').value  
    var my2 = document.getElementById('myTextIn2').value  
-   document.getElementById('myDiv124').innerHTML =   'Numbers added as strings ' +  my1 + ' + ' +  my2 + ' = ' +  (my1 + my2)  + '<br>'   
-   document.getElementById('myDiv124').innerHTML +=  'Numbers added as integers ' +  my1 + ' + ' +  my2 + ' = ' +  (parseInt(my1) + parseInt(my2))  + '<br>'   
-   document.getElementById('myDiv124').innerHTML +=  'Numbers added as rounded integers ' +  my1 + ' + ' +  my2 + ' = ' +  (Math.round(my1) + Math.round(my2))  + '<br>'                                                      
-   document.getElementById('myDiv124').innerHTML +=  'Numbers added as floating point (decimal) numbers ' +  my1 + ' + ' +  my2 + ' = ' +  (parseFloat(my1) + parseFloat(my2))  + '<br>'                                         
-   document.getElementById('myDiv124').innerHTML +=  'Numbers added using *1 trick ' +  my1 + ' + ' +  my2 + ' = ' +  (my1*1 + my2*1)  + '<br>'                                                       
+   document.getElementById('theDiv124').innerHTML =   'Numbers added as strings ' +  my1 + ' + ' +  my2 + ' = ' +  (my1 + my2)  + '<br>'   
+   document.getElementById('theDiv124').innerHTML +=  'Numbers added as integers ' +  my1 + ' + ' +  my2 + ' = ' +  (parseInt(my1) + parseInt(my2))  + '<br>'   
+   document.getElementById('theDiv124').innerHTML +=  'Numbers added as rounded integers ' +  my1 + ' + ' +  my2 + ' = ' +  (Math.round(my1) + Math.round(my2))  + '<br>'                                                      
+   document.getElementById('theDiv124').innerHTML +=  'Numbers added as floating point (decimal) numbers ' +  my1 + ' + ' +  my2 + ' = ' +  (parseFloat(my1) + parseFloat(my2))  + '<br>'                                         
+   document.getElementById('theDiv124').innerHTML +=  'Numbers added using *1 trick ' +  my1 + ' + ' +  my2 + ' = ' +  (my1*1 + my2*1)  + '<br>'                                                       
                                                              
                                                               
 }
                                                                {
                                                                
-    document.getElementById('myDiv125').innerHTML = ''   // blank out the DIV  
+    document.getElementById('theDiv125').innerHTML = ''   // blank out the DIV  
                                                                
     for (myLoop = 1;  myLoop <= document.getElementById('myTextLoop').value;    myLoop++){   
                                                                
-       document.getElementById('myDiv125').innerHTML += 'Loop #'+ myLoop+'<br>'  
+       document.getElementById('theDiv125').innerHTML += 'Loop #'+ myLoop+'<br>'  
                                                                
     }
                                                                
 }
                                                                {
       
-   document.getElementById('myDiv126').innerHTML = '' // Clear the DIV
+   document.getElementById('theDiv126').innerHTML = '' // Clear the DIV
                                                                     
    myIf =   document.getElementById('myTextIf').value   // Store the number
      
    if (myIf == 4){                                                                
-      document.getElementById('myDiv126').innerHTML += 'That number equals 4 <br>'
+      document.getElementById('theDiv126').innerHTML += 'That number equals 4 <br>'
    }   
                                                                     
    if (myIf <= 4){                                                                
-      document.getElementById('myDiv126').innerHTML += 'That number is less than 4 <br>'
+      document.getElementById('theDiv126').innerHTML += 'That number is less than 4 <br>'
    }  
                                                                             
    if (Math.abs(myIf) == 4){        // absolute value of -4 = 4                                                         
-      document.getElementById('myDiv126').innerHTML += 'That number is either positive or negative 4<br>'
+      document.getElementById('theDiv126').innerHTML += 'That number is either positive or negative 4<br>'
    }  
                                                                         
    if (myIf < 0){                                                                
-      document.getElementById('myDiv126').innerHTML += 'That number is a negative number<br>'
+      document.getElementById('theDiv126').innerHTML += 'That number is a negative number<br>'
    }  
                                                                     
    if (myIf == 4){                                                                
-      document.getElementById('myDiv126').innerHTML += 'That number is less than or equal to 4 <br>'
+      document.getElementById('theDiv126').innerHTML += 'That number is less than or equal to 4 <br>'
    }   
                                                                     
    if (myIf >= 4){                                                                
-      document.getElementById('myDiv126').innerHTML += 'That number is greater than or equal to 4 <br>'
+      document.getElementById('theDiv126').innerHTML += 'That number is greater than or equal to 4 <br>'
    }   
                                                                     
    if (myIf != 4){                                                                
-      document.getElementById('myDiv126').innerHTML += 'That number does not equal 4 <br>'
+      document.getElementById('theDiv126').innerHTML += 'That number does not equal 4 <br>'
    }   
                                                                     
    if ((myIf == 4) || (myIf == 8)) {                                                                
-      document.getElementById('myDiv126').innerHTML += 'That number equals either 4 or 8 <br>'
+      document.getElementById('theDiv126').innerHTML += 'That number equals either 4 or 8 <br>'
    }     
                                                                        
                                                                     
    if ((myIf == 4) &amp;&amp; (myIf < 8)) {                                                                
-      document.getElementById('myDiv126').innerHTML += 'That number equals 4 and is less than 8 <br>'
+      document.getElementById('theDiv126').innerHTML += 'That number equals 4 and is less than 8 <br>'
    }     
                                                                        
 
@@ -426,12 +426,12 @@ class myCat extends myAnimal {
                                                                {
                                                               
       myArray = []
-      document.getElementById('myDiv127').innerHTML = '' // clear the DIV
+      document.getElementById('theDiv127').innerHTML = '' // clear the DIV
                                                               
       myArray = document.getElementById('myTextArray').value.split(',')   //splits a string into an array  
                                                               
       for (myIndex in myArray){                                                                                                                  
-         document.getElementById('myDiv127').innerHTML +=     myIndex + ' stores : ' + myArray[myIndex] + '<br>'
+         document.getElementById('theDiv127').innerHTML +=     myIndex + ' stores : ' + myArray[myIndex] + '<br>'
       }                                                        
 }
                                                                {
@@ -439,14 +439,14 @@ class myCat extends myAnimal {
     var myPerson = {}                                                              
     myPerson = JSON.parse(document.getElementById('myTextAreaObject').value)   
                                                                          
-    document.getElementById('myDiv128').innerHTML = 'Name: ' + myPerson.firstName + ' '+ myPerson.lastName + ', Age: '  + myPerson.age  + ', EyeColor: ' + myPerson.eyeColor + '<br>'
+    document.getElementById('theDiv128').innerHTML = 'Name: ' + myPerson.firstName + ' '+ myPerson.lastName + ', Age: '  + myPerson.age  + ', EyeColor: ' + myPerson.eyeColor + '<br>'
                                                        
                                                               
 }
                                                                {
 
 function myFun(myVar){
-  document.getElementById('myDiv129').innerHTML = 'The function made this line. ' + myVar + ' was passed to the function <br>'                                                                     
+  document.getElementById('theDiv129').innerHTML = 'The function made this line. ' + myVar + ' was passed to the function <br>'                                                                     
 }                                                                     
                                                                       
 
@@ -462,7 +462,7 @@ myFun('28')      // This activates the function
     }
 
     myShow(){
-       document.getElementById('myDiv130').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>'
+       document.getElementById('theDiv130').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>'
     }
 
  }  // end class myAnimal
@@ -479,13 +479,13 @@ class myAnimal {
        this.myAge = passAge;
     }
     myShow(){
-       document.getElementById('myDiv131').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>'
+       document.getElementById('theDiv131').innerHTML = 'Hello '+ this.myName + '. You are ' + this.myAge + ' years old<br>'
     }
  }  // end class myAnimal
                                                              
 class myCat extends myAnimal {                                                                      
      myShow(){
-       document.getElementById('myDiv131').innerHTML = this.myName + ' is a great cat who is ' + this.myAge + ' years old<br>'
+       document.getElementById('theDiv131').innerHTML = this.myName + ' is a great cat who is ' + this.myAge + ' years old<br>'
     }                                                                   
 }    // end extended class myCat
                                                                      
@@ -494,14 +494,14 @@ class myCat extends myAnimal {
    myPet = new myCat('Pixel', 8)
    myPet.myShow()                                                                           
 }">
-    <div id='myDiv130'>...</div><br>
-    <div id='myDiv130'>...</div><br>
-    <div id='myDiv130'>...</div><br>finish this
-    <div id='myDiv130'>...</div><br>
-    <div id='myDiv130'>...</div><br>
-    <div id='myDiv130'>...</div><br>
-    <div id='myDiv130'>...</div><br>
-    <div id='myDiv130'>...</div><br>
-    <div id='myDiv130'>...</div><br>
+    <div id='theDiv123'>...</div><br>
+    <div id='theDiv124'>...</div><br>
+    <div id='theDiv125'>...</div><br>finish this
+    <div id='theDiv126'>...</div><br>
+    <div id='theDiv127'>...</div><br>
+    <div id='theDiv128'>...</div><br>
+    <div id='theDiv129'>...</div><br>
+    <div id='theDiv130'>...</div><br>
+    <div id='theDiv131'>...</div><br>
     </span>
     
