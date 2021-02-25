@@ -38,8 +38,11 @@ This is <b onMouseOver="{
   
 Pressing the left arrow key and d key is different from releasing it.<br><br>
   
-<input type=text onSelect="{
+<input type=text onChange="{
+document.getElementById('mySpan01').innerHTML = 'Hi from onChange'
+}"
+       onSelect="{
   document.getElementById('mySpan01').innerHTML = 'Hi from onSelect'
-                }">Select this please??</span>
+}">Type and then select in the text box.
 
 </body>
