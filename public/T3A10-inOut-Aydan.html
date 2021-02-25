@@ -12,27 +12,7 @@ Store this input variable into x:
 
 <span id="mySpan01">...</span><br><br>
 
-Store this input variable into y:
-<input id="myText02" type=text value=3> <br><br>
-
-<input type=button value="Multiply y by 2" onclick="{
-    y = 5
-  
-    y = document.getElementById('myText02').value
-    document.getElementById('mySpan02').innerHTML = y ' multiplied by 2 is: ' + y*2
-  }"><br><br>
-
-<span id="mySpan02">...</span><br><br>
-
-
-<input id="myText03" type=text value=100> <br><br>
-
-<input type=button value="Move to x location on left" onclick="{
-    //z = 5
-  
-    z = document.getElementById('myText03').value
-    document.getElementById('mySpan03').style.left = z
-    document.getElementById('mySpan03').innerHTML = z
-  }"><br><br>
-
-<span id="mySpan03">...</span><br><br>
+<input type=button value="Square x" onClick="{
+                                             x = document.getElementById(myText01).value
+                                             document.getElementById(myText01).innerHTMl = x+ " <b>squared</b> is" + x*x
+                                             }"><br><br>
