@@ -13,16 +13,16 @@ Store this input variable into x:
 <span id="mySpan01" style="position:absolute; left:10;">...</span><br><br>
 
 <input type=button value="Square x" onclick="{
-                                             x = document.getElementById(myText01).value
-                                             document.getElementById(mySpan02).innerHTML = x + ' <b>squared</b> is' + x*x
+                                             x = document.getElementById('myText01').value
+                                             document.getElementById('mySpan02').innerHTML = x + ' <b>squared</b> is' + x*x
 }"><br><br>
 
 <span id="mySpan02">...</span><br><br>
 
 <input type=button value="Move span to x" onclick="{
-                                                   x = document.getElementById(myText01).value
-                                                   document.getElementById(mySpan03).innerHTML = x
-                                                   document.getElementById(mySpan03).style.left = x
+                                                   x = document.getElementById('myText01').value
+                                                   document.getElementById('mySpan03').innerHTML = x
+                                                   document.getElementById('mySpan03').style.left = x
                                                    }">
 
 <span id="mySpan03">...</span><br><br>
