@@ -35,8 +35,29 @@
 <input type=button value="Show X" onclick="{
   x = document.getElementById('myText03').value
   myTemp = '...........'
-  if (x > 2 || x == 0){myTemp = 'x is either greater than 2 or equals 0'}
+  if (x > 2 || x == 0){
+  myTemp = 'x is either greater than 2 or equals 0'
+  } else {
+  myTemp = 'x is less than 2 but does not equal 0
+  }
   document.getElementById('mySpan03').innerHTML = myTemp
                                            
 }"><br><br>
 <span id="mySpan03">...</span><br><br>
+
+<input id="myText04a" type=text value=3 ><br><br>
+<input id="myText04b" type=text value=3 ><br><br>
+<input type=button value="Show X" onclick="{
+  x = document.getElementById('myText04').value
+  myTemp = '...........'
+  if (x != 1 && x! = 11 && x! = 111 && x! = 1111 && x! = 11111){
+  myTemp = 'x does not equal 1, 11, 111, 1111, or 11111'
+  } else {
+  myTemp = 'x  equals 1, 11, 111, 1111, or 11111'
+  }
+  document.getElementById('mySpan04').innerHTML = myTemp
+                                           
+}"><br><br>
+<span id="mySpan04">...</span><br><br>
+
+
