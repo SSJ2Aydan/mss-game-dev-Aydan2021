@@ -32,7 +32,7 @@
 <span id="mySpan02">...</span><br><br>
 
 <input id="myText03" type=text value=3 ><br><br>
-<input type=button value="Show X" onclick="{
+<input type=button value="Is x the right number to activate the code?" onclick="{
   x = document.getElementById('myText03').value
   myTemp = '...........'
   if (x > 2 || x == 0){
@@ -45,9 +45,8 @@
 }"><br><br>
 <span id="mySpan03">...</span><br><br>
 
-<input id="myText04a" type=text value=3 ><br><br>
-<input id="myText04b" type=text value=3 ><br><br>
-<input type=button value="Show X" onclick="{
+<input id="myText04" type=text value=3 ><br><br>
+<input type=button value="I x equal to 1, 11, 111, 1111, or 11111?" onclick="{
   x = document.getElementById('myText04').value
   myTemp = '...........'
   if (x != 1 && x! = 11 && x! = 111 && x! = 1111 && x! = 11111){
@@ -60,4 +59,34 @@
 }"><br><br>
 <span id="mySpan04">...</span><br><br>
 
+<input id="myText05a" type=text value=3 ><br><br>
+<input id="myText05b" type=text value=3 ><br><br>
+<input type=button value="are x or y equal to 1, 11, 111, 1111, or 11111?" onclick="{
+  x = document.getElementById('myText05a').value
+  y = document.getElementById('myText05b').value
+  myTemp = '...........'
+  if (x != 1 && x != 11 && x != 111 && x != 1111 && x != 11111 && y != 1 && y != 11 && y != 111 && y != 1111 && y != 11111){
+  myTemp = 'neither x nor y equals 1, 11, 111, 1111, or 11111'
+  } else if (y = 1){
+  myTemp = 'y equals 1'
+   } else {
+  myTemp = 'x and/or y equals 1 (excluding y), 11, 111, 1111, or 11111'
+   }
+  document.getElementById('mySpan05').innerHTML = myTemp
+                                           
+}"><br><br>
+<span id="mySpan05">...</span><br><br>
 
+<input id="myText06" type=text value="not hi" ><br><br>
+<input type=button value="say hi please." onclick="{
+  x = document.getElementById('myText06').value
+  myTemp = '...........'
+  if (x == 'hi'){
+  myTemp = 'hi'
+  } else {
+  myTemp = 'Why won't you say hi?'
+  }
+  document.getElementById('mySpan06').innerHTML = myTemp
+                                           
+}"><br><br>
+<span id="mySpan06">Say 'hi'</span><br><br>
