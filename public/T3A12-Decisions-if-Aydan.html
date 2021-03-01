@@ -30,3 +30,13 @@
                                                    
 }"><br>
 <span id="mySpan02">...</span><br><br>
+
+<input id="myText03" type=text value=3 ><br><br>
+<input type=button value="Show X" onclick="{
+  x = document.getElementById('myText03').value
+  myTemp = '...........'
+  if (x > 2 || x == 0){myTemp = 'x is either greater than 2 or equals 0'}
+  document.getElementById('mySpan03').innerHTML = myTemp
+                                           
+}"><br><br>
+<span id="mySpan03">...</span><br><br>
