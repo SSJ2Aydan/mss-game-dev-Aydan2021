@@ -10,15 +10,16 @@ function myAdvancedFun(x,y){
 }
 </script>
 
-<input id="myText01" type=text value=3 ><br>
-<input id="myText02" type=text value=3 ><br><br>
+<input id="myText01" type=number value=3 ><br>
+<input id="myText02" type=number value=3 ><br><br>
 <input type=button value="run function" onclick="{
   //alert('button works')
   myBasicFun()
 }"><br><br>
-<input type=button value="Advanced" onclick"{
-  document.getElementById('mySpan01').innerHTML = myAdvancedFun(myText01,myText02)
+<input type=button value="Advanced" onclick="{
+  x = document.getElementById('myText01').value
+  y = document.getElementById('myText02').value
+  document.getElementById('mySpan01').innerHTML = myAdvancedFun(x,y)
+  //alert('hi')
 }"><br><br>
 <span id="mySpan01" >...</span><br><br>
-
-
