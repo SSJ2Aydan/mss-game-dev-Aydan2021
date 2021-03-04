@@ -3,13 +3,20 @@
 
 <script>
 function myBasicFun(){
-document.getElementById('mySpan01').innerHTML = 'wow'
+  document.getElementById('mySpan01').innerHTML = 'wow'
+}
+function myAdvancedFun(x,y){
+  return x*y
 }
 </script>
 
-<input id="myText01" type=text value=3 ><br><br>
+<input id="myText01" type=text value=3 ><br>
+<input id="myText02" type=text value=3 ><br><br>
 <input type=button value="run function" onclick="{
   //alert('button works')
   myBasicFun()
+}"><br><br>
+<input type=button value="Advanced" onclick"{
+  document.getElementById('mySpan01').innerHTML = myAdvancedFun('myText01','myText02')
 }"><br><br>
 <span id="mySpan01" >...</span><br><br>
