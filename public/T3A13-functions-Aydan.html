@@ -23,3 +23,10 @@ function myAdvancedFun(x,y){
   //alert('hi')
 }"><br><br>
 <span id="mySpan01" >...</span><br><br>
+
+<input type=button value="Advanced" onclick="{
+  x = document.getElementById('myText01').value
+  y = document.getElementById('myText02').value
+  document.getElementById('mySpan01').innerHTML = myAdvancedFun01(x,y)
+  //alert('hi')
+}"><br><br>
