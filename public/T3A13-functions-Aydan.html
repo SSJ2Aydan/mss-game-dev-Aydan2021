@@ -14,10 +14,14 @@ function myTextFun(){
 function myDivisionFun(x,y){
   return x/y
 }
+function myDivMultFun(x,y,z){
+  return x/y*z
+}
 </script>
 
 <input id="myText01" type=number value=3 > This is x<br>
-<input id="myText02" type=number value=3 > This is y<br><br>
+<input id="myText02" type=number value=3 > This is y<br>
+<input id="myText03" type=number value=3 > This is z<br><br>
 <input type=button value="run function (teacher example)" onclick="{
   //alert('button works')
   myBasicFun()
@@ -42,6 +46,13 @@ function myDivisionFun(x,y){
   x = document.getElementById('myText01').value
   y = document.getElementById('myText02').value
   document.getElementById('mySpan01').innerHTML = myDivisionFun(x,y)
+  //alert('hi')
+}"><br><br>
+<input type=button value="(x/y)*z" onclick="{
+  x = document.getElementById('myText01').value
+  y = document.getElementById('myText02').value
+  z = document.getElementById('myText03').value
+  document.getElementById('mySpan01').innerHTML = myDivMultFun(x,y,z)
   //alert('hi')
 }"><br><br>
 <span id="mySpan01" >...</span><br><br>
