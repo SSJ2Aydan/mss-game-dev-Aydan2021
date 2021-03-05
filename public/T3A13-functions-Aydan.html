@@ -1,4 +1,4 @@
-<h3> Version number: 0.3.0 </h3>
+<h3> Version number: 0.3.1 </h3>
 <h1 align=center> T3A13-functions-Aydan.html </h1>
 
 <script>
@@ -6,14 +6,12 @@ function myBasicFun(){
   document.getElementById('mySpan01').innerHTML = 'wow'
 }
 function myAdvancedFun(x,y){
-  let x = document.getElementById('myText01').value
-  let y = document.getElementById('myText02').value
   return x*y
 }
 function myTextFun(){
   document.getElementById('mySpan01').innerHTML = "<input type=text id=textbox value=myX>"
 }
-function myDivisionFun(){
+function myDivisionFun(x,y){
   return x/y
 }
 </script>
@@ -29,6 +27,8 @@ function myDivisionFun(){
   //alert('hi')
 }"><br><br>
 <input type=button value="Multiply text boxes (x & y)" onclick="{
+  let x = document.getElementById('myText01').value
+  let y = document.getElementById('myText02').value
   document.getElementById('mySpan01').innerHTML = myAdvancedFun(x,y)
   //alert('hi')
 }"><br><br>
