@@ -1,4 +1,4 @@
-<h3> Version number: 0.2.2 </h3>
+<h3> Version number: 0.2.3 </h3>
 <h1 align=center> T3A13-functions-Aydan.html </h1>
 
 <script>
@@ -9,9 +9,9 @@ function myAdvancedFun(x,y){
   return x*y
 }
 function myButtonFun(x){
-  return <input type=button value=x onclick="{
-  document.getElementById('mySpan01').innerHTML = x
-  }">
+  return "<input type=button value=x onclick='{
+  document.getElementById(/'mySpan01/').innerHTML = x
+  }'>"
 }
 </script>
 
