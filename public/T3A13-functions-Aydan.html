@@ -12,15 +12,15 @@ function myAdvancedFun(x,y){
 
 <input id="myText01" type=number value=3 ><br>
 <input id="myText02" type=number value=3 ><br><br>
-<input type=button value="run function" onclick="{
+<input type=button value="run function (teacher example)" onclick="{
   //alert('button works')
   myBasicFun()
 }"><br><br>
-<input type=button value="Advanced" onclick="{
+<input type=button value="Advanced (teacher example)" onclick="{
   document.getElementById('mySpan01').innerHTML = myAdvancedFun(3,7)
   //alert('hi')
 }"><br><br>
-<input type=button value="Advanced" onclick="{
+<input type=button value="Multiply text boxes (x & y)" onclick="{
   x = document.getElementById('myText01').value
   y = document.getElementById('myText02').value
   document.getElementById('mySpan01').innerHTML = myAdvancedFun(x,y)
