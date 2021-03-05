@@ -1,5 +1,5 @@
 <h1 align=center> T3A13-functions-Aydan.html </h1>
-<h3> Version number: 0.1.1 </h3>
+<h3> Version number: 0.2.0 </h3>
 
 <script>
 function myBasicFun(){
@@ -8,10 +8,15 @@ function myBasicFun(){
 function myAdvancedFun(x,y){
   return x*y
 }
+function myButtonFun(x){
+  return <input type=button value=x onclick="{
+  document.getElementById('mySpan01').innerHTML = x
+  }">
+}
 </script>
 
-<input id="myText01" type=number value=3 ><br>
-<input id="myText02" type=number value=3 ><br><br>
+<input id="myText01" type=number value=3 > This is x<br>
+<input id="myText02" type=number value=3 > This is y<br><br>
 <input type=button value="run function (teacher example)" onclick="{
   //alert('button works')
   myBasicFun()
@@ -24,6 +29,11 @@ function myAdvancedFun(x,y){
   x = document.getElementById('myText01').value
   y = document.getElementById('myText02').value
   document.getElementById('mySpan01').innerHTML = myAdvancedFun(x,y)
+  //alert('hi')
+}"><br><br>
+<input type=button value="Create button with x as the value that changes the span to x" onclick="{
+  x = document.getElementById('myText01').value
+  document.getElementById('mySpan01').innerHTML = myButtonFun(x)
   //alert('hi')
 }"><br><br>
 <span id="mySpan01" >...</span><br><br>
