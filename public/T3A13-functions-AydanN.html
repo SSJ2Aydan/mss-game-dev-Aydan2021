@@ -2,7 +2,6 @@
 <h1 align=center> T3A13-functions-Aydan.html </h1>
 
 <script>
-document.getElementById('btn01').addEventListener("click", myBasicFun)
 function myBasicFun(){
   document.getElementById('mySpan01').innerHTML = 'wow'
 }
@@ -26,8 +25,9 @@ function myMultDivFun(x,y,z){
 <input id="myText01" type=number value=3 > This is x<br>
 <input id="myText02" type=number value=3 > This is y<br>
 <input id="myText03" type=number value=3 > This is z<br><br>
-<input type=button id="btn01" value="run function (teacher example)" onclick="{
+<input type=button value="run function (teacher example)" onclick="{
   //alert('button works')
+  myBasicFun()
 }"><br><br>
 <input type=button value="Advanced (teacher example)" onclick="{
   document.getElementById('mySpan01').innerHTML = myAdvancedFun(3,7)
