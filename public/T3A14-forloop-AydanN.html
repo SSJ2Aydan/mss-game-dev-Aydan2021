@@ -1,2 +1,18 @@
 <h3>Version 0.0.1</h3>
 <h1 align=center>T3A14-forloop-AydanN.html</h1>
+
+Store this input variable into x:
+<input id="myText01" type=text value=3 ><br><br>
+
+<input type=button value="Show X" onclick="{
+
+myX = document.getElementById('myText01').value
+let myTemp='';
+for(let i=0; i<myX; i++){
+  myTemp += 'Loop Number: ' + i + '<br>';
+}
+document.getElementById('mySpan01').innerHTML = myTemp
+
+}"><br><br>
+
+<span id="mySpan01" >...</span><br><br>
