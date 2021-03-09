@@ -1,24 +1,22 @@
-<h3>Version 0.0.15</h3>
+<h3>Version 1.0.0</h3>
 <h1 align=center>T3A14-forloop-AydanN.html</h1>
 
 Store this input variable into x:
 <input id="myText01" type=text value=3 ><br><br>
-
 <input type=button value="Show X" onclick="{
-
   //alert('hi')
 myX = document.getElementById('myText01').value
-var i;
 let myTemp='';
-for(i=1; i<=myX; i++){
+for(let i=1; i<=myX; i++){
+	if(i>=5 && i<=10){
+		myTemp += '<span style=\'color:blue;\' >Loop Number: ' + i + '<br></span>'
+	//	alert('hi')
+		continue;
+	}
   myTemp += 'Loop Number: ' + i + '<br>';
 }
+
 document.getElementById('mySpan01').innerHTML = myTemp
-if(i>=5 && i<=10){
-  document.getElementById('mySpan01').innerHTML = '<b >Loop Number: ' + i + '<br></b>'
-                                           alert('hi')
-}
 
 }"><br><br>
-
 <span id="mySpan01" >...</span><br><br>
