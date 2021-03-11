@@ -1,4 +1,4 @@
-<h3> Version number: 1.1.0 </h3>
+<h3> Version number: 1.0.0 </h3>
 <h1 align=center> T3A13-functions-Aydan.html </h1>
 
 <script>
@@ -20,8 +20,8 @@ function myDivMultFun(x,y,z){
 function myMultDivFun(x,y,z){
   return x*y/z
 }
-function myRanNum(x,y){
-  return Math.floor(Math.random() * (y - x + 1)) + x;
+function myRanNum(){
+  return Math.floor(Math.random() * (1 - 0 + 1)) + 0;
 }
 </script>
 
@@ -69,8 +69,7 @@ function myRanNum(x,y){
   //alert('hi')
 }"><br><br>
 <input type=button value="randomly chooses between x and y" onclick="{
-	myRanNum01 = document.getElementById('myText01').value
-	myRanNum02 = document.getElementById('myText02').value
-	document.getElementById('mySpan01').innerHTML = myRanNum(myRanNum01,myRanNum02)
+	randomnumber = myRanNum()
+	document.getElementById('mySpan01').innerHTML = randomnumber
 }"><br><br>
 <span id="mySpan01" >...</span><br><br>
