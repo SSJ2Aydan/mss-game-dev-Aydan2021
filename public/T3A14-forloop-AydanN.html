@@ -12,10 +12,9 @@ for(let i=1; i<=myX; i++){
 	//	alert('hi')
 		myTemp += '<span style=\'color:blue;\' >Loop Number: ' + i + '<br></span>'
 		continue;
-	}
-	if(i%2 == 0){
+	} else if(i%2 == 0){
 	//	alert('hi')
-		myTemp += '<span style=\'color:blue;\' >Loop Number: ' + i + '<br></span>'
+		myTemp += '<span style=\'color:red;\' >Loop Number: ' + i + '<br></span>'
 		continue;
 	}
   myTemp += 'Loop Number: ' + i + '<br>';
