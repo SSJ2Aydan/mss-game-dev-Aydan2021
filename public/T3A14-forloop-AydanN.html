@@ -1,9 +1,9 @@
-<h3>Version 1.1.1</h3>
+<h3>Version 1.2.0</h3>
 <h1 align=center>T3A14-forloop-AydanN.html</h1>
 
 Store this input variable into x:
 <input id="myText01" type=text value=3 ><br><br>
-<input type=button value="Show X" onclick="{
+<input type=button value="Loop X times (every even number is red)" onclick="{
   //alert('hi')
 myX = document.getElementById('myText01').value
 let myTemp='';
@@ -22,5 +22,27 @@ for(let i=1; i<=myX; i++){
 
 document.getElementById('mySpan01').innerHTML = myTemp
 
+}"><input type=button value="Loop X times (randomly chooses if the numbers are green or red, press the button multiple times)" onclick="{
+  //alert('hi')
+myX = document.getElementById('myText01').value
+let myTemp='';
+for(let i=1; i<=myX; i++){
+	if(i>=5 && i<=10){
+	//	alert('hi')
+		myTemp += '<span style=\'color:blue;\' >Loop Number: ' + i + '<br></span>'
+		continue;
+	} else if(i <= myX){
+	//	alert('hi')
+		randomnumber = Math.floor(Math.random() * (1 - 0 + 1)) + 0
+		if(randomnumber == 0){
+		myTemp += '<span style=\'color:red;\' >Loop Number: ' + i + '<br></span>'
+		} else {
+		myTemp += '<span style=\'color:green;\' >Loop Number: ' + i + '<br></span>'
+		}
+		continue;
+	}
+  myTemp += 'Loop Number: ' + i + '<br>';
+}
+document.getElementById('mySpan01').innerHTML = myTemp
 }"><br><br>
 <span id="mySpan01" >...</span><br><br>
