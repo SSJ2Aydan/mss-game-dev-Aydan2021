@@ -1,15 +1,15 @@
 <h3>Version 0.0.4</h3>
 <h1 align=center>T3A15-arrays-AydanN.html</h1>
 
-<input id="myText01" type=number value=3 >  myArray[0]<br>
-<input id="myText02" type=number value=6 >  myArray[1]<br>
-<input id="myText03" type=number value=4 >  myArray[2]<br><br>
+<input id="myNumber01" type=number value=3 >  myArray[0]<br>
+<input id="myNumber02" type=number value=6 >  myArray[1]<br>
+<input id="myNumber03" type=number value=4 >  myArray[2]<br><br>
 
 <input type=button value="Make and show Array" onclick="{
   document.myArray = new Array()
-  document.myArray[0] = document.getElementById('myText01').value;
-  document.myArray[1] = document.getElementById('myText02').value;
-  document.myArray[2] = document.getElementById('myText03').value;
+  document.myArray[0] = document.getElementById('myNumber01').value;
+  document.myArray[1] = document.getElementById('myNumber02').value;
+  document.myArray[2] = document.getElementById('myNumber03').value;
  
   document.getElementById('mySpan01').innerHTML = '[1] value is: ' + document.myArray[1]
 }"><br><br>
