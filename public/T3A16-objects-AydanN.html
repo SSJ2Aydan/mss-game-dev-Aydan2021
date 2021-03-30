@@ -1,3 +1,14 @@
 <h3>Version 0.0.1</h3>
 <h1 align=center>T3A16-objects-AydanN.html</h1>
 
+Enter an age into the object: <input id="myText01" type=text value=17 ><br><br>
+
+<input type=button value="Make and Show Object" onclick="{
+  let myObject = {  gz
+      'firstName': 'John',
+      'age': document.getElementById('myText01').value
+      }
+document.getElementById('mySpan01').innerHTML = 'myObject.firstName: ' + myObject.firstName + '<br>myObject.age: ' + myObject.age                                          
+}"><br><br>
+
+<span id="mySpan01">...</span>
