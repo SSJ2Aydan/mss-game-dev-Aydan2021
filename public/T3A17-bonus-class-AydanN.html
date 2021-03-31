@@ -1,4 +1,4 @@
-<h3>Version 0.0.2</h3>
+<h3>Version 0.0.3</h3>
 <h1 align=center>T3A17-bonus-class-AydanN.html</h1>
 
 Enter the type of cat into the class: <input id="myText01" type=text value=sphinx ><br><br>
@@ -8,13 +8,29 @@ Enter an age into the class: <input id="myText03" type=text value=17 ><br><br>
 <input id="myButton131" type="button" value="Make a class myAnimal and run the method myShow()" onclick="{
 
 class myAnimal {
+    constructor(passName, passAge) {
+       this.myName = passName;
+       this.myAge = passAge;
+    }
+    myShow(){
+       document.getElementById('myDiv131').innerHTML = 'Hello '+ this.myName +'. You are '+ this.myAge +' years old.'
+    }
+ }  // end class myAnimal           
+                                             
+   myPet = new myAnimal(document.getElementById('myText02').value, document.getElementById('myText03').value)
+   myPet.myShow()                                                                           
+}"><br><br>
+
+<input id="myButton131" type="button" value="Extend class myAnimal to myCat and run the method myShow()" onclick="{
+
+class myAnimal {
     constructor(passType, passName, passAge) {
        this.myType = passType;
        this.myName = passName;
        this.myAge = passAge;
     }
     myShow(){
-       document.getElementById('myDiv131').innerHTML = 'Hello '+ this.myName +'. You are a great '+ this.myType +' cat who is '+ this.myAge +' years old.'
+       document.getElementById('myDiv131').innerHTML = 'Hello '+ this.myName +'. You are '+ this.myAge +' years old.'
     }
  }  // end class myAnimal
 													 
