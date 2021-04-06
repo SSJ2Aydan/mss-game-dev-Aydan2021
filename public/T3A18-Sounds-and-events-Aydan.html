@@ -1,1 +1,47 @@
+<html>
+<head>
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+</head
+<body>
+<h3>Version 0.0.1</h3>
+<script>
+let myMus = new Audio("audio/myVoice.mp3");
 
+myMus.addEventListener('ended', function() {
+document.getElementById('myMusButton').value = 'Off'
+}, false)
+
+function myMusOn() {
+	myMus.play();
+	document.getElementById("myMusButton").value = 'On'
+}
+</script>
+<input type=button id="myMusButton" value="Off" onclick="{
+myMusOn()
+}"><br><br>
+
+<b onClick="{
+myMusOn()
+}">This is bold<br>and several<br> lines<br> Click it to hear a sound!</b> <br>
+
+Change the following: <input type=text value=5 onChange="{
+	document.getElementById('mySpan01').innerHTML = 'Value changed to: ' + this.value
+	myMusOn()
+}"><span id=mySpan01>...</span><br><br>
+
+<ul>Other events you could use on any web page tag:
+<li><font color="green">onClick</font>
+<li><span  onwheel="{
+	myMusOn()
+}">onWheel</span>
+<li><span onDblClick="{
+	myMusOn()
+}">onDblClick</span>
+<li><span onMouseOver="{
+	myMusOn()
+}">onMouseOver</span>
+<li><font color="green">onChange</font>
+
+
+</body>
+  </html>
