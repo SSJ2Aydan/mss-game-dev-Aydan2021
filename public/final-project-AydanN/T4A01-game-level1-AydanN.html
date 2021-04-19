@@ -780,7 +780,7 @@ myGamePiece.gravitySpeed = 0;
 myGamePiece.gravity = 0;
 myGamePiece.speedY = 0;
 accelerate(-0.02)
-setTimeout(function(){ if(hasDblJumped == 0) { accelerate(0.01); } }, 400);
+setTimeout(function(){ if(hasDblJumped == 0) { accelerate(0.01); } }, 300);
 }
 }
 
@@ -797,7 +797,7 @@ if(myInp[1]==0 && myInp[2]==1){
 myMoveRightAirDbl()
 }
 setTimeout(accelerate(-0.02),1)
-setTimeout(function(){ accelerate(0.01); }, 400);
+setTimeout(function(){ accelerate(0.01); }, 300);
 }
 }
 </script>
