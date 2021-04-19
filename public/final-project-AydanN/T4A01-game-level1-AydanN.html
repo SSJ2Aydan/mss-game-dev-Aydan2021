@@ -178,12 +178,12 @@ function myHitOther(my1,my2){
                                                          document.getElementById('mySpan01').style.left = '-400px'
                                                          
   }
-    if(document.getElementById('mySpan01').style.left<0){
-    	document.getElementById('mySpan01').style.left=0
-    }
-    if(document.getElementById('mySpan01').style.left>900){
-    	document.getElementById('mySpan01').style.left=900
-    }
+  if(parseInt(document.getElementById('mySpan01').style.left)<0){
+  document.getElementById('mySpan01').style.left = 0
+  }
+  if(parseInt(document.getElementById('mySpan01').style.left)>900){
+  document.getElementById('mySpan01').style.left = 900
+  }
 	}
 
 	var myShiftKey = 0
@@ -250,7 +250,7 @@ function myHitOther(my1,my2){
     document.getElementById('mySpan01').style.left =
        parseInt(document.getElementById('mySpan01').style.left) + x
                                                         
-	myHitting()
+	myHitting();
 
   if (myMoveLeftOn==1){
   clearInterval(myVarRight,10)
@@ -312,8 +312,8 @@ function myHitOther(my1,my2){
 		document.getElementById('mySpan01').style.left =
 		parseInt(document.getElementById('mySpan01').style.left) - x
                                                         
-	myHitting()
-  
+	myHitting();
+	
 	if (myMoveRightOn==1){
 	clearInterval(myVarLeft,10)
 	myMoveLeftOn = 0
@@ -343,7 +343,7 @@ function myMoveLeftAir(){
 		document.getElementById('mySpan01').style.left =
 		parseInt(document.getElementById('mySpan01').style.left) - 1
                                                         
-	myHitting()
+	myHitting();
 	
 	if(myGamePiece.y == 400) {
 	clearInterval(myVarLeftAir,10)
@@ -363,7 +363,7 @@ function myMoveLeftAirDbl(){
 		document.getElementById('mySpan01').style.left =
 		parseInt(document.getElementById('mySpan01').style.left) - 1
                                                         
-	myHitting()
+	myHitting();
 	
 	if(myGamePiece.y == 400) {
 	clearInterval(myVarLeftAirDbl,10)
@@ -379,7 +379,7 @@ function myMoveRightAir(){
 		document.getElementById('mySpan01').style.left =
 		parseInt(document.getElementById('mySpan01').style.left) + 1
                                                         
-	myHitting()
+	myHitting();
 	
 	if(myGamePiece.y == 400) {
 	clearInterval(myVarRightAir,10)
@@ -400,7 +400,7 @@ function myMoveRightAirDbl(){
 		document.getElementById('mySpan01').style.left =
 		parseInt(document.getElementById('mySpan01').style.left) + 1
                                                         
-	myHitting()
+	myHitting();
 	
 	if(myGamePiece.y == 400) {
 	clearInterval(myVarRightAirDbl,10)
@@ -522,8 +522,8 @@ if(myGamePiece.y == 400){
 myGamePiece.gravitySpeed = 0;
 myGamePiece.gravity = 0;
 myGamePiece.speedY = 0;
-accelerate(-0.02)
-setTimeout(function(){ if(hasDblJumped == 0) { accelerate(0.01); } }, 300);
+accelerate(-0.03)
+setTimeout(function(){ if(hasDblJumped == 0) { accelerate(0.01); } }, 250);
 }
 }
 
@@ -539,8 +539,8 @@ myMoveLeftAirDbl()
 if(myInp[1]==0 && myInp[2]==1){
 myMoveRightAirDbl()
 }
-setTimeout(accelerate(-0.02),1)
-setTimeout(function(){ accelerate(0.01); }, 300);
+setTimeout(accelerate(-0.03),1)
+setTimeout(function(){ accelerate(0.01); }, 250);
 }
 }
 </script>
