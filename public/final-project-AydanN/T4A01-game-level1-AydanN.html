@@ -14,19 +14,19 @@ onKeyDown="{
   if (myArrowKey == 83 && myShiftKey == 0 && myMoveDownOn == 0) {
 //  myOnKeyDownDown(1)
 //	myWasDownPressed()
-    myInput(3)
+    myInput(3);
 }
 
 if (myArrowKey == 68 && myShiftKey == 0 && myMoveRightOn == 0) {
   myOnKeyDownRight(1)
 //  myWasRightPressed()
-  myInput(2)
+  myInput(2);
 }
 
 if (myArrowKey == 87 && myShiftKey == 0 && myMoveUpOn == 0) {
 //  myOnKeyDownUp(1)
 //	myWasUpPressed()
-  myInput(0)
+  myInput(0);
 //  myJump();
   myDblJump();
   myUpHeld += 1
@@ -35,24 +35,24 @@ if (myArrowKey == 87 && myShiftKey == 0 && myMoveUpOn == 0) {
  if (myArrowKey == 65 && myShiftKey == 0 && myMoveLeftOn == 0) {
   myOnKeyDownLeft(1)
 //  myWasLeftPressed()
-  myInput(1)
+  myInput(1);
 }
 
   if (myArrowKey == 83 && myShiftKey == 1 && myMoveDownOn == 0) {
 //  myOnKeyDownDown(2)
 //	myWasDownPressed()
-    myInput(3)
+    myInput(3);
 }
 
 if (myArrowKey == 68 && myShiftKey == 1 && myMoveRightOn == 0) {
   myOnKeyDownRight(2)
 //  myWasRightPressed()
-  myInput(2)
+  myInput(2);
 }
 
 if (myArrowKey == 87 && myShiftKey == 1 && myMoveUpOn == 0) {
 //  myOnKeyDownUp(2)
-  myInput(0)
+  myInput(0);
   myJump();
   myDblJump();
   myUpHeld += 1
@@ -61,23 +61,23 @@ if (myArrowKey == 87 && myShiftKey == 1 && myMoveUpOn == 0) {
  if (myArrowKey == 65 && myShiftKey == 1 && myMoveLeftOn == 0) {
   myOnKeyDownLeft(2)
 //  myWasLeftPressed()
-  myInput(1)
+  myInput(1);
 }
 
   if(myArrowKey==85){
-  myAttack(0)
+  myAttack(0);
   }
 
   if(myArrowKey==73){
-  myAttack(1)
+  myAttack(1);
   }
 
   if(myArrowKey==74){
-  myAttack(2)
+  myAttack(2);
   }
 
   if(myArrowKey==75){
-  myAttack(3)
+  myAttack(3);
   }
 }"
 
@@ -235,7 +235,7 @@ function myHitOther(my1,my2){
 	}*/
 	
 	function myOnKeyDownRight(x) {
-	if(myGamePiece.y == 300) {
+	if(myGamePiece.y == 400) {
 	myMoveRightOn += 1
     myVarRight = setInterval(function() {
     document.getElementById('mySpan01').style.left =
@@ -286,7 +286,7 @@ function myHitOther(my1,my2){
   myMoveRightOn = 0
   }
   
-  if(myGamePiece.y < 300) {
+  if(myGamePiece.y < 400) {
   clearInterval(myVarRight,10)
   myMoveRightOn = 0
   }
@@ -373,7 +373,7 @@ function myHitOther(my1,my2){
 	}*/
 	
 	function myOnKeyDownLeft (x) {
-	if(myGamePiece.y == 300) {
+	if(myGamePiece.y == 400) {
 		myMoveLeftOn += 1
 		myVarLeft = setInterval(function() {
 		document.getElementById('mySpan01').style.left =
@@ -424,7 +424,7 @@ function myHitOther(my1,my2){
 	myMoveLeftOn = 0
 	}
 	
-	if(myGamePiece.y < 300) {
+	if(myGamePiece.y < 400) {
 	clearInterval(myVarLeft,10)
 	myMoveLeftOn = 0
 	}
@@ -488,7 +488,7 @@ function myMoveLeftAir(){
 															
 	}
 	
-	if(myGamePiece.y == 300) {
+	if(myGamePiece.y == 400) {
 	clearInterval(myVarLeftAir,10)
 	myMoveLeftOn = 0
 	}
@@ -546,7 +546,7 @@ function myMoveLeftAirDbl(){
 															
 	}
 	
-	if(myGamePiece.y == 300) {
+	if(myGamePiece.y == 400) {
 	clearInterval(myVarLeftAirDbl,10)
 	myMoveLeftOn = 0
 	}
@@ -600,7 +600,7 @@ function myMoveRightAir(){
 															
 	}
 	
-	if(myGamePiece.y == 300) {
+	if(myGamePiece.y == 400) {
 	clearInterval(myVarRightAir,10)
 	myMoveRightOn = 0
 	}
@@ -659,7 +659,7 @@ function myMoveRightAirDbl(){
 															
 	}
 	
-	if(myGamePiece.y == 300) {
+	if(myGamePiece.y == 400) {
 	clearInterval(myVarRightAirDbl,10)
 	myMoveRightOn = 0
 	}
@@ -727,7 +727,7 @@ function startGame() {
 
 function myGravUp() {
 //	alert('hi')
-	this.y = 300
+	this.y = 400
     this.speedY = 0;    
     this.gravity = 0.01;
     this.gravitySpeed = 0;
@@ -737,7 +737,7 @@ function myGravUp() {
 		this.hitBottom();
     }
 	this.hitBottom = function() {
-	var rockbottom = 300;
+	var rockbottom = 400;
 	if(this.y>rockbottom) {
 		this.y = rockbottom
 		this.gravitySpeed = 0
@@ -775,17 +775,17 @@ function accelerate(n) {
 }
 
 function myJump() {
-if(myGamePiece.y == 300){
+if(myGamePiece.y == 400){
 myGamePiece.gravitySpeed = 0;
 myGamePiece.gravity = 0;
 myGamePiece.speedY = 0;
 accelerate(-0.02)
-setTimeout(function(){ if(hasDblJumped == 0) { accelerate(0.01); } }, 300);
+setTimeout(function(){ if(hasDblJumped == 0) { accelerate(0.01); } }, 400);
 }
 }
 
 function myDblJump() {
-if(myGamePiece.y < 300 && hasDblJumped == 0 && myUpHeld == 0){
+if(myGamePiece.y < 400 && hasDblJumped == 0 && myUpHeld == 0){
 hasDblJumped = 1
 myGamePiece.gravitySpeed = 0;
 myGamePiece.gravity = 0;
@@ -797,7 +797,7 @@ if(myInp[1]==0 && myInp[2]==1){
 myMoveRightAirDbl()
 }
 setTimeout(accelerate(-0.02),1)
-setTimeout(function(){ accelerate(0.01); }, 300);
+setTimeout(function(){ accelerate(0.01); }, 400);
 }
 }
 </script>
@@ -807,7 +807,7 @@ setTimeout(function(){ accelerate(0.01); }, 300);
 Use the WASD to move.
 
 
- <img src="https://i.imgur.com/rkq4hfi.png" id="mySpan01" class="myMC" style="position:absolute; left:250; top:300; width:43; height:98;"><br>
+ <img src="https://i.imgur.com/rkq4hfi.png" id="mySpan01" class="myMC" style="position:absolute; left:250; top:400; width:43; height:98;"><br>
  <img src="https://i.pinimg.com/originals/9f/5b/cb/9f5bcb25f483139614fceeb40a8ab45f.png" id="mySpan02" style="position:absolute; left:450; top:175; width:51; height:70;"><br>
  <img src="https://play.nintendo.com/images/profile-mk-goomba.7bf2a8f2.aead314d58b63e27.png" id="mySpan03" style="position:absolute; left:200; top:300; width:50; height:50;"><br>
  <img src="https://thumbs.gfycat.com/OilyUnconsciousDobermanpinscher-size_restricted.gif" id="myVillain01" style="position:absolute; left:400; top:350; width:384; height:264;"><br>
