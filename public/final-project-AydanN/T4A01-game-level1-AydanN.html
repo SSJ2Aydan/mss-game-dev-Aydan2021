@@ -178,6 +178,12 @@ function myHitOther(my1,my2){
                                                          document.getElementById('mySpan01').style.left = '-400px'
                                                          
   }
+    if(document.getElementById('mySpan01').style.left<0){
+    	document.getElementById('mySpan01').style.left=0
+    }
+    if(document.getElementById('mySpan01').style.left>900){
+    	document.getElementById('mySpan01').style.left=900
+    }
 	}
 
 	var myShiftKey = 0
