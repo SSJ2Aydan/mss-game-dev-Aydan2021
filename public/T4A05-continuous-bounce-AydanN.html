@@ -73,6 +73,11 @@ function myYAuto(){
   document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) + document.myYmove
   myCheckAll()
 }
+   
+ function myYAutoUp(){
+  document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) - document.myYmove
+  myCheckAll()
+}
 
 </script>
 
@@ -92,6 +97,12 @@ function myYAuto(){
 <input type=button value="Move 10 down Auto" onClick="{
     clearInterval(document.myYtimer)                    
     document.myYtimer = setInterval( myYAuto , document.myYspeed);
+                        
+}">
+
+<input type=button value="Move 10 up Auto" onClick="{
+    clearInterval(document.myYtimer)                    
+    document.myYtimer = setInterval( myYAutoUp , document.myYspeed);
                         
 }">
 
