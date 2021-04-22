@@ -69,7 +69,10 @@ function myXAuto(){
   myCheckAll()
 }
 
-
+function myYAuto(){
+  document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) + document.myYmove
+  myCheckAll()
+}
 
 </script>
 
@@ -86,9 +89,23 @@ function myXAuto(){
                         
 }">
 
+<input type=button value="Move 10 down Auto" onClick="{
+    clearInterval(document.myYtimer)                    
+    document.myYtimer = setInterval( myYAuto , document.myYspeed);
+                        
+}">
+
 <input type=button value="window width" onClick="{
   alert(window.innerWidth)
                         
+}">
+
+<input type=button value="Stop Right" onClick="{
+    clearInterval(document.myXtimer)  
+}">
+
+<input type=button value="Stop Down" onClick="{
+    clearInterval(document.myYtimer)  
 }">
 
 
