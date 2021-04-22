@@ -1,4 +1,4 @@
-<script>
+ver<script>
 
 // Global variables works anywhere in your code
 
@@ -43,13 +43,21 @@ if (parseInt(document.getElementById('mySpan01').style.left) + 65 > window.inner
 }
 
 
-// end of bounce code
 
   if(myHitOther('mySpan01', 'mySpan02')){
     document.getElementById('mySpan02').style.left = '-400px'
     // lets try a bounce
     document.myXmove = document.myXmove * -1
+    document.myYmove = document.myYmove * -1
   }
+   
+   if (parseInt(document.getElementById('mySpan01').style.top) < 10) {  // if we hit the left wall
+    document.myYmove = document.myYmove * -1   // then bounce
+}
+
+if (parseInt(document.getElementById('mySpan01').style.top) + 65 > window.innerHeight) {  // if we hit the right wall
+    document.myYmove = document.myYmove * -1   // then bounce
+}
 
 
 
