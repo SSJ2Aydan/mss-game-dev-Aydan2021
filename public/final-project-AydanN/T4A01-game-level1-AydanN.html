@@ -178,8 +178,11 @@ function myHitOther(my1,my2){
                                                          document.getElementById('mySpan01').style.left = '-400px'
                                                          
   }
-  if(parseInt(document.getElementById('mySpan01').style.left)<0){
+  if(parseInt(document.getElementById('mySpan01').style.left)<0 && parseInt(document.getElementById('mySpan01').style.left)>-100){
   document.getElementById('mySpan01').style.left = 0
+  }
+  if(parseInt(document.getElementById('mySpan01').style.left)<100){
+  document.getElementById('mySpan01').style.left = -400
   }
   if(parseInt(document.getElementById('mySpan01').style.left)>900){
   document.getElementById('mySpan01').style.left = 900
