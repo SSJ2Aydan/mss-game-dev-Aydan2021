@@ -52,7 +52,9 @@ function myCheckAll(){
 
 }
 
-
+ onload="{
+   setInterval(function(){document.getElementById('bar').value = document.getElementById('myTextLife')value},1)
+   }"
 </script>
 </head>
 
@@ -87,9 +89,7 @@ ver
 
 Score: <input id="myTextScore" type=text value=0 ><br>
 
-Life: <input id="myTextLife" type=number value=20 max=50 onload="{
-   setInterval(function(){document.getElementById('bar').value = this.value},1)
-   }" ><br><br>
+Life: <input id="myTextLife" type=number value=20 max=50 ><br><br>
    
    Life Bar: <progress id="bar" value="20" max="100"></progress>
 
