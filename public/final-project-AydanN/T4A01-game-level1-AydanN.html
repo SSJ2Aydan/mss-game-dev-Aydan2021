@@ -8,57 +8,82 @@ onKeyDown="{
   var myArrowKey = event.keyCode
   
   if (myArrowKey == 16) {
-  myShiftKey = 1
+  myPlayerOne.myShiftKey = 1
 }
-
-  if (myArrowKey == 83 && myMoveDownOn == 0) {
+  if (myArrowKey == 83 && myPlayerOne.myMoveDownOn == 0) {
 //  myOnKeyDownDown(1)
 //	myWasDownPressed()
     myInput(3);
 }
-
-if (myArrowKey == 68 && myMoveRightOn == 0) {
+if (myArrowKey == 68 && myPlayerOne.myMoveRightOn == 0) {
   myOnKeyDownRight(1)
 //  myWasRightPressed()
   myInput(2);
 }
-
-if (myArrowKey == 87 && myMoveUpOn == 0) {
+if (myArrowKey == 87 && myPlayerOne.myMoveUpOn == 0) {
 //  myOnKeyDownUp(1)
 //	myWasUpPressed()
   myInput(0);
 //  myJump();
   myDblJump();
-  myUpHeld += 1
+  myPlayerOne.myUpHeld += 1
 }
-
- if (myArrowKey == 65 && myMoveLeftOn == 0) {
+ if (myArrowKey == 65 && myPlayerOne.myMoveLeftOn == 0) {
   myOnKeyDownLeft(1)
 //  myWasLeftPressed()
   myInput(1);
 }
-
   if(myArrowKey==85){
   myAttack(0);
   }
-
   if(myArrowKey==73){
   myAttack(1);
   }
-
   if(myArrowKey==74){
   myAttack(2);
   }
-
   if(myArrowKey==75){
   myAttack(3);
+  }
+  
+  //P2
+  if (myArrowKey == 13) {
+  myPlayerTwo.myShiftKey = 1
+}
+  if (myArrowKey == 40 && myPlayerTwo.myMoveDownOn == 0) {
+    myInputTwo(3);
+}
+if (myArrowKey == 39 && myPlayerTwo.myMoveRightOn == 0) {
+  myOnKeyDownRightTwo(1)
+  myInputTwo(2);
+}
+if (myArrowKey == 38 && myPlayerTwo.myMoveUpOn == 0) {
+  myInputTwo(0);
+  myDblJumpTwo();
+  myPlayerTwo.myUpHeld += 1
+}
+ if (myArrowKey == 37 && myPlayerTwo.myMoveLeftOn == 0) {
+  myOnKeyDownLeftTwo(1)
+  myInputTwo(1);
+}
+  if(myArrowKey==103){
+  myAttackTwo(0);
+  }
+  if(myArrowKey==104){
+  myAttackTwo(1);
+  }
+  if(myArrowKey==100){
+  myAttackTwo(2);
+  }
+  if(myArrowKey==101){
+  myAttackTwo(3);
   }
 }"
 
 onkeyup="{
   let myArrowKey = event.keyCode
   if (myArrowKey == 16){
-  myShiftKey = 0
+  myPlayerOne.myShiftKey = 0
   }
   if (myArrowKey == 83){
 //  myOnKeyUpDown()
@@ -70,7 +95,7 @@ onkeyup="{
   }
   if (myArrowKey == 87){
 //  myOnKeyUpUp()
-  myUpHeld = 0
+  myPlayerOne.myUpHeld = 0
   myInputRelease(0)
   }
   if (myArrowKey == 65){
@@ -88,6 +113,37 @@ onkeyup="{
   }
   if(myArrowKey==75){
   myAttackRelease(3)
+  }
+  //P2
+  if (myArrowKey == 13){
+  myPlayerTwo.myShiftKey = 0
+  }
+  if (myArrowKey == 40){
+  myInputTwoRelease(3)
+  }
+  if (myArrowKey == 39){
+  myOnKeyUpRightTwo()
+  myInputTwoRelease(2)
+  }
+  if (myArrowKey == 38){
+  myPlayerTwo.myUpHeld = 0
+  myInputTwoRelease(0)
+  }
+  if (myArrowKey == 37){
+  myOnKeyUpLeftTwo()
+  myInputTwoRelease(1)
+  }
+  if(myArrowKey==103){
+  myAttackTwoRelease(0)
+  }
+  if(myArrowKey==104){
+  myAttackTwoRelease(1)
+  }
+  if(myArrowKey==100){
+  myAttackTwoRelease(2)
+  }
+  if(myArrowKey==101){
+  myAttackTwoRelease(3)
   }
 }"
 
@@ -112,11 +168,32 @@ function myHitOther(my1,my2){
        return true
    }
 }
+
+	var myFlipped = 0
+
 	function myHitting(){
-  if(myHitOther('mySpan01','mySpan02')){
-  //                                                       alert('hit')
-                                                         document.getElementById('mySpan02').style.left = '-4000px'
-                                                         
+	if(parseInt(document.getElementById('mySpan02').style.left) > parseInt(document.getElementById('mySpan01').style.left)){
+		if(myPlayerOne.myInAnim == 0){
+		document.getElementById('mySpan01').style.transform = "scaleX(1)"
+		}
+		if(myPlayerTwo.myInAnim == 0){
+		document.getElementById('mySpan02').style.transform = "scaleX(1)"
+		}
+		myFlipped = 0
+	}
+	
+	if(parseInt(document.getElementById('mySpan01').style.left) > parseInt(document.getElementById('mySpan02').style.left)){
+		if(myPlayerOne.myInAnim == 0){
+		document.getElementById('mySpan01').style.transform = "scaleX(-1)"
+		}
+		if(myPlayerTwo.myInAnim == 0){
+		document.getElementById('mySpan02').style.transform = "scaleX(-1)"
+		}
+		myFlipped = 1
+	}
+	
+  if(myHitOther('mySpan01','mySpan02') && myPlayerOne.myInAnim == 0 && myPlayerTwo.myInAnim == 0){
+
   }
                                                         
   if(myHitOther('mySpan01','mySpan03')){
@@ -153,25 +230,6 @@ function myHitOther(my1,my2){
                                                          
   }
 	}
-
-	var myShiftKey = 0
-	var myMoveRightOn = 0
-	var myMoveLeftOn = 0
-	var myMoveUpOn = 0
-	var myMoveDownOn = 0
-	var myVarDown = 0
-	var myVarLeft = 0
-	var myVarRight = 0
-	var myVarUp = 0
-	var myVarLeftAir = 0
-	var myVarLeftAirDbl = 0
-	var myVarRightAir = 0
-	var myVarRightAirDbl = 0
-	var hasAirDashed = 0
-	
-	function somesortoffun(x) {
-	x = 1
-	}	
 	
 /*	function myOnKeyUpDown() {
 	clearInterval(myVarDown,10);
@@ -179,8 +237,13 @@ function myHitOther(my1,my2){
 	}
 	*/
 	function myOnKeyUpRight() {
-	clearInterval(myVarRight,10);
-	myMoveRightOn = 0
+	clearInterval(myPlayerOne.myVarRight,10);
+	myPlayerOne.myMoveRightOn = 0
+	}
+	
+	function myOnKeyUpRightTwo() {
+	clearInterval(myPlayerTwo.myVarRight,10);
+	myPlayerTwo.myMoveRightOn = 0
 	}
 	
 /*	function myOnKeyUpUp() {
@@ -189,8 +252,13 @@ function myHitOther(my1,my2){
 	}*/
 	
 	function myOnKeyUpLeft() {
-	clearInterval(myVarLeft,10);
-	myMoveLeftOn = 0
+	clearInterval(myPlayerOne.myVarLeft,10);
+	myPlayerOne.myMoveLeftOn = 0
+	}
+	
+	function myOnKeyUpLeftTwo() {
+	clearInterval(myPlayerTwo.myVarLeft,10);
+	myPlayerTwo.myMoveLeftOn = 0
 	}
 	
 /*	function myOnKeyDownDown(x) {
@@ -198,9 +266,7 @@ function myHitOther(my1,my2){
     myVarDown = setInterval(function() {
     document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) + x
                                                         
-	myHitting();
-  
-  
+
   if (myMoveUpOn==1){
   clearInterval(myVarDown,10)
   myMoveDownOn = 0
@@ -220,28 +286,56 @@ function myHitOther(my1,my2){
 	}*/
 	
 	function myOnKeyDownRight(x) {
-	if(myGamePiece.y == 400) {
-	myMoveRightOn += 1
-    myVarRight = setInterval(function() {
+	if(myPlayerOne.y == myPlayerOne.rockbottom) {
+	myPlayerOne.myMoveRightOn += 1
+    myPlayerOne.myVarRight = setInterval(function() {
     document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + x
                                                         
-	myHitting();
-
-  if (myMoveLeftOn==1){
-  clearInterval(myVarRight,10)
-  myMoveRightOn = 0
+  if (myPlayerOne.myMoveLeftOn==1){
+  clearInterval(myPlayerOne.myVarRight,10)
+  myPlayerOne.myMoveRightOn = 0
   }
   
-  if(myGamePiece.y < 400) {
-  clearInterval(myVarRight,10)
-  myMoveRightOn = 0
+  if(myPlayerOne.y < myPlayerOne.rockbottom) {
+  clearInterval(myPlayerOne.myVarRight,10)
+  myPlayerOne.myMoveRightOn = 0
   }
   
-  if (myShiftKey==1){
+  if (myPlayerOne.myShiftKey==1){
   x = 2
   }
   
-  if (myShiftKey==0){
+  if (myPlayerOne.myShiftKey==0){
+  x = 1
+  }
+  
+  
+  },10)
+	
+	}
+	}
+	
+	function myOnKeyDownRightTwo(x) {
+	if(myPlayerTwo.y == myPlayerTwo.rockbottom) {
+	myPlayerTwo.myMoveRightOn += 1
+    myPlayerTwo.myVarRight = setInterval(function() {
+    document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) + x
+                                                        
+  if (myPlayerTwo.myMoveLeftOn==1){
+  clearInterval(myPlayerTwo.myVarRight,10)
+  myPlayerTwo.myMoveRightOn = 0
+  }
+  
+  if(myPlayerTwo.y < myPlayerTwo.rockbottom) {
+  clearInterval(myPlayerTwo.myVarRight,10)
+  myPlayerTwo.myMoveRightOn = 0
+  }
+  
+  if (myPlayerTwo.myShiftKey==1){
+  x = 2
+  }
+  
+  if (myPlayerTwo.myShiftKey==0){
   x = 1
   }
   
@@ -258,8 +352,6 @@ function myHitOther(my1,my2){
     myVarUp = setInterval(function() {
     document.getElementById('mySpan01').style.top = parseInt(document.getElementById('mySpan01').style.top) - x
                                                         
-	myHitting()
-  
   
   if (myMoveDownOn==1){
   clearInterval(myVarUp,10)
@@ -280,28 +372,55 @@ function myHitOther(my1,my2){
 	}*/
 	
 	function myOnKeyDownLeft (x) {
-	if(myGamePiece.y == 400) {
-		myMoveLeftOn += 1
-		myVarLeft = setInterval(function() {
+	if(myPlayerOne.y == myPlayerOne.rockbottom) {
+		myPlayerOne.myMoveLeftOn += 1
+		myPlayerOne.myVarLeft = setInterval(function() {
 		document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - x
                                                         
-	myHitting();
-	
-	if (myMoveRightOn==1){
-	clearInterval(myVarLeft,10)
-	myMoveLeftOn = 0
+	if (myPlayerOne.myMoveRightOn==1){
+	clearInterval(myPlayerOne.myVarLeft,10)
+	myPlayerOne.myMoveLeftOn = 0
 	}
 	
-	if(myGamePiece.y < 400) {
-	clearInterval(myVarLeft,10)
-	myMoveLeftOn = 0
+	if(myPlayerOne.y < myPlayerOne.rockbottom) {
+	clearInterval(myPlayerOne.myVarLeft,10)
+	myPlayerOne.myMoveLeftOn = 0
 	}
   
-  if (myShiftKey==1){
+  if (myPlayerOne.myShiftKey==1){
   x = 2
   }
   
-  if (myShiftKey==0){
+  if (myPlayerOne.myShiftKey==0){
+  x = 1
+  }
+  
+  
+	},10)
+	}
+	}
+	
+	function myOnKeyDownLeftTwo (x) {
+	if(myPlayerTwo.y == myPlayerTwo.rockbottom) {
+		myPlayerTwo.myMoveLeftOn += 1
+		myPlayerTwo.myVarLeft = setInterval(function() {
+		document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) - x
+                                                        
+	if (myPlayerTwo.myMoveRightOn==1){
+	clearInterval(myPlayerTwo.myVarLeft,10)
+	myPlayerTwo.myMoveLeftOn = 0
+	}
+	
+	if(myPlayerTwo.y < myPlayerTwo.rockbottom) {
+	clearInterval(myPlayerTwo.myVarLeft,10)
+	myPlayerTwo.myMoveLeftOn = 0
+	}
+  
+  if (myPlayerTwo.myShiftKey==1){
+  x = 2
+  }
+  
+  if (myPlayerTwo.myShiftKey==0){
   x = 1
   }
   
@@ -311,56 +430,101 @@ function myHitOther(my1,my2){
 	}
 	
 function myMoveLeftAir(){
-		myMoveLeftOn += 1
-		myVarLeftAir = setInterval(function() {
+		myPlayerOne.myMoveLeftOn += 1
+		myPlayerOne.myVarLeftAir = setInterval(function() {
 		document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - 1
                                                         
-	myHitting();
-	
-	if(myGamePiece.y == 400) {
-	clearInterval(myVarLeftAir,10)
-	myMoveLeftOn = 0
+	if(myPlayerOne.y == myPlayerOne.rockbottom) {
+	clearInterval(myPlayerOne.myVarLeftAir,10)
+	myPlayerOne.myMoveLeftOn = 0
 	}
 	
-	if(hasDblJumped==1) {
-	clearInterval(myVarLeftAir,10)
-	myMoveLeftOn = 0
+	if(myPlayerOne.hasDblJumped==1) {
+	clearInterval(myPlayerOne.myVarLeftAir,10)
+	myPlayerOne.myMoveLeftOn = 0
+	}
+  
+	},10)
+}
+
+function myMoveLeftAirTwo(){
+		myPlayerTwo.myMoveLeftOn += 1
+		myPlayerTwo.myVarLeftAir = setInterval(function() {
+		document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) - 1
+                                                        
+	if(myPlayerTwo.y == myPlayerTwo.rockbottom) {
+	clearInterval(myPlayerTwo.myVarLeftAir,10)
+	myPlayerTwo.myMoveLeftOn = 0
+	}
+	
+	if(myPlayerTwo.hasDblJumped==1) {
+	clearInterval(myPlayerTwo.myVarLeftAir,10)
+	myPlayerTwo.myMoveLeftOn = 0
 	}
   
 	},10)
 }
 
 function myMoveLeftAirDbl(){
-	clearInterval(myVarRightAirDbl)
-	clearInterval(myVarLeftAirDbl)
-		myVarLeftAirDbl = setInterval(function() {
+	clearInterval(myPlayerOne.myVarRightAirDbl)
+	clearInterval(myPlayerOne.myVarLeftAirDbl)
+		myPlayerOne.myVarLeftAirDbl = setInterval(function() {
 		document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - 1
                                                         
-	myHitting();
-	
-	if(myGamePiece.y == 400) {
-	clearInterval(myVarLeftAirDbl,10)
-	myMoveLeftOn = 0
+	if(myPlayerOne.y == myPlayerOne.rockbottom) {
+	clearInterval(myPlayerOne.myVarLeftAirDbl,10)
+	myPlayerOne.myMoveLeftOn = 0
+	}
+  
+	},10)
+}
+
+function myMoveLeftAirTwoDbl(){
+	clearInterval(myPlayerTwo.myVarRightAirDbl)
+	clearInterval(myPlayerTwo.myVarLeftAirDbl)
+		myPlayerTwo.myVarLeftAirDbl = setInterval(function() {
+		document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) - 1
+                                                        
+	if(myPlayerTwo.y == myPlayerTwo.rockbottom) {
+	clearInterval(myPlayerTwo.myVarLeftAirDbl,10)
+	myPlayerTwo.myMoveLeftOn = 0
 	}
   
 	},10)
 }
 
 function myMoveRightAir(){
-		myMoveRightOn += 1
-		myVarRightAir = setInterval(function() {
+		myPlayerOne.myMoveRightOn += 1
+		myPlayerOne.myVarRightAir = setInterval(function() {
 		document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 1
                                                         
-	myHitting();
-	
-	if(myGamePiece.y == 400) {
-	clearInterval(myVarRightAir,10)
-	myMoveRightOn = 0
+	if(myPlayerOne.y == myPlayerOne.rockbottom) {
+	clearInterval(myPlayerOne.myVarRightAir,10)
+	myPlayerOne.myMoveRightOn = 0
 	}
 	
-	if(hasDblJumped==1) {
-	clearInterval(myVarRightAir,10)
-	myMoveRightOn = 0
+	if(myPlayerOne.hasDblJumped==1) {
+	clearInterval(myPlayerOne.myVarRightAir,10)
+	myPlayerOne.myMoveRightOn = 0
+	}
+  
+	},10)
+
+}
+
+function myMoveRightAirTwo(){
+		myPlayerTwo.myMoveRightOn += 1
+		myPlayerTwo.myVarRightAir = setInterval(function() {
+		document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) + 1
+                                                        
+	if(myPlayerTwo.y == myPlayerTwo.rockbottom) {
+	clearInterval(myPlayerTwo.myVarRightAir,10)
+	myPlayerTwo.myMoveRightOn = 0
+	}
+	
+	if(myPlayerTwo.hasDblJumped==1) {
+	clearInterval(myPlayerTwo.myVarRightAir,10)
+	myPlayerTwo.myMoveRightOn = 0
 	}
   
 	},10)
@@ -368,16 +532,29 @@ function myMoveRightAir(){
 }
 
 function myMoveRightAirDbl(){
-	clearInterval(myVarRightAirDbl)
-	clearInterval(myVarLeftAirDbl)
-		myVarRightAirDbl = setInterval(function() {
+	clearInterval(myPlayerOne.myVarRightAirDbl)
+	clearInterval(myPlayerOne.myVarLeftAirDbl)
+		myPlayerOne.myVarRightAirDbl = setInterval(function() {
 		document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 1
                                                         
-	myHitting();
-	
-	if(myGamePiece.y == 400) {
-	clearInterval(myVarRightAirDbl,10)
-	myMoveRightOn = 0
+	if(myPlayerOne.y == myPlayerOne.rockbottom) {
+	clearInterval(myPlayerOne.myVarRightAirDbl,10)
+	myPlayerOne.myMoveRightOn = 0
+	}
+  
+	},10)
+
+}
+
+function myMoveRightAirTwoDbl(){
+	clearInterval(myPlayerTwo.myVarRightAirDbl)
+	clearInterval(myPlayerTwo.myVarLeftAirDbl)
+		myPlayerTwo.myVarRightAirDbl = setInterval(function() {
+		document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) + 1
+                                                        
+	if(myPlayerTwo.y == myPlayerTwo.rockbottom) {
+	clearInterval(myPlayerTwo.myVarRightAirDbl,10)
+	myPlayerTwo.myMoveRightOn = 0
 	}
   
 	},10)
@@ -385,13 +562,13 @@ function myMoveRightAirDbl(){
 }
 
 function myStopLeftRightMovement(){
-if(myInAnim == 1){
-clearInterval(myVarLeft);
-clearInterval(myVarLeftAir);
-clearInterval(myVarLeftAirDbl);
-clearInterval(myVarRight);
-clearInterval(myVarRightAir);
-clearInterval(myVarRightAirDbl);
+if(myPlayerOne.myInAnim == 1){
+clearInterval(myPlayerOne.myVarLeft);
+clearInterval(myPlayerOne.myVarLeftAir);
+clearInterval(myPlayerOne.myVarLeftAirDbl);
+clearInterval(myPlayerOne.myVarRight);
+clearInterval(myPlayerOne.myVarRightAir);
+clearInterval(myPlayerOne.myVarRightAirDbl);
 }
   if(parseInt(document.getElementById('mySpan01').style.left)<0 && parseInt(document.getElementById('mySpan01').style.left)>-1000){
   document.getElementById('mySpan01').style.left = 0
@@ -402,23 +579,55 @@ clearInterval(myVarRightAirDbl);
   if(parseInt(document.getElementById('mySpan01').style.left)>900){
   document.getElementById('mySpan01').style.left = 900
   }
-  if(myInAnim == 1){
-  myGamePiece.gravitySpeed = 0
+  if(myPlayerOne.myInAnim == 1){
+  myPlayerOne.gravitySpeed = 0
+  }
+}
+
+function myStopLeftRightMovementTwo(){
+if(myPlayerTwo.myInAnim == 1){
+clearInterval(myPlayerTwo.myVarLeft);
+clearInterval(myPlayerTwo.myVarLeftAir);
+clearInterval(myPlayerTwo.myVarLeftAirDbl);
+clearInterval(myPlayerTwo.myVarRight);
+clearInterval(myPlayerTwo.myVarRightAir);
+clearInterval(myPlayerTwo.myVarRightAirDbl);
+}
+  if(parseInt(document.getElementById('mySpan02').style.left)<0 && parseInt(document.getElementById('mySpan02').style.left)>-1000){
+  document.getElementById('mySpan02').style.left = 0
+  }
+  if(parseInt(document.getElementById('mySpan02').style.left)<-1000){
+  document.getElementById('mySpan02').style.left = -4000
+  }
+  if(parseInt(document.getElementById('mySpan02').style.left)>900){
+  document.getElementById('mySpan02').style.left = 900
+  }
+  if(myPlayerTwo.myInAnim == 1){
+  myPlayerTwo.gravitySpeed = 0
   }
 }
 
 //ATTACK MOVE STUFF
-var myFinishedInputDFR = 0
-var myInAnim = 0
 var myInp = new Array(0, 0, 0, 0);
 // myInp[0]=up myInp[1]=left myInp[2]=right myInp[3]=down
 var myAtk = new Array(0, 0, 0, 0);
 // myAtk[0]=light punch (u) myAtk[1]=heavy punch (i) myAtk[2]=light kick (j) myAtk[3]=heavy kick (k)
+var myInpTwo = new Array(0, 0, 0, 0);
+// myInpTwo[0]=up myInpTwo[1]=left myInpTwo[2]=right myInpTwo[3]=down
+var myAtkTwo = new Array(0, 0, 0, 0);
+// myAtkTwo[0]=light punch (u) myAtkTwo[1]=heavy punch (i) myAtkTwo[2]=light kick (j) myAtkTwo[3]=heavy kick (k)
+
 function myInput(direction){
 myInp[direction] = 1
 }
 function myAttack(move){
 myAtk[move] = 1
+}
+function myInputTwo(direction){
+myInpTwo[direction] = 1
+}
+function myAttackTwo(move){
+myAtkTwo[move] = 1
 }
 
 function myInputRelease(direction){
@@ -427,9 +636,18 @@ myInp[direction] = 0;
 function myAttackRelease(move){
 myAtk[move] = 0;
 }
+function myInputTwoRelease(direction){
+myInpTwo[direction] = 0;
+}
+function myAttackTwoRelease(move){
+myAtkTwo[move] = 0;
+}
+
+var myTempDir = null;
+var myTempDirTwo = null;
 
 function myTestAttack(){
-//INPUTS
+//INPUTS P1
 if(myInp[3]==1 && myInp[2]==0){
 	let myTempInt = setInterval(function(){
 	//document.getElementById('mySpan01').style.left = 9;
@@ -439,8 +657,8 @@ if(myInp[3]==1 && myInp[2]==0){
 	myTempInt = setInterval(function(){
 		if(myInp[3]==0 && myInp[2]==1){
 		//document.getElementById('mySpan01').style.left = 9;
-		myFinishedInputDFR = 1
-		setTimeout(function(){myFinishedInputDFR=0},100)
+		myPlayerOne.myFinishedInputDFR = 1
+		setTimeout(function(){myPlayerOne.myFinishedInputDFR=0},100)
 		}
 	},1)
 	setTimeout(function(){clearInterval(myTempInt,1)},150)
@@ -450,7 +668,7 @@ if(myInp[3]==1 && myInp[2]==0){
 }
 
 //AIRDASH
-if(myInp[2]==1 && hasAirDashed < 2){
+if(myInp[2]==1 && myPlayerOne.hasAirDashed < 2){
 	let myTempInt = setInterval(function(){
 	//document.getElementById('mySpan01').style.left = 9;
 	if(myInp[2]==0){
@@ -459,7 +677,12 @@ if(myInp[2]==1 && hasAirDashed < 2){
 	myTempInt = setInterval(function(){
 		if(myInp[2]==1){
 		//document.getElementById('mySpan01').style.left = 9;
+		if(myFlipped == 0){
 		myAIRDASH()
+		}
+		if(myFlipped == 1){
+		myBackAIRDASH()
+		}
 		}
 	},1)
 	setTimeout(function(){clearInterval(myTempInt,1)},150)
@@ -467,7 +690,7 @@ if(myInp[2]==1 && hasAirDashed < 2){
 	},1)
 	setTimeout(function(){clearInterval(myTempInt,1)},150)
 }
-if(myInp[1]==1 && hasAirDashed < 2){
+if(myInp[1]==1 && myPlayerOne.hasAirDashed < 2){
 	let myTempInt = setInterval(function(){
 	//document.getElementById('mySpan01').style.left = 9;
 	if(myInp[1]==0){
@@ -476,7 +699,12 @@ if(myInp[1]==1 && hasAirDashed < 2){
 	myTempInt = setInterval(function(){
 		if(myInp[1]==1){
 		//document.getElementById('mySpan01').style.left = 9;
+		if(myFlipped == 0){
 		myBackAIRDASH()
+		}
+		if(myFlipped == 1){
+		myAIRDASH()
+		}
 		}
 	},1)
 	setTimeout(function(){clearInterval(myTempInt,1)},150)
@@ -486,74 +714,272 @@ if(myInp[1]==1 && hasAirDashed < 2){
 }
 
 // ATTACK BUTTONS
-if(myAtk[0]==1 && myFinishedInputDFR == 1 && myInAnim == 0){
+if(myAtk[0]==1 && myPlayerOne.myFinishedInputDFR == 1 && myPlayerOne.myInAnim == 0){
 //HADOUKEN
-myFinishedInputDFR = 0
+myPlayerOne.myFinishedInputDFR = 0
 document.getElementById('mySpan01').style.left = 9;
-myInAnim = 1
+myPlayerOne.myInAnim = 1
 setTimeout(function(){
-myInAnim = 0
+myPlayerOne.myInAnim = 0
 document.getElementById('mySpan01').src = "https://i.imgur.com/rkq4hfi.png"
 },1000)																			//make timer as long as attack length
 }
-if(myAtk[0]==1 && myFinishedInputDFR == 0 && myInAnim == 0){
+if(myAtk[0]==1 && myPlayerOne.myFinishedInputDFR == 0 && myPlayerOne.myInAnim == 0){
 //HADOUKEN
 document.getElementById('mySpan01').style.left = 50;
-myInAnim = 1
+myPlayerOne.myInAnim = 1
 document.getElementById('mySpan01').src = "https://i.pinimg.com/originals/9f/5b/cb/9f5bcb25f483139614fceeb40a8ab45f.png"
 setTimeout(function(){
-myInAnim = 0
+myPlayerOne.myInAnim = 0
 document.getElementById('mySpan01').src = "https://i.imgur.com/rkq4hfi.png"
+},1000)																			//make timer as long as attack length
+}
+
+
+//INPUTS P2
+if(myInpTwo[3]==1 && myInpTwo[2]==0){
+	let myTempInt = setInterval(function(){
+	//document.getElementById('mySpan02').style.left = 9;
+	if(myInpTwo[3]==1 && myInpTwo[2]==1){
+	//document.getElementById('mySpan02').style.left = 9;
+	clearInterval(myTempInt,1);
+	myTempInt = setInterval(function(){
+		if(myInpTwo[3]==0 && myInpTwo[2]==1){
+		//document.getElementById('mySpan02').style.left = 9;
+		myPlayerTwo.myFinishedInputDFR = 1
+		setTimeout(function(){myPlayerTwo.myFinishedInputDFR=0},100)
+		}
+	},1)
+	setTimeout(function(){clearInterval(myTempInt,1)},150)
+	}
+	},1)
+	setTimeout(function(){clearInterval(myTempInt,1)},150)
+}
+
+//AIRDASH
+if(myInpTwo[2]==1 && myPlayerTwo.hasAirDashed < 2){
+	let myTempInt = setInterval(function(){
+	//document.getElementById('mySpan02').style.left = 9;
+	if(myInpTwo[2]==0){
+	//document.getElementById('mySpan02').style.left = 9;
+	clearInterval(myTempInt,1);
+	myTempInt = setInterval(function(){
+		if(myInpTwo[2]==1){
+		//document.getElementById('mySpan02').style.left = 9;
+		if(myFlipped == 1){
+		myAIRDASHTwo()
+		}
+		if(myFlipped == 0){
+		myBackAIRDASHTwo()
+		}
+		}
+	},1)
+	setTimeout(function(){clearInterval(myTempInt,1)},150)
+	}
+	},1)
+	setTimeout(function(){clearInterval(myTempInt,1)},150)
+}
+if(myInpTwo[1]==1 && myPlayerTwo.hasAirDashed < 2){
+	let myTempInt = setInterval(function(){
+	//document.getElementById('mySpan02').style.left = 9;
+	if(myInpTwo[1]==0){
+	//document.getElementById('mySpan02').style.left = 9;
+	clearInterval(myTempInt,1);
+	myTempInt = setInterval(function(){
+		if(myInpTwo[1]==1){
+		//document.getElementById('mySpan02').style.left = 9;
+		if(myFlipped == 1){
+		myBackAIRDASHTwo()
+		}
+		if(myFlipped == 0){
+		myAIRDASHTwo()
+		}
+		}
+	},1)
+	setTimeout(function(){clearInterval(myTempInt,1)},150)
+	}
+	},1)
+	setTimeout(function(){clearInterval(myTempInt,1)},150)
+}
+
+// ATTACK BUTTONS
+if(myAtkTwo[0]==1 && myPlayerTwo.myFinishedInputDFR == 1 && myPlayerTwo.myInAnim == 0){
+//HADOUKEN
+myPlayerTwo.myFinishedInputDFR = 0
+document.getElementById('mySpan02').style.left = 9;
+myPlayerTwo.myInAnim = 1
+setTimeout(function(){
+myPlayerTwo.myInAnim = 0
+document.getElementById('mySpan02').src = "https://i.imgur.com/rkq4hfi.png"
+},1000)																			//make timer as long as attack length
+}
+if(myAtkTwo[0]==1 && myPlayerTwo.myFinishedInputDFR == 0 && myPlayerTwo.myInAnim == 0){
+//HADOUKEN
+document.getElementById('mySpan02').style.left = 50;
+myPlayerTwo.myInAnim = 1
+document.getElementById('mySpan02').src = "https://i.pinimg.com/originals/9f/5b/cb/9f5bcb25f483139614fceeb40a8ab45f.png"
+setTimeout(function(){
+myPlayerTwo.myInAnim = 0
+document.getElementById('mySpan02').src = "https://i.imgur.com/rkq4hfi.png"
 },1000)																			//make timer as long as attack length
 }
 }
 
 function myAIRDASH(){
-if(myInAnim==0 && myGamePiece.y < 400){
-hasAirDashed += 1
-myInAnim = 1
-document.AirFront = setInterval(function(){
+if(myPlayerOne.myInAnim==0 && myPlayerOne.y < myPlayerOne.rockbottom){
+myPlayerOne.hasAirDashed += 1
+myPlayerOne.myInAnim = 1
+if(myFlipped == 0){
+myTempDir = 0
+myPlayerOne.AirFront = setInterval(function(){
 myStopLeftRightMovement()
 document.getElementById("mySpan01").style.left = parseInt(document.getElementById("mySpan01").style.left) + 2
 },5)
+}
+if(myFlipped == 1){
+myTempDir = 1
+myPlayerOne.AirFront = setInterval(function(){
+myStopLeftRightMovement()
+document.getElementById("mySpan01").style.left = parseInt(document.getElementById("mySpan01").style.left) - 2
+},5)
+}
 setTimeout(function(){
-clearInterval(document.AirFront)
-myInAnim = 0
+clearInterval(myPlayerOne.AirFront)
+myPlayerOne.myInAnim = 0
+if(myTempDir == 0){
 myMoveRightAirDbl()
+}
+if(myTempDir == 1){
+myMoveLeftAirDbl()
+}
+},400)
+}
+}
+function myAIRDASHTwo(){
+if(myPlayerTwo.myInAnim==0 && myPlayerTwo.y < myPlayerTwo.rockbottom){
+myPlayerTwo.hasAirDashed += 1
+myPlayerTwo.myInAnim = 1
+if(myFlipped == 0){
+myTempDirTwo = 0
+myPlayerTwo.AirFront = setInterval(function(){
+myStopLeftRightMovementTwo()
+document.getElementById("mySpan02").style.left = parseInt(document.getElementById("mySpan02").style.left) - 2
+},5)
+}
+if(myFlipped == 1){
+myTempDirTwo = 1
+myPlayerTwo.AirFront = setInterval(function(){
+myStopLeftRightMovementTwo()
+document.getElementById("mySpan02").style.left = parseInt(document.getElementById("mySpan02").style.left) + 2
+},5)
+}
+setTimeout(function(){
+clearInterval(myPlayerTwo.AirFront)
+myPlayerTwo.myInAnim = 0
+if(myTempDirTwo == 1){
+myMoveRightAirTwoDbl()
+}
+if(myTempDirTwo == 0){
+myMoveLeftAirTwoDbl()
+}
 },400)
 }
 }
 
 function myBackAIRDASH(){
-if(myInAnim==0 && myGamePiece.y < 400){
-hasAirDashed += 1
-myInAnim = 1
-document.AirBack = setInterval(function(){
+if(myPlayerOne.myInAnim==0 && myPlayerOne.y < myPlayerOne.rockbottom){
+myPlayerOne.hasAirDashed += 1
+myPlayerOne.myInAnim = 1
+if(myFlipped == 0){
+myTempDir = 0
+myPlayerOne.AirBack = setInterval(function(){
 myStopLeftRightMovement()
 document.getElementById("mySpan01").style.left = parseInt(document.getElementById("mySpan01").style.left) - 1
 },3)
+}
+if(myFlipped == 1){
+myTempDir = 1
+myPlayerOne.AirBack = setInterval(function(){
+myStopLeftRightMovement()
+document.getElementById("mySpan01").style.left = parseInt(document.getElementById("mySpan01").style.left) + 1
+},3)
+}
 setTimeout(function(){
-clearInterval(document.AirBack)
-myInAnim = 0
+clearInterval(myPlayerOne.AirBack)
+myPlayerOne.myInAnim = 0
+if(myTempDir == 0){
 myMoveLeftAirDbl()
+}
+if(myTempDir == 1){
+myMoveRightAirDbl()
+}
+},400)
+}
+}
+function myBackAIRDASHTwo(){
+if(myPlayerTwo.myInAnim==0 && myPlayerTwo.y < myPlayerTwo.rockbottom){
+myPlayerTwo.hasAirDashed += 1
+myPlayerTwo.myInAnim = 1
+if(myFlipped == 0){
+myTempDirTwo = 0
+myPlayerTwo.AirBack = setInterval(function(){
+myStopLeftRightMovementTwo()
+document.getElementById("mySpan02").style.left = parseInt(document.getElementById("mySpan02").style.left) + 1
+},3)
+}
+if(myFlipped == 1){
+myTempDirTwo = 1
+myPlayerTwo.AirBack = setInterval(function(){
+myStopLeftRightMovementTwo()
+document.getElementById("mySpan02").style.left = parseInt(document.getElementById("mySpan02").style.left) - 1
+},3)
+}
+setTimeout(function(){
+clearInterval(myPlayerTwo.AirBack)
+myPlayerTwo.myInAnim = 0
+if(myTempDirTwo == 1){
+myMoveLeftAirTwoDbl()
+}
+if(myTempDirTwo == 0){
+myMoveRightAirTwoDbl()
+}
 },400)
 }
 }
 
 //GAME GRAVITY JUMP UPDATE AND STUFF
-var myIgnoreRight = 0;
-var myUpHeld = 0;
-var myGamePiece;
-var hasDblJumped = 0;
+var myPlayerOne;
+var myPlayerTwo;
 
 function startGame() {
-	myGamePiece = new myGravUp()
+	myPlayerOne = new myGravUp()
+	myPlayerTwo = new myGravUpTwo()
 	myVarStart = setInterval(function() { myGameUpdate() },1)
 }
 
 function myGravUp() {
 //	alert('hi')
-	this.y = 400
+	this.hasAirDashed = 0
+	this.hasDblJumped = 0
+	this.myUpHeld = 0
+	this.myIgnoreRight = 0
+	this.myInAnim = 0
+	this.myFinishedInputDFR = 0
+	this.myMoveRightOn = 0
+	this.myMoveLeftOn = 0
+	this.myMoveUpOn = 0
+	this.myMoveDownOn = 0
+	this.myVarDown = 0
+	this.myVarLeft = 0
+	this.myVarRight = 0
+	this.myVarUp = 0
+	this.myVarLeftAir = 0
+	this.myVarLeftAirDbl = 0
+	this.myVarRightAir = 0
+	this.myVarRightAirDbl = 0
+	this.myShiftKey = 0
+	this.health = 100
+	this.y = 400 - parseInt(document.getElementById('mySpan01').style.height);
     this.speedY = 0;    
     this.gravity = 0.01;
     this.gravitySpeed = 0;
@@ -563,23 +989,23 @@ function myGravUp() {
 		this.hitBottom();
     }
 	this.hitBottom = function() {
-	var rockbottom = 400;
-	if(this.y>rockbottom) {
-		this.y = rockbottom;
+	this.rockbottom = 400 - parseInt(document.getElementById('mySpan01').style.height);
+	if(this.y>this.rockbottom) {
+		this.y = this.rockbottom;
 		this.gravitySpeed = 0;
-		hasDblJumped = 0;
-		hasAirDashed = 0;
-		if(myUpHeld > 0 && myInp[1]==0 && myInp[2]==0) {
+		this.hasDblJumped = 0;
+		this.hasAirDashed = 0;
+		if(this.myUpHeld > 0 && myInp[1]==0 && myInp[2]==0) {
 		myJump()
 		}
-		if(myUpHeld > 0 && myInp[1]==1 && myInp[2]==1) {
+		if(this.myUpHeld > 0 && myInp[1]==1 && myInp[2]==1) {
 		myJump()
 		}
-		if(myUpHeld > 0 && myInp[1]==1 && myInp[2]==0) {
+		if(this.myUpHeld > 0 && myInp[1]==1 && myInp[2]==0) {
 		myJump()
 		myMoveLeftAir()
 		}
-		if(myUpHeld > 0 && myInp[1]==0 && myInp[2]==1) {
+		if(this.myUpHeld > 0 && myInp[1]==0 && myInp[2]==1) {
 		myJump()
 		myMoveRightAir()
 		}
@@ -587,39 +1013,116 @@ function myGravUp() {
 	}
 	this.update = function() {
 		document.getElementById('mySpan01').style.top = this.y
+		document.getElementById('bar').value = this.health
+	}
+
+}
+function myGravUpTwo() {
+//	alert('hi')
+	this.hasAirDashed = 0
+	this.hasDblJumped = 0
+	this.myUpHeld = 0
+	this.myIgnoreRight = 0
+	this.myInAnim = 0
+	this.myFinishedInputDFR = 0
+	this.myMoveRightOn = 0
+	this.myMoveLeftOn = 0
+	this.myMoveUpOn = 0
+	this.myMoveDownOn = 0
+	this.myVarDown = 0
+	this.myVarLeft = 0
+	this.myVarRight = 0
+	this.myVarUp = 0
+	this.myVarLeftAir = 0
+	this.myVarLeftAirDbl = 0
+	this.myVarRightAir = 0
+	this.myVarRightAirDbl = 0
+	this.myShiftKey = 0
+	this.health = 100
+	this.y = 400 - parseInt(document.getElementById('mySpan02').style.height);
+    this.speedY = 0;    
+    this.gravity = 0.01;
+    this.gravitySpeed = 0;
+    this.newPos = function(){
+        this.gravitySpeed +=  this.gravity;
+        this.y += this.speedY + this.gravitySpeed;        
+		this.hitBottom();
+    }
+	this.hitBottom = function() {
+	this.rockbottom = 400 - parseInt(document.getElementById('mySpan02').style.height);
+	if(this.y>this.rockbottom) {
+		this.y = this.rockbottom;
+		this.gravitySpeed = 0;
+		this.hasDblJumped = 0;
+		this.hasAirDashed = 0;
+		if(this.myUpHeld > 0 && myInpTwo[1]==0 && myInpTwo[2]==0) {
+		myJumpTwo()
+		}
+		if(this.myUpHeld > 0 && myInpTwo[1]==1 && myInpTwo[2]==1) {
+		myJumpTwo()
+		}
+		if(this.myUpHeld > 0 && myInpTwo[1]==1 && myInpTwo[2]==0) {
+		myJumpTwo()
+		myMoveLeftAirTwo()
+		}
+		if(this.myUpHeld > 0 && myInpTwo[1]==0 && myInpTwo[2]==1) {
+		myJumpTwo()
+		myMoveRightAirTwo()
+		}
+		}
+	}
+	this.update = function() {
+		document.getElementById('mySpan02').style.top = this.y
+		document.getElementById('bar2').value = this.health
 	}
 
 }
 
 function myGameUpdate() {
-myGamePiece.newPos();
-myGamePiece.update();
-myTestAttack();
+myPlayerOne.newPos();
+myPlayerTwo.newPos();
+myPlayerOne.update();
+myPlayerTwo.update();
 myStopLeftRightMovement();
+myStopLeftRightMovementTwo();
+myTestAttack();
+myHitting()
 }
 
 function accelerate(n) {
-	myGamePiece.gravity = n;
+	myPlayerOne.gravity = n;
+}
+function accelerateTwo(n) {
+	myPlayerTwo.gravity = n;
 }
 
 function myJump() {
-if(myGamePiece.y == 400 && myInAnim == 0){
-myGamePiece.gravitySpeed = 0;
-myGamePiece.gravity = 0;
-myGamePiece.speedY = 0;
+if(myPlayerOne.y == myPlayerOne.rockbottom && myPlayerOne.myInAnim == 0){
+myPlayerOne.gravitySpeed = 0;
+myPlayerOne.gravity = 0;
+myPlayerOne.speedY = 0;
 accelerate(-0.03)
-setTimeout(function(){ if(hasDblJumped == 0) { accelerate(0.01); } }, 250);
+setTimeout(function(){ if(myPlayerOne.hasDblJumped == 0) { accelerate(0.01); } }, 250);
+}
+}
+function myJumpTwo() {
+if(myPlayerTwo.y == myPlayerTwo.rockbottom && myPlayerTwo.myInAnim == 0){
+myPlayerTwo.gravitySpeed = 0;
+myPlayerTwo.gravity = 0;
+myPlayerTwo.speedY = 0;
+accelerateTwo(-0.03)
+setTimeout(function(){ if(myPlayerTwo.hasDblJumped == 0) { accelerateTwo(0.01); } }, 250);
 }
 }
 
 function myDblJump() {
-if(myGamePiece.y < 400 && hasDblJumped == 0 && myUpHeld == 0 && myInAnim == 0){
-hasDblJumped = 1
-myGamePiece.gravitySpeed = 0;
-myGamePiece.gravity = 0;
-myGamePiece.speedY = 0;
-	clearInterval(myVarRightAirDbl)
-	clearInterval(myVarLeftAirDbl)
+if(myPlayerOne.y < myPlayerOne.rockbottom && myPlayerOne.hasDblJumped == 0 && myPlayerOne.myUpHeld == 0 && myPlayerOne.myInAnim == 0){
+myPlayerOne.hasDblJumped = 1;
+myPlayerOne.gravitySpeed = 0;
+myPlayerOne.gravity = 0;
+myPlayerOne.speedY = 0;
+	clearInterval(myPlayerOne.myVarRightAirDbl)
+	clearInterval(myPlayerOne.myVarLeftAirDbl)
 if(myInp[1]==1 && myInp[2]==0){
 myMoveLeftAirDbl()
 }
@@ -630,15 +1133,34 @@ setTimeout(accelerate(-0.03),1)
 setTimeout(function(){ accelerate(0.01); }, 250);
 }
 }
+function myDblJumpTwo() {
+if(myPlayerTwo.y < myPlayerTwo.rockbottom && myPlayerTwo.hasDblJumped == 0 && myPlayerTwo.myUpHeld == 0 && myPlayerTwo.myInAnim == 0){
+myPlayerTwo.hasDblJumped = 1
+myPlayerTwo.gravitySpeed = 0;
+myPlayerTwo.gravity = 0;
+myPlayerTwo.speedY = 0;
+	clearInterval(myPlayerTwo.myVarRightAirDbl)
+	clearInterval(myPlayerTwo.myVarLeftAirDbl)
+if(myInpTwo[1]==1 && myInpTwo[2]==0){
+myMoveLeftAirTwoDbl()
+}
+if(myInpTwo[1]==0 && myInpTwo[2]==1){
+myMoveRightAirTwoDbl()
+}
+setTimeout(accelerateTwo(-0.03),1)
+setTimeout(function(){ accelerateTwo(0.01); }, 250);
+}
+}
 </script>
 
 <h1 align=center>T3A07-code-AydanN.html</h1>
+<progress id="bar" value="100" max="100"></progress><progress id="bar2" value="100" max="100"></progress>
 
 Use the WASD to move.
 
 
- <img src="https://i.imgur.com/rkq4hfi.png" id="mySpan01" class="myMC" style="position:absolute; left:250; top:400; width:43; height:98;"><br>
- <img src="https://i.pinimg.com/originals/9f/5b/cb/9f5bcb25f483139614fceeb40a8ab45f.png" id="mySpan02" style="position:absolute; left:450; top:175; width:51; height:70;"><br>
+ <img src="https://i.imgur.com/rkq4hfi.png" id="mySpan01" class="myMC" style="position:absolute; left:250; top:300; width:43; height:98;"><br>
+ <img src="https://i.pinimg.com/originals/9f/5b/cb/9f5bcb25f483139614fceeb40a8ab45f.png" id="mySpan02" style="position:absolute; left:300; top:400; width:51; height:70;"><br>
  <img src="https://play.nintendo.com/images/profile-mk-goomba.7bf2a8f2.aead314d58b63e27.png" id="mySpan03" style="position:absolute; left:200; top:300; width:50; height:50;"><br>
  <img src="https://thumbs.gfycat.com/OilyUnconsciousDobermanpinscher-size_restricted.gif" id="myVillain01" style="position:absolute; left:400; top:350; width:384; height:264;"><br>
  <span id="armbox1" style="position:absolute; left:400; top:350; width:150; height:264;"></span>
