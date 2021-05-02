@@ -787,10 +787,10 @@ if(myInpTwo[2]==1 && myPlayerTwo.hasAirDashed < 2){
 	myTempInt = setInterval(function(){
 		if(myInpTwo[2]==1){
 		//document.getElementById('mySpan02').style.left = 9;
-		if(myPlayerTwo.flipped == 1){
+		if(myPlayerTwo.flipped == 0){
 		myAIRDASH('Pl2')
 		}
-		if(myPlayerTwo.flipped == 0){
+		if(myPlayerTwo.flipped == 1){
 		myBackAIRDASH('Pl2')
 		}
 		}
@@ -809,10 +809,10 @@ if(myInpTwo[1]==1 && myPlayerTwo.hasAirDashed < 2){
 	myTempInt = setInterval(function(){
 		if(myInpTwo[1]==1){
 		//document.getElementById('mySpan02').style.left = 9;
-		if(myPlayerTwo.flipped == 1){
+		if(myPlayerTwo.flipped == 0){
 		myBackAIRDASH('Pl2')
 		}
-		if(myPlayerTwo.flipped == 0){
+		if(myPlayerTwo.flipped == 1){
 		myAIRDASH('Pl2')
 		}
 		}
