@@ -11,26 +11,19 @@ onKeyDown="{
   myPlayerOne.myShiftKey = 1
 }
   if (myArrowKey == 83 && myPlayerOne.myMoveDownOn == 0) {
-//  myOnKeyDownDown(1)
-//	myWasDownPressed()
     myInput(3);
 }
 if (myArrowKey == 68 && myPlayerOne.myMoveRightOn == 0) {
   myOnKeyDownRight(1,'Pl1')
-//  myWasRightPressed()
   myInput(2);
 }
 if (myArrowKey == 87 && myPlayerOne.myMoveUpOn == 0) {
-//  myOnKeyDownUp(1)
-//	myWasUpPressed()
   myInput(0);
-//  myJump();
   myDblJump('Pl1');
   myPlayerOne.myUpHeld += 1
 }
  if (myArrowKey == 65 && myPlayerOne.myMoveLeftOn == 0) {
   myOnKeyDownLeft(1,'Pl1')
-//  myWasLeftPressed()
   myInput(1);
 }
   if(myArrowKey==85){
@@ -46,7 +39,7 @@ if (myArrowKey == 87 && myPlayerOne.myMoveUpOn == 0) {
   myAttack(3);
   }
   
-  //P2
+//P2
   if (myArrowKey == 13) {
   myPlayerTwo.myShiftKey = 1
 }
@@ -86,7 +79,6 @@ onkeyup="{
   myPlayerOne.myShiftKey = 0
   }
   if (myArrowKey == 83){
-//  myOnKeyUpDown()
   myInputRelease(3)
   }
   if (myArrowKey == 68){
@@ -94,7 +86,6 @@ onkeyup="{
   myInputRelease(2)
   }
   if (myArrowKey == 87){
-//  myOnKeyUpUp()
   myPlayerOne.myUpHeld = 0
   myInputRelease(0)
   }
@@ -114,7 +105,8 @@ onkeyup="{
   if(myArrowKey==75){
   myAttackRelease(3)
   }
-  //P2
+  
+//P2
   if (myArrowKey == 13){
   myPlayerTwo.myShiftKey = 0
   }
@@ -207,34 +199,15 @@ function myHitOther(my1,my2){
                                                          document.getElementById('mySpan03').style.left = '-4000px'
                                                          
   }
-   
-  if(myHitOther('mySpan01','hitbox')){
-  //                                                       alert('hit')
-                                                         document.getElementById('myVillain01').style.left = '-4000px'
-                                                         document.getElementById('armbox1').style.left = '-4000px'
-                                                         document.getElementById('armbox2').style.left = '-4000px'
-                                                         document.getElementById('armbox3').style.left = '-4000px'
-                                                         document.getElementById('hitbox').style.left = '-4000px'
-                                                         
-  }
-   
-    if(myHitOther('mySpan01','armbox1')){
-  //                  alert('hit')
-                                                         document.getElementById('mySpan01').style.left = '-4000px'
-                                                         
-  }
-   
-    if(myHitOther('mySpan01','armbox2')){
-  //                                                       alert('hit')
-                                                         document.getElementById('mySpan01').style.left = '-4000px'
-                                                         
-  }
-   
-    if(myHitOther('mySpan01','armbox3')){
-  //                                                       alert('hit')
-                                                         document.getElementById('mySpan01').style.left = '-4000px'
-                                                         
-  }
+  
+	if(myHitOther('mySpan02','knife')){
+	if(myKnifeHit == 0){
+	myKnifeHit = 1
+	myPlayerTwo.health -= 10
+	console.log(myPlayerTwo.health)
+	}
+	}
+	
 	}
 
 	function myOnKeyUpRight(player) {
@@ -537,8 +510,8 @@ clearInterval(myPlayerTwo.myVarRightAirDbl);
   if(parseInt(document.getElementById('mySpan01').style.left)<-1000){
   document.getElementById('mySpan01').style.left = -4000
   }
-  if(parseInt(document.getElementById('mySpan01').style.left)>900){
-  document.getElementById('mySpan01').style.left = 900
+  if(parseInt(document.getElementById('mySpan01').style.left)>900 - parseInt(document.getElementById('mySpan01').style.width)){
+  document.getElementById('mySpan01').style.left = 900 - parseInt(document.getElementById('mySpan01').style.width)
   }
   if(myPlayerOne.myInAnim == 1){
   myPlayerOne.gravitySpeed = 0
@@ -549,12 +522,20 @@ clearInterval(myPlayerTwo.myVarRightAirDbl);
   if(parseInt(document.getElementById('mySpan02').style.left)<-1000){
   document.getElementById('mySpan02').style.left = -4000
   }
-  if(parseInt(document.getElementById('mySpan02').style.left)>900){
-  document.getElementById('mySpan02').style.left = 900
+  if(parseInt(document.getElementById('mySpan02').style.left)>900 - parseInt(document.getElementById('mySpan02').style.width)){
+  document.getElementById('mySpan02').style.left = 900 - parseInt(document.getElementById('mySpan02').style.width)
   }
   if(myPlayerTwo.myInAnim == 1){
   myPlayerTwo.gravitySpeed = 0
   }
+  
+  if(((parseInt(document.getElementById('knife').style.left)<-50/*0 - width of knife*/) || (parseInt(document.getElementById('knife').style.left)>900)) && myKnifeOut == 1){/////////////MAKE BACKGROUND FOR OUTSIDE OF GAME AREA, THEN MAKE KNIFE Z-INDEX LESS THAN LAYOUT OF THAT LAYOUT
+  myKnifeOut = 0
+  myKnifeHit = 0
+  clearInterval(myKnifeInt)
+  document.getElementById('knife').style.left = -100
+  }
+  
 }
 
 //INPUTS AND AIRDASHES STUFF
@@ -634,6 +615,30 @@ if(myInp[3]==1 && myInp[1]==0){
 	},1)
 	setTimeout(function(){clearInterval(myTempInt,1)},150)
 }
+if(myInp[3]==0){
+	let myTempInt = setInterval(function(){
+	//document.getElementById('mySpan01').style.left = 9;
+	if(myInp[3]==1){
+	//document.getElementById('mySpan01').style.left = 9;
+	clearInterval(myTempInt,1);
+	myTempInt = setInterval(function(){
+		if(myInp[3]==0){
+		//document.getElementById('mySpan01').style.left = 9;
+			clearInterval(myTempInt,1);
+				myTempInt = setInterval(function(){
+				if(myInp[3]==1){
+				myPlayerOne.myFinishedInputDD=1
+				setTimeout(function(){myPlayerOne.myFinishedInputDD=0},100)
+				}
+				setTimeout(function(){clearInterval(myTempInt,1)},150)
+		},1)
+		}
+	},1)
+	setTimeout(function(){clearInterval(myTempInt,1)},150)
+	}
+	},1)
+	setTimeout(function(){clearInterval(myTempInt,1)},150)
+}
 
 //AIRDASH
 if(myInp[2]==1 && myPlayerOne.hasAirDashed < 2){
@@ -700,9 +705,17 @@ if(myPlayerOne.flipped == 0){
 myRag214()
 }																		//make timer as long as attack length
 }
-if(myAtk[0]==1 && myPlayerOne.myFinishedInputDFR == 0 && myPlayerOne.myInAnim == 0){
+if(myAtk[2]==1 && myPlayerOne.myFinishedInputDFR == 0 && myPlayerOne.myFinishedInputDBL == 0 && myPlayerOne.myFinishedInputDD == 1 && myPlayerOne.myInAnim == 0){
+//HADOUKEN
+myRag22()																	//make timer as long as attack length
+}
+if(myAtk[0]==1 && myPlayerOne.myFinishedInputDFR == 0 && myPlayerOne.myFinishedInputDBL == 0 && myPlayerOne.myFinishedInputDD == 0 && myPlayerOne.myInAnim == 0){
 //HADOUKEN
 myRag5U()																		//make timer as long as attack length
+}
+if(myAtk[2]==1 && myPlayerOne.myFinishedInputDFR == 0 && myPlayerOne.myFinishedInputDBL == 0 && myPlayerOne.myFinishedInputDD == 0 && myPlayerOne.myInAnim == 0){
+//HADOUKEN
+//myRag5J()																	//make timer as long as attack length
 }
 
 
@@ -942,6 +955,9 @@ myMoveRightAirDbl('Pl2')
 }
 
 //ATTACKS
+//VARIABLES
+var myKnifeOut = 0
+var myKnifeHit = 0
 //Pl1
 function myRag5U(){
 document.getElementById('mySpan01').style.left = 50;
@@ -972,6 +988,20 @@ myPlayerOne.myInAnim = 1
 setTimeout(function(){
 myPlayerOne.myInAnim = 0
 },1000)	
+}
+
+function myRag22(){
+if(myKnifeOut == 0){
+myKnifeOut = 1
+document.getElementById('knife').style.left = parseInt(document.getElementById('mySpan01').style.left) + 20
+document.getElementById('knife').style.top = parseInt(document.getElementById('mySpan01').style.top) + 40
+if(myPlayerOne.flipped == 0){
+myKnifeInt = setInterval(function(){ document.getElementById('knife').style.left = parseInt(document.getElementById('knife').style.left) + 2 },1)
+}
+if(myPlayerOne.flipped == 1){
+myKnifeInt = setInterval(function(){ document.getElementById('knife').style.left = parseInt(document.getElementById('knife').style.left) - 2 },1)
+}
+}
 }
 
 //Pl2
@@ -1005,8 +1035,8 @@ setTimeout(function(){
 myPlayerTwo.myInAnim = 0
 },1000)	
 }
-//ANIMATIONS
 
+//ANIMATIONS
 function myCharAnim(span,stance){//ADD ANOTHER VARIABLE TO PASS WHEN USING MULTIPLE CHARACTERS
 if(stance == 'idle'){
 if(span == 'mySpan01'){
@@ -1078,6 +1108,8 @@ function myGravUp(flip,span,player,bar,INP) {
 	this.myIgnoreRight = 0
 	this.myInAnim = 0
 	this.myFinishedInputDFR = 0
+	this.myFinishedInputDBL = 0
+	this.myFinishedInputDD = 0
 	this.myMoveRightOn = 0
 	this.myMoveLeftOn = 0
 	this.myMoveUpOn = 0
@@ -1141,7 +1173,8 @@ myPlayerOne.update();
 myPlayerTwo.update();
 myStopLeftRightMovement();
 myTestAttack();
-myHitting()
+myHitting();
+myWin();
 }
 
 function accelerate(n,player) {
@@ -1219,24 +1252,65 @@ setTimeout(function(){ accelerate(0.01,'Pl2'); }, 250);
 }
 }
 }//idea character that can choose the direction that they move after airdash. ex. holding left goes left, down goes down, right goes right. + 22 fastfall. Seth like character w/ TP
+
+//WIN SCRIPTS
+function myWin(){
+	if(myPlayerOne.health<=0 || myPlayerTwo.health<=0){
+	myClearAllInt()
+		if(myPlayerOne.health<=0 && myPlayerTwo.health<=0){
+		myPlayerOne.health=0
+		document.getElementById('bar1').value = myPlayerOne.health
+		myPlayerTwo.health=0
+		document.getElementById('bar2').value = myPlayerTwo.health
+		} else {
+			if(myPlayerOne.health<=0){
+			myPlayerOne.health=0
+			document.getElementById('bar1').value = myPlayerOne.health
+			document.getElementById('bar2').value = myPlayerTwo.health
+			}
+			if(myPlayerTwo.health<=0){
+			myPlayerTwo.health=0
+			document.getElementById('bar1').value = myPlayerOne.health
+			document.getElementById('bar2').value = myPlayerTwo.health
+			}
+		}
+	}
+}
+
+function myClearAllInt(){
+	clearInterval(myVarStart)
+	clearInterval(myKnifeInt)
+setInterval(function(){ 
+	clearInterval(myPlayerOne.myVarLeft)
+	clearInterval(myPlayerOne.myVarRight)
+	clearInterval(myPlayerOne.myVarLeftAir)
+	clearInterval(myPlayerOne.myVarRightAir)
+	clearInterval(myPlayerOne.myVarLeftAirDbl)
+	clearInterval(myPlayerOne.myVarRightAirDbl)
+	clearInterval(myPlayerOne.AirBack)
+	clearInterval(myPlayerOne.AirFront)
+	clearInterval(myPlayerTwo.myVarLeft)
+	clearInterval(myPlayerTwo.myVarRight)
+	clearInterval(myPlayerTwo.myVarLeftAir)
+	clearInterval(myPlayerTwo.myVarRightAir)
+	clearInterval(myPlayerTwo.myVarLeftAirDbl)
+	clearInterval(myPlayerTwo.myVarRightAirDbl)
+	clearInterval(myPlayerTwo.AirBack)
+	clearInterval(myPlayerTwo.AirFront)
+	},1)
+}
 </script>
+<img src="background.png" id="background" style="position:absolute;left:0;top:0;width:900;z-index:-1">
+<h1 align=center style="position:absolute;top:505;">T3A07-code-AydanN.html</h1>
+<progress id="bar1" value="100" max="100" style="position:absolute;left:10;width:400;height:50;transform:rotate(0deg)"></progress><progress id="bar2" value="100" max="100" style="position:absolute;left:490;width:400;height:50;transform:rotate(180deg)"></progress>
 
-<h1 align=center>T3A07-code-AydanN.html</h1>
-<progress id="bar1" value="100" max="100"></progress><progress id="bar2" value="100" max="100"></progress>
-
-Use the WASD to move.
+<b style="position:absolute;top:575;left:0;">Use the WASD to move.</b>
 
 
  <img src="https://i.imgur.com/rkq4hfi.png" id="mySpan01" class="myMC" style="position:absolute; left:250; top:300; width:43; height:98;"><br>
  <img src="https://i.pinimg.com/originals/9f/5b/cb/9f5bcb25f483139614fceeb40a8ab45f.png" id="mySpan02" style="position:absolute; left:300; top:400; width:51; height:70;"><br>
  <img src="https://play.nintendo.com/images/profile-mk-goomba.7bf2a8f2.aead314d58b63e27.png" id="mySpan03" style="position:absolute; left:200; top:300; width:50; height:50;"><br>
- <img src="https://thumbs.gfycat.com/OilyUnconsciousDobermanpinscher-size_restricted.gif" id="myVillain01" style="position:absolute; left:400; top:350; width:384; height:264;"><br>
- <span id="armbox1" style="position:absolute; left:400; top:350; width:150; height:264;"></span>
- <span id="armbox2" style="position:absolute; left:650; top:350; width:100; height:264;"></span>
- <span id="armbox3" style="position:absolute; left:400; top:350; width:350; height:132;"></span>
- <span id="hitbox" style="position:absolute; left:550; top:482; width:100; height:132;"></span>
-
-
+ <img src="cat3.jpg" id="knife" style="position:absolute; left:-100; width:50; height:45;">
 
 
 </body>
