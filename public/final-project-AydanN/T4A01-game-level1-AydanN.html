@@ -4,6 +4,8 @@
 </head>
 <body onload="startGame()"
 
+style="height:100%; overflow-y:hidden; overflow-x:hidden;"
+
 onKeyDown="{
   var myArrowKey = event.keyCode
   
@@ -206,6 +208,24 @@ function myHitOther(my1,my2){
 	myPlayerTwo.health -= 10
 	console.log(myPlayerTwo.health)
 	}
+	}
+	
+	if(myHitOther('mySpan01','knife2')){
+	if(myKnifeHit2 == 0){
+	myKnifeHit2 = 1
+	myPlayerOne.health -= 10
+	console.log(myPlayerOne.health)
+	}
+	}
+  
+	if(myHitOther('mySpan02','attack')){
+	myPlayerTwo.health -= 0.1
+	console.log(myPlayerTwo.health)
+	}
+	
+	if(myHitOther('mySpan01','attack2')){
+	myPlayerOne.health -= 0.1
+	console.log(myPlayerOne.health)
 	}
 	
 	}
@@ -536,6 +556,13 @@ clearInterval(myPlayerTwo.myVarRightAirDbl);
   document.getElementById('knife').style.left = -100
   }
   
+  if(((parseInt(document.getElementById('knife2').style.left)<-50/*0 - width of knife*/) || (parseInt(document.getElementById('knife2').style.left)>900)) && myKnifeOut2 == 1){/////////////MAKE BACKGROUND FOR OUTSIDE OF GAME AREA, THEN MAKE KNIFE Z-INDEX LESS THAN LAYOUT OF THAT LAYOUT
+  myKnifeOut2 = 0
+  myKnifeHit2 = 0
+  clearInterval(myKnifeInt2)
+  document.getElementById('knife2').style.left = -100
+  }
+  
 }
 
 //INPUTS AND AIRDASHES STUFF
@@ -687,33 +714,33 @@ if(myInp[1]==1 && myPlayerOne.hasAirDashed < 2){
 }
 
 // ATTACK BUTTONS
-if(myAtk[0]==1 && myPlayerOne.myFinishedInputDFR == 1 && myPlayerOne.myInAnim == 0){
+//if(myAtk[0]==1 && myPlayerOne.myFinishedInputDFR == 1 && myPlayerOne.myInAnim == 0){
 //HADOUKEN
-if(myPlayerOne.flipped == 0){
-myRag236()
-}
-if(myPlayerOne.flipped == 1){
-myRag214()
-}																		//make timer as long as attack length
-}
-if(myAtk[0]==1 && myPlayerOne.myFinishedInputDBL == 1 && myPlayerOne.myInAnim == 0){
+//if(myPlayerOne.flipped == 0){
+//myRag236()
+//}
+//if(myPlayerOne.flipped == 1){
+//myRag214()
+//}																		//make timer as long as attack length
+//}
+//if(myAtk[0]==1 && myPlayerOne.myFinishedInputDBL == 1 && myPlayerOne.myInAnim == 0){
 //HADOUKEN
-if(myPlayerOne.flipped == 1){
-myRag236()
-}
-if(myPlayerOne.flipped == 0){
-myRag214()
-}																		//make timer as long as attack length
-}
-if(myAtk[2]==1 && myPlayerOne.myFinishedInputDFR == 0 && myPlayerOne.myFinishedInputDBL == 0 && myPlayerOne.myFinishedInputDD == 1 && myPlayerOne.myInAnim == 0){
+//if(myPlayerOne.flipped == 1){
+//myRag236()
+//}
+//if(myPlayerOne.flipped == 0){
+//myRag214()
+//}																		//make timer as long as attack length
+//}
+if(myAtk[2]==1 && myPlayerOne.myInAnim == 0){
 //HADOUKEN
 myRag22()																	//make timer as long as attack length
 }
-if(myAtk[0]==1 && myPlayerOne.myFinishedInputDFR == 0 && myPlayerOne.myFinishedInputDBL == 0 && myPlayerOne.myFinishedInputDD == 0 && myPlayerOne.myInAnim == 0){
+if(myAtk[0]==1 && myPlayerOne.myInAnim == 0){
 //HADOUKEN
 myRag5U()																		//make timer as long as attack length
 }
-if(myAtk[2]==1 && myPlayerOne.myFinishedInputDFR == 0 && myPlayerOne.myFinishedInputDBL == 0 && myPlayerOne.myFinishedInputDD == 0 && myPlayerOne.myInAnim == 0){
+if(myAtk[2]==1 && myPlayerOne.myInAnim == 0){
 //HADOUKEN
 //myRag5J()																	//make timer as long as attack length
 }
@@ -804,27 +831,31 @@ if(myInpTwo[1]==1 && myPlayerTwo.hasAirDashed < 2){
 }
 
 // ATTACK BUTTONS
-if(myAtkTwo[0]==1 && myPlayerTwo.myFinishedInputDFR == 1 && myPlayerTwo.myInAnim == 0){
+//if(myAtkTwo[0]==1 && myPlayerTwo.myFinishedInputDFR == 1 && myPlayerTwo.myInAnim == 0){
 //HADOUKEN
-if(myPlayerTwo.flipped == 0){
-myKoop236()
-}
-if(myPlayerTwo.flipped == 1){
-myKoop214()
-}																		//make timer as long as attack length
-}
-if(myAtkTwo[0]==1 && myPlayerTwo.myFinishedInputDBL == 1 && myPlayerTwo.myInAnim == 0){
+//if(myPlayerTwo.flipped == 0){
+//myKoop236()
+//}
+//if(myPlayerTwo.flipped == 1){
+//myKoop214()
+//}																		//make timer as long as attack length
+//}
+//if(myAtkTwo[0]==1 && myPlayerTwo.myFinishedInputDBL == 1 && myPlayerTwo.myInAnim == 0){
 //HADOUKEN
-if(myPlayerTwo.flipped == 1){
-myKoop236()
-}
-if(myPlayerTwo.flipped == 0){
-myKoop214()
-}																//make timer as long as attack length
-}
-if(myAtkTwo[0]==1 && myPlayerTwo.myFinishedInputDFR == 0 && myPlayerTwo.myInAnim == 0){
+//if(myPlayerTwo.flipped == 1){
+//myKoop236()
+//}
+//if(myPlayerTwo.flipped == 0){
+//myKoop214()
+//}																//make timer as long as attack length
+//}
+if(myAtkTwo[0]==1 && myPlayerTwo.myInAnim == 0){
 //HADOUKEN
 myKoop5U()																		//make timer as long as attack length
+}
+if(myAtkTwo[2]==1 && myPlayerTwo.myInAnim == 0){
+//HADOUKEN
+myKoop22()																		//make timer as long as attack length
 }
 }
 
@@ -958,37 +989,48 @@ myMoveRightAirDbl('Pl2')
 //VARIABLES
 var myKnifeOut = 0
 var myKnifeHit = 0
+var myKnifeOut2 = 0
+var myKnifeHit2 = 0
+var mySwordInt
+var mySwordInt2
 //Pl1
 function myRag5U(){
-document.getElementById('mySpan01').style.left = 50;
-myPlayerOne.myInAnim = 1
-//myCharAnim('mySpan01','5U')
+clearInterval(mySwordInt)
+if(myPlayerOne.flipped == 0){
+	mySwordInt = setInterval(function(){document.getElementById('attack').style.left = parseInt(document.getElementById('mySpan01').style.left); document.getElementById('attack').style.top = parseInt(document.getElementById('mySpan01').style.top) + 40},1)
+	document.getElementById('attack').style.transform = "scaleX(-1)"
+}
+if(myPlayerOne.flipped == 1){
+	mySwordInt = setInterval(function(){document.getElementById('attack').style.left = parseInt(document.getElementById('mySpan01').style.left) - 132; document.getElementById('attack').style.top = parseInt(document.getElementById('mySpan01').style.top) + 40},1)
+	document.getElementById('attack').style.transform = "scaleX(1)"
+}
 setTimeout(function(){
-myPlayerOne.myInAnim = 0
+clearInterval(mySwordInt)
+document.getElementById('attack').style.left = -1000
 },1000)	
 }
 
-function myRag214(){
-myPlayerOne.myFinishedInputDFR = 0
-myPlayerOne.myFinishedInputDBL = 0
-document.getElementById('mySpan01').style.left = 100;
-myPlayerOne.myInAnim = 1
+//function myRag214(){
+//myPlayerOne.myFinishedInputDFR = 0
+//myPlayerOne.myFinishedInputDBL = 0
+//document.getElementById('mySpan01').style.left = 100;
+//myPlayerOne.myInAnim = 1
 //myCharAnim('mySpan01','214')
-setTimeout(function(){
-myPlayerOne.myInAnim = 0
-},500)	
-}
+//setTimeout(function(){
+//myPlayerOne.myInAnim = 0
+//},500)	
+//}
 
-function myRag236(){
-myPlayerOne.myFinishedInputDFR = 0
-myPlayerOne.myFinishedInputDBL = 0
-document.getElementById('mySpan01').style.left = 9;
-myPlayerOne.myInAnim = 1
+//function myRag236(){
+//myPlayerOne.myFinishedInputDFR = 0
+//myPlayerOne.myFinishedInputDBL = 0
+//document.getElementById('mySpan01').style.left = 9;
+//myPlayerOne.myInAnim = 1
 //myCharAnim('mySpan01','236')
-setTimeout(function(){
-myPlayerOne.myInAnim = 0
-},1000)	
-}
+//setTimeout(function(){
+//myPlayerOne.myInAnim = 0
+//},1000)	
+//}
 
 function myRag22(){
 if(myKnifeOut == 0){
@@ -1006,15 +1048,36 @@ myKnifeInt = setInterval(function(){ document.getElementById('knife').style.left
 
 //Pl2
 function myKoop5U(){
-document.getElementById('mySpan02').style.left = 50;
-myPlayerTwo.myInAnim = 1
-//myCharAnim('mySpan02','5U')
+clearInterval(mySwordInt2)
+if(myPlayerTwo.flipped == 0){
+	mySwordInt2 = setInterval(function(){document.getElementById('attack2').style.left = parseInt(document.getElementById('mySpan02').style.left); document.getElementById('attack2').style.top = parseInt(document.getElementById('mySpan02').style.top) + 40},1)
+	document.getElementById('attack2').style.transform = "scaleX(-1)"
+}
+if(myPlayerTwo.flipped == 1){
+	mySwordInt2 = setInterval(function(){document.getElementById('attack2').style.left = parseInt(document.getElementById('mySpan02').style.left) - 132; document.getElementById('attack2').style.top = parseInt(document.getElementById('mySpan02').style.top) + 40},1)
+	document.getElementById('attack2').style.transform = "scaleX(1)"
+}
 setTimeout(function(){
-myPlayerTwo.myInAnim = 0
-},1000)	
+clearInterval(mySwordInt2)
+document.getElementById('attack2').style.left = -1000
+},1000)
 }
 
-function myKoop214(){
+function myKoop22(){
+if(myKnifeOut2 == 0){
+myKnifeOut2 = 1
+document.getElementById('knife2').style.left = parseInt(document.getElementById('mySpan02').style.left) + 20
+document.getElementById('knife2').style.top = parseInt(document.getElementById('mySpan02').style.top) + 20
+if(myPlayerTwo.flipped == 0){
+myKnifeInt2 = setInterval(function(){ document.getElementById('knife2').style.left = parseInt(document.getElementById('knife2').style.left) + 2 },1)
+}
+if(myPlayerTwo.flipped == 1){
+myKnifeInt2 = setInterval(function(){ document.getElementById('knife2').style.left = parseInt(document.getElementById('knife2').style.left) - 2 },1)
+}
+}
+}
+
+/*function myKoop214(){
 myPlayerTwo.myFinishedInputDFR = 0
 myPlayerTwo.myFinishedInputDBL = 0
 document.getElementById('mySpan02').style.left = 100;
@@ -1034,10 +1097,10 @@ myPlayerTwo.myInAnim = 1
 setTimeout(function(){
 myPlayerTwo.myInAnim = 0
 },1000)	
-}
+}*/
 
 //ANIMATIONS
-function myCharAnim(span,stance){//ADD ANOTHER VARIABLE TO PASS WHEN USING MULTIPLE CHARACTERS
+/*function myCharAnim(span,stance){//ADD ANOTHER VARIABLE TO PASS WHEN USING MULTIPLE CHARACTERS
 if(stance == 'idle'){
 if(span == 'mySpan01'){
 document.getElementById('mySpan01').src = "https://i.imgur.com/rkq4hfi.png"//MYCHARACTERIDLE
@@ -1077,16 +1140,16 @@ document.getElementById('mySpan01').src = //MYCHARACTER214
 if(span == 'mySpan02'){
 document.getElementById('mySpan02').src = //MYCHARACTER214
 }
-}*/
+}
 if(stance == '5U'){
 if(span == 'mySpan01'){
 document.getElementById('mySpan01').src = "https://i.pinimg.com/originals/9f/5b/cb/9f5bcb25f483139614fceeb40a8ab45f.png"//MYCHARACTER5U
 }
 /*if(span == 'mySpan02'){
 document.getElementById('mySpan02').src = //MYCHARACTER5U
+}
+}
 }*/
-}
-}
 
 //GAME GRAVITY JUMP UPDATE AND STUFF
 var myPlayerOne;
@@ -1155,7 +1218,7 @@ function myGravUp(flip,span,player,bar,INP) {
 		setTimeout(function() { myMoveRightAir(player) },50)
 		}
 		if(this.myInAnim == 0){
-		myCharAnim(span,'idle')
+//		myCharAnim(span,'idle')
 		}
 		}
 	}
@@ -1195,7 +1258,7 @@ myPlayerOne.gravity = 0;
 myPlayerOne.speedY = 0;
 myPlayerOne.myInAnim = 1
 myPlayerOne.justJumped = 1
-myCharAnim('mySpan01','jump')
+//myCharAnim('mySpan01','jump')
 setTimeout(function(){ myPlayerOne.myInAnim = 0; myPlayerOne.justJumped = 0; accelerate(-0.03,'Pl1') },50)//set time of gif
 setTimeout(function(){ if(myPlayerOne.hasDblJumped == 0) { accelerate(0.01,'Pl1'); } }, 250);
 }
@@ -1207,7 +1270,7 @@ myPlayerTwo.gravity = 0;
 myPlayerTwo.speedY = 0;
 myPlayerTwo.myInAnim = 1
 myPlayerTwo.justJumped = 1
-myCharAnim('mySpan02','jump')
+//myCharAnim('mySpan02','jump')
 setTimeout(function(){ myPlayerTwo.myInAnim = 0; myPlayerTwo.justJumped = 0; accelerate(-0.03,'Pl2') },50)//set time of gif
 setTimeout(function(){ if(myPlayerTwo.hasDblJumped == 0) { accelerate(0.01,'Pl2'); } }, 250);
 }
@@ -1256,61 +1319,33 @@ setTimeout(function(){ accelerate(0.01,'Pl2'); }, 250);
 //WIN SCRIPTS
 function myWin(){
 	if(myPlayerOne.health<=0 || myPlayerTwo.health<=0){
-	myClearAllInt()
-		if(myPlayerOne.health<=0 && myPlayerTwo.health<=0){
-		myPlayerOne.health=0
-		document.getElementById('bar1').value = myPlayerOne.health
-		myPlayerTwo.health=0
-		document.getElementById('bar2').value = myPlayerTwo.health
-		} else {
-			if(myPlayerOne.health<=0){
-			myPlayerOne.health=0
-			document.getElementById('bar1').value = myPlayerOne.health
-			document.getElementById('bar2').value = myPlayerTwo.health
-			}
-			if(myPlayerTwo.health<=0){
-			myPlayerTwo.health=0
-			document.getElementById('bar1').value = myPlayerOne.health
-			document.getElementById('bar2').value = myPlayerTwo.health
-			}
-		}
+	if(myPlayerOne.health == myPlayerTwo.health){ setInterval(function(){if(myPlayerOne.myInAnim==0 && myPlayerTwo.myInAnim==0){document.getElementById('myTie').style.left = 0}},10) }
+	if(myPlayerOne.health > myPlayerTwo.health){ setInterval(function(){if(myPlayerOne.myInAnim==0 && myPlayerTwo.myInAnim==0){document.getElementById('myPl1Wins').style.left = 0}},10) }
+	if(myPlayerTwo.health > myPlayerOne.health){ setInterval(function(){if(myPlayerOne.myInAnim==0 && myPlayerTwo.myInAnim==0){document.getElementById('myPl2Wins').style.left = 0}},10) }
 	}
-}
-
-function myClearAllInt(){
-	clearInterval(myVarStart)
-	clearInterval(myKnifeInt)
-setInterval(function(){ 
-	clearInterval(myPlayerOne.myVarLeft)
-	clearInterval(myPlayerOne.myVarRight)
-	clearInterval(myPlayerOne.myVarLeftAir)
-	clearInterval(myPlayerOne.myVarRightAir)
-	clearInterval(myPlayerOne.myVarLeftAirDbl)
-	clearInterval(myPlayerOne.myVarRightAirDbl)
-	clearInterval(myPlayerOne.AirBack)
-	clearInterval(myPlayerOne.AirFront)
-	clearInterval(myPlayerTwo.myVarLeft)
-	clearInterval(myPlayerTwo.myVarRight)
-	clearInterval(myPlayerTwo.myVarLeftAir)
-	clearInterval(myPlayerTwo.myVarRightAir)
-	clearInterval(myPlayerTwo.myVarLeftAirDbl)
-	clearInterval(myPlayerTwo.myVarRightAirDbl)
-	clearInterval(myPlayerTwo.AirBack)
-	clearInterval(myPlayerTwo.AirFront)
-	},1)
 }
 </script>
 <img src="images/background.png" id="background" style="position:absolute;left:0;top:0;width:900;z-index:-1">
-<h1 align=center style="position:absolute;top:505;">T3A07-code-AydanN.html</h1>
+<h1 align=center style="position:absolute;top:505;z-index:8;color:#fdfdfd;">T3A07-code-AydanN.html</h1>
 <progress id="bar1" value="100" max="100" style="position:absolute;left:10;width:400;height:50;transform:rotate(0deg)"></progress><progress id="bar2" value="100" max="100" style="position:absolute;left:490;width:400;height:50;transform:rotate(180deg)"></progress>
 
-<b style="position:absolute;top:575;left:0;">Use the WASD to move.</b>
+ <span id="myPl1Wins" style="position:absolute;left:-1000;top:0;width:900;height:504;font-size:7em;z-index:10;background-color:black;color:red;"><br><center>Player One<br>Wins</center></span>
+ <span id="myPl2Wins" style="position:absolute;left:-1000;top:0;width:900;height:504;font-size:7em;z-index:10;background-color:black;color:red;"><br><center>Player Two<br>Wins</center></span>
+ <span id="myTie" style="position:absolute;left:-1000;top:0;width:900;height:504;font-size:7em;z-index:10;background-color:black;color:red;"><br><center>Tie</center></span>
+
+<b style="position:absolute;top:575;left:0;z-index:8;color:#fdfdfd;">Use the WASD to move.</b>
 
 
  <img src="https://i.imgur.com/rkq4hfi.png" id="mySpan01" class="myMC" style="position:absolute; left:250; top:300; width:43; height:98;"><br>
  <img src="https://i.pinimg.com/originals/9f/5b/cb/9f5bcb25f483139614fceeb40a8ab45f.png" id="mySpan02" style="position:absolute; left:300; top:400; width:51; height:70;"><br>
  <img src="https://play.nintendo.com/images/profile-mk-goomba.7bf2a8f2.aead314d58b63e27.png" id="mySpan03" style="position:absolute; left:200; top:300; width:50; height:50;"><br>
- <img src="images/cat3.JPG" id="knife" style="position:absolute; left:-100; width:50; height:45;">
+ <img src="images/cat3.png" id="knife" style="position:absolute; left:-100; width:45; height:45;">
+ <img src="images/cat3.png" id="knife2" style="position:absolute; left:-100; width:45; height:45;">
+ <img src="images/SephiMasa.png" id="attack" style="position:absolute; left:-1000; width:182;height:19;">
+ <img src="images/SephiMasa.png" id="attack2" style="position:absolute; left:-1000; width:182;height:19;">
+
+ <span style="position:absolute;top:0;left:900;height:1000;width:700;background-color:black;z-index:7;"></span>
+ <span style="position:absolute;top:504;left:0;height:700;width:1000;background-color:black;z-index:7;"></span>
 
 
 </body>
