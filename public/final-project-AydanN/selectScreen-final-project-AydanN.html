@@ -1,4 +1,7 @@
-<html>
+<html> 
+<head>
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+</head>
 <body style="background-color:black;color:white;" onload="load()">
 <script>
 myInt = setInterval(function(){if(sessionStorage.getItem('stage') == null && sessionStorage.getItem('songName') == null){document.getElementById('myInfo').innerHTML = "Stage: <br>Music: "} else if(sessionStorage.getItem('stage') != null && sessionStorage.getItem('songName') == null){document.getElementById('myInfo').innerHTML = "Stage: " + sessionStorage.getItem('stage') + "<br>Music: "} else if(sessionStorage.getItem('stage') == null && sessionStorage.getItem('songName') != null){document.getElementById('myInfo').innerHTML = "Stage: <br>Music: " + sessionStorage.getItem('songName')} else {document.getElementById('myInfo').innerHTML = "Stage: " + sessionStorage.getItem('stage') + "<br>Music: " + sessionStorage.getItem('songName');}},1)
