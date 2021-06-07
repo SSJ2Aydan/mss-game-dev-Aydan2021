@@ -2663,7 +2663,8 @@ var isPl1Inv = false
 var Pl1Inv = 0
 var isPl2Inv = false
 var Pl2Inv = 0
-var myGotHit=0
+var myGotHit = 0
+var hasWon = 0
 function myJustHit(player,time,hp){
 if(player == 'Pl2' && isPl2Inv == false){
 isPl2Inv = true
@@ -2688,9 +2689,9 @@ function myWin(){
 	}
 	if(myPlayerOne.health<=0 || myPlayerTwo.health<=0){
 	clearInterval(myTimeStart)
-	if(myPlayerOne.health == myPlayerTwo.health){ setInterval(function(){if(myPlayerOne.myInAnim==0 && myPlayerTwo.myInAnim==0){document.getElementById('myTie').style.left = 0}},10) }
-	if(myPlayerOne.health > myPlayerTwo.health){ setInterval(function(){if(myPlayerOne.myInAnim==0 && myPlayerTwo.myInAnim==0){document.getElementById('myPl1Wins').style.left = 0}},10) }
-	if(myPlayerTwo.health > myPlayerOne.health){ setInterval(function(){if(myPlayerOne.myInAnim==0 && myPlayerTwo.myInAnim==0){document.getElementById('myPl2Wins').style.left = 0}},10) }
+	if(myPlayerOne.health == myPlayerTwo.health && hasWon==0){ hasWon=1; setInterval(function(){if(myPlayerOne.myInAnim==0 && myPlayerTwo.myInAnim==0){document.getElementById('myTie').style.left = 0}},10) }
+	if(myPlayerOne.health > myPlayerTwo.health && hasWon==0){ hasWon=1; setInterval(function(){if(myPlayerOne.myInAnim==0 && myPlayerTwo.myInAnim==0){document.getElementById('myPl1Wins').style.left = 0}},10) }
+	if(myPlayerTwo.health > myPlayerOne.health && hasWon==0){ hasWon=1; setInterval(function(){if(myPlayerOne.myInAnim==0 && myPlayerTwo.myInAnim==0){document.getElementById('myPl2Wins').style.left = 0}},10) }
 	}
 }
 </script>
