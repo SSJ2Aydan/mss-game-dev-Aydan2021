@@ -21,11 +21,15 @@ document.getElementById('dodo').style.color = "rgb(255,255,255)"
 
 function clearMus(){
 document.getElementById('Beat').style.backgroundColor = "rgb(0,0,0)"
+document.getElementById('SeverePerson').style.backgroundColor = "rgb(0,0,0)"
+document.getElementById('ArcueidTheme').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('Emiya').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('Vegito').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('conciliation').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('OverwhelmDespair').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('Beat').style.color = "rgb(255,255,255)"
+document.getElementById('SeverePerson').style.backgroundColor = "rgb(0,0,0)"
+document.getElementById('ArcueidTheme').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('Emiya').style.color = "rgb(255,255,255)"
 document.getElementById('Vegito').style.color = "rgb(255,255,255)"
 document.getElementById('conciliation').style.color = "rgb(255,255,255)"
@@ -57,6 +61,14 @@ document.getElementById('dodo').style.color = "rgb(0,0,0)"
 if(sessionStorage.getItem('songName') == 'Beat from "Melty Blood"'){
 document.getElementById('Beat').style.backgroundColor = "rgb(255,255,255)"
 document.getElementById('Beat').style.color = "rgb(0,0,0)"
+}
+if(sessionStorage.getItem('songName') == 'Severe Person from "Melty Blood"'){
+document.getElementById('SeverePerson').style.backgroundColor = "rgb(255,255,255)"
+document.getElementById('SeverePerson').style.color = "rgb(0,0,0)"
+}
+if(sessionStorage.getItem('songName') == 'The Theme of Arcueid from "Melty Blood"'){
+document.getElementById('ArcueidTheme').style.backgroundColor = "rgb(255,255,255)"
+document.getElementById('ArcueidTheme').style.color = "rgb(0,0,0)"
 }
 if(sessionStorage.getItem('songName') == 'Emiya Theme'){
 document.getElementById('Emiya').style.backgroundColor = "rgb(255,255,255)"
@@ -118,6 +130,22 @@ clearMus()
 document.getElementById('Beat').style.backgroundColor = "rgb(255,255,255)"
 document.getElementById('Beat').style.color = "rgb(0,0,0)"
 }
+	
+function SeverePerson(){
+sessionStorage.setItem('myAudioFile','Severe person from Melty Blood -Remastering-.mp3')
+sessionStorage.setItem('songName','Severe Person from "Melty Blood"')
+clearMus()
+document.getElementById('SeverePerson').style.backgroundColor = "rgb(255,255,255)"
+document.getElementById('SeverePerson').style.color = "rgb(0,0,0)"
+}
+	
+function ArcueidTheme(){
+sessionStorage.setItem('myAudioFile','sounds/The theme of Arcueid from Melty Blood -Remastering-.mp3')
+sessionStorage.setItem('songName','The Theme of Arcueid from "Melty Blood"')
+clearMus()
+document.getElementById('ArcueidTheme').style.backgroundColor = "rgb(255,255,255)"
+document.getElementById('ArcueidTheme').style.color = "rgb(0,0,0)"
+}
 
 function Emiya(){
 sessionStorage.setItem('myAudioFile','sounds/Fatestay night Unlimited Blade Works OST II  19 Emiya UBW Extended.mp3')
@@ -167,6 +195,8 @@ location="game-final-project-AydanN.html"
 </table>
 <table border=1 style="float: ;width: 400; height: 250;">
 <tr><td id="Beat" onclick="Beat()">Beat from "Melty Blood"</td></tr>
+<tr><td id="SeverePerson" onclick="SeverePerson()">Severe Person from "Melty Blood"</td></tr>
+<tr><td id="ArcueidTheme" onclick="ArcueidTheme()">The Theme of Arcueid from "Melty Blood"</td></tr>
 <tr><td id="Emiya" onclick="Emiya()">Emiya Theme</td></tr>
 <tr><td id="Vegito" onclick="Vegito()">Super Vegito OST</td></tr>
 <tr><td id="conciliation" onclick="conciliation()">conciliation</td></tr>
