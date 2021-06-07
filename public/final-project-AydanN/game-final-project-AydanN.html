@@ -15,11 +15,11 @@ onKeyDown="{
   if (myArrowKey == 83 && myPlayerOne.myMoveDownOn == 0) {
     myInput(3);
 }
-if (myArrowKey == 68 && myPlayerOne.myMoveRightOn == 0) {
+  if (myArrowKey == 68 && myPlayerOne.myMoveRightOn == 0) {
   myOnKeyDownRight(1,'Pl1')
   myInput(2);
 }
-if (myArrowKey == 87 && myPlayerOne.myMoveUpOn == 0) {
+  if (myArrowKey == 87 && myPlayerOne.myMoveUpOn == 0) {
   myInput(0);
   myDblJump('Pl1');
   myPlayerOne.myUpHeld += 1
@@ -29,121 +29,121 @@ if (myArrowKey == 87 && myPlayerOne.myMoveUpOn == 0) {
   myInput(1);
 }
   if(myArrowKey==85){
-  myAttack(0);
+    myAttack(0);
   }
   if(myArrowKey==73){
-  myAttack(1);
+    myAttack(1);
   }
   if(myArrowKey==79){
-  myAttack(2);
+    myAttack(2);
   }
   if(myArrowKey==74){
-  myAttack(3);
+    myAttack(3);
   }
   
 //P2
   if (myArrowKey == 13) {
-  myPlayerTwo.myShiftKey = 1
-}
+    myPlayerTwo.myShiftKey = 1
+  }
   if (myArrowKey == 40 && myPlayerTwo.myMoveDownOn == 0) {
     myInputTwo(3);
-}
-if (myArrowKey == 39 && myPlayerTwo.myMoveRightOn == 0) {
-  myOnKeyDownRight(1,'Pl2')
-  myInputTwo(2);
-}
-if (myArrowKey == 38 && myPlayerTwo.myMoveUpOn == 0) {
-  myInputTwo(0);
-  myDblJump('Pl2');
-  myPlayerTwo.myUpHeld += 1
-}
- if (myArrowKey == 37 && myPlayerTwo.myMoveLeftOn == 0) {
-  myOnKeyDownLeft(1,'Pl2')
-  myInputTwo(1);
-}
+  }
+  if (myArrowKey == 39 && myPlayerTwo.myMoveRightOn == 0) {
+    myOnKeyDownRight(1,'Pl2')
+    myInputTwo(2);
+  }
+  if (myArrowKey == 38 && myPlayerTwo.myMoveUpOn == 0) {
+    myInputTwo(0);
+    myDblJump('Pl2');
+    myPlayerTwo.myUpHeld += 1
+  }
+  if (myArrowKey == 37 && myPlayerTwo.myMoveLeftOn == 0) {
+    myOnKeyDownLeft(1,'Pl2')
+    myInputTwo(1);
+  }
   if(myArrowKey==103){
-  myAttackTwo(0);
+    myAttackTwo(0);
   }
   if(myArrowKey==104){
-  myAttackTwo(1);
+    myAttackTwo(1);
   }
   if(myArrowKey==105){
-  myAttackTwo(2);
+    myAttackTwo(2);
   }
   if(myArrowKey==100){
-  myAttackTwo(3);
+    myAttackTwo(3);
   }
 }"
 
 onkeyup="{
   let myArrowKey = event.keyCode
   if (myArrowKey == 16){
-  myPlayerOne.myShiftKey = 0
+    myPlayerOne.myShiftKey = 0
   }
   if (myArrowKey == 83){
-  myInputRelease(3)
+    myInputRelease(3)
   }
   if (myArrowKey == 68){
-  myOnKeyUpRight('Pl1')
-  myInputRelease(2)
+    myOnKeyUpRight('Pl1')
+    myInputRelease(2)
   }
   if (myArrowKey == 87){
-  myPlayerOne.myUpHeld = 0
-  myInputRelease(0)
+    myPlayerOne.myUpHeld = 0
+    myInputRelease(0)
   }
   if (myArrowKey == 65){
-  myOnKeyUpLeft('Pl1')
-  myInputRelease(1)
+    myOnKeyUpLeft('Pl1')
+    myInputRelease(1)
   }
   if(myArrowKey==85){
-  myAttackRelease(0)
+    myAttackRelease(0)
   }
   if(myArrowKey==73){
-  myAttackRelease(1)
+    myAttackRelease(1)
   }
   if(myArrowKey==79){
-  myAttackRelease(2)
+    myAttackRelease(2)
   }
   if(myArrowKey==74){
-  myAttackRelease(3)
-  if(Pl1IsCharging==1){
-  Pl1IsCharging=0
-  }
+    myAttackRelease(3)
+    if(Pl1IsCharging==1){
+      Pl1IsCharging=0
+    }
   }
   
 //P2
   if (myArrowKey == 13){
-  myPlayerTwo.myShiftKey = 0
+    myPlayerTwo.myShiftKey = 0
   }
   if (myArrowKey == 40){
-  myInputTwoRelease(3)
+    myInputTwoRelease(3)
   }
   if (myArrowKey == 39){
-  myOnKeyUpRight('Pl2')
-  myInputTwoRelease(2)
+    myOnKeyUpRight('Pl2')
+    myInputTwoRelease(2)
   }
   if (myArrowKey == 38){
-  myPlayerTwo.myUpHeld = 0
-  myInputTwoRelease(0)
+    myPlayerTwo.myUpHeld = 0
+    myInputTwoRelease(0)
   }
   if (myArrowKey == 37){
-  myOnKeyUpLeft('Pl2')
-  myInputTwoRelease(1)
+    myOnKeyUpLeft('Pl2')
+    myInputTwoRelease(1)
   }
   if(myArrowKey==103){
-  myAttackTwoRelease(0)
+    myAttackTwoRelease(0)
   }
   if(myArrowKey==104){
-  myAttackTwoRelease(1)
+    myAttackTwoRelease(1)
   }
   if(myArrowKey==105){
-  myAttackTwoRelease(2)
+    myAttackTwoRelease(2)
   }
   if(myArrowKey==100){
-  myAttackTwoRelease(3)
-  if(Pl2IsCharging==1){
-  Pl2IsCharging=0
-  }
+    myAttackTwoRelease(3)
+    if(Pl2IsCharging==1){
+      Pl2IsCharging=0
+    }
   }
 }"
 
@@ -238,13 +238,13 @@ function myHitOtherSuper(my1,my2){
    }
 }
 var Pl2CharAnim = 0
-	function myHitting(){
+function myHitting(){
 	if((parseInt(document.getElementById('mySpan02').style.left) + (parseInt(document.getElementById('mySpan02').style.width)/2)) > (parseInt(document.getElementById('mySpan01').style.left) + (parseInt(document.getElementById('mySpan01').style.width)/2))){
 		if(myPlayerOne.myInAnim == 0){
-		document.getElementById('mySpan01').style.transform = "scaleX(1)"
+			document.getElementById('mySpan01').style.transform = "scaleX(1)"
 		}
 		if(myPlayerTwo.myInAnim == 0){
-		document.getElementById('mySpan02').style.transform = "scaleX(-1)"
+			document.getElementById('mySpan02').style.transform = "scaleX(-1)"
 		}
 		myPlayerOne.flipped = 0
 		myPlayerTwo.flipped = 1
@@ -252,248 +252,246 @@ var Pl2CharAnim = 0
 	
 	if((parseInt(document.getElementById('mySpan01').style.left) + (parseInt(document.getElementById('mySpan01').style.width)/2)) > (parseInt(document.getElementById('mySpan02').style.left) + (parseInt(document.getElementById('mySpan02').style.width)/2))){
 		if(myPlayerOne.myInAnim == 0){
-		document.getElementById('mySpan01').style.transform = "scaleX(-1)"
+			document.getElementById('mySpan01').style.transform = "scaleX(-1)"
 		}
 		if(myPlayerTwo.myInAnim == 0){
-		document.getElementById('mySpan02').style.transform = "scaleX(1)"
+			document.getElementById('mySpan02').style.transform = "scaleX(1)"
 		}
 		myPlayerOne.flipped = 1
 		myPlayerTwo.flipped = 0
 	}
-	
-  if(myHitOther('mySpan01','mySpan02') && myPlayerOne.myInAnim == 0 && myPlayerTwo.myInAnim == 0){
-
-  }
   
   if(myHitOther('mySpan01','mySpan02') && Pl15U == true){
-  myPlayerTwo.health -= 5
-  Pl2CurHealth = myPlayerTwo.health
- myJustHit('Pl2',340,Pl2CurHealth)
+	  myPlayerTwo.health -= 5
+	  Pl2CurHealth = myPlayerTwo.health
+ 	 myJustHit('Pl2',340,Pl2CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl15I == true){
-  myPlayerTwo.health -= 10
-  Pl2CurHealth = myPlayerTwo.health
-  myJustHit('Pl2',580,Pl2CurHealth)
+ 	 myPlayerTwo.health -= 10
+ 	 Pl2CurHealth = myPlayerTwo.health
+ 	 myJustHit('Pl2',580,Pl2CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl15O == true){
-  myPlayerTwo.health -= 10
-  Pl2CurHealth = myPlayerTwo.health
-  myJustHit('Pl2',620,Pl2CurHealth)
+ 	 myPlayerTwo.health -= 10
+	  Pl2CurHealth = myPlayerTwo.health
+	  myJustHit('Pl2',620,Pl2CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl1jU == true){
-  myPlayerTwo.health -= 5
-  Pl2CurHealth = myPlayerTwo.health
- myJustHit('Pl2',340,Pl2CurHealth)
+ 	 myPlayerTwo.health -= 5
+	 Pl2CurHealth = myPlayerTwo.health
+ 	 myJustHit('Pl2',340,Pl2CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl1jI == true){
-  myPlayerTwo.health -= 10
-  Pl2CurHealth = myPlayerTwo.health
-  myJustHit('Pl2',580,Pl2CurHealth)
+	  myPlayerTwo.health -= 10
+	  Pl2CurHealth = myPlayerTwo.health
+	  myJustHit('Pl2',580,Pl2CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl1jO == true){
-  myPlayerTwo.health -= 10
-  Pl2CurHealth = myPlayerTwo.health
-  myJustHit('Pl2',620,Pl2CurHealth)
+	  myPlayerTwo.health -= 10
+	  Pl2CurHealth = myPlayerTwo.health
+	  myJustHit('Pl2',620,Pl2CurHealth)
   }
   
   if((myHitOther('mySpan01','mySpan02') || myHitOther('effect','mySpan02')) && Pl1236x == true){
-  myPlayerTwo.health -= 20
-  Pl2CurHealth = myPlayerTwo.health
-  myJustHit('Pl2',1140,Pl2CurHealth)
+	  myPlayerTwo.health -= 20
+	  Pl2CurHealth = myPlayerTwo.health
+	  myJustHit('Pl2',1140,Pl2CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl25U == true){
-  myPlayerOne.health -= 5
-  Pl1CurHealth = myPlayerOne.health
- myJustHit('Pl1',360,Pl1CurHealth)
+	  myPlayerOne.health -= 5
+	  Pl1CurHealth = myPlayerOne.health
+ 	  myJustHit('Pl1',360,Pl1CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl25I == true){
-  myPlayerOne.health -= 10
-  Pl1CurHealth = myPlayerOne.health
-  myJustHit('Pl1',880,Pl1CurHealth)
+	  myPlayerOne.health -= 10
+	  Pl1CurHealth = myPlayerOne.health
+	  myJustHit('Pl1',880,Pl1CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl25O == true){
-  myPlayerOne.health -= 10
-  Pl1CurHealth = myPlayerOne.health
-  myJustHit('Pl1',900,Pl1CurHealth)
+	  myPlayerOne.health -= 10
+	  Pl1CurHealth = myPlayerOne.health
+	  myJustHit('Pl1',900,Pl1CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl2jU == true){
-  myPlayerOne.health -= 5
-  Pl1CurHealth = myPlayerOne.health
- myJustHit('Pl1',440,Pl1CurHealth)
+	  myPlayerOne.health -= 5
+	  Pl1CurHealth = myPlayerOne.health
+	  myJustHit('Pl1',440,Pl1CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl2jI == true){
-  myPlayerOne.health -= 10
-  Pl1CurHealth = myPlayerOne.health
-  myJustHit('Pl1',600,Pl1CurHealth)
+	  myPlayerOne.health -= 10
+	  Pl1CurHealth = myPlayerOne.health
+	  myJustHit('Pl1',600,Pl1CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl2jO == true){
-  myPlayerOne.health = myPlayerOne.health - 5
-  Pl1CurHealth = myPlayerOne.health
-  myJustHit('Pl1',201,Pl1CurHealth)
+	  myPlayerOne.health = myPlayerOne.health - 5
+	  Pl1CurHealth = myPlayerOne.health
+	  myJustHit('Pl1',201,Pl1CurHealth)
   }
   
   if(myHitOther('mySpan01','deer') && isDeerOut == 1){
-  myPlayerOne.health = myPlayerOne.health - 3
-  Pl1CurHealth = myPlayerOne.health
-  myJustHit('Pl1',100,Pl1CurHealth)
+	  myPlayerOne.health = myPlayerOne.health - 3
+	  Pl1CurHealth = myPlayerOne.health
+	  myJustHit('Pl1',100,Pl1CurHealth)
   }
   
   if(myHitOther('mySpan01','snake') && isSnakeOut == 1){
-  myPlayerOne.health = myPlayerOne.health - 2
-  Pl1CurHealth = myPlayerOne.health
-  myJustHit('Pl1',100,Pl1CurHealth)
+	  myPlayerOne.health = myPlayerOne.health - 2
+	  Pl1CurHealth = myPlayerOne.health
+	  myJustHit('Pl1',100,Pl1CurHealth)
   }
   
   if(myHitOther('mySpan01','mySpan02') && Pl2super == true){
-  myPlayerOne.health -= 1000
+	  myPlayerOne.health -= 1000
   }
   
   if(myHitOtherSuper('mySpan01','mySpan02') && Pl1super == true){
-  myPlayerTwo.health -= 1000
-  gotHit = 1
+	  myPlayerTwo.health -= 1000
+	  gotHit = 1
   }
   
 	if(myHitOther('mySpan02','knife')){
-	if(myKnifeHit == 0){
-	myKnifeHit = 1
-	myPlayerTwo.health -= 10
-	console.log(myPlayerTwo.health)
-	}
+		if(myKnifeHit == 0){
+			myKnifeHit = 1
+			myPlayerTwo.health -= 10
+			console.log(myPlayerTwo.health)
+		}
 	}
 	
 	if(allowEffect == 1 && gotHit == 1){
-	document.getElementById('ikeffect').style.left = 0
-	myCharAnim('ikeffect','ikeffect')
-	allowEffect = 0
-	setTimeout(function(){document.getElementById('ikeffect').style.left = -2000},1120)
+		document.getElementById('ikeffect').style.left = 0
+		myCharAnim('ikeffect','ikeffect')
+		allowEffect = 0
+		setTimeout(function(){
+			document.getElementById('ikeffect').style.left = -2000
+		},1120)
 	}
 	
 	if(myPlayerOne.meter > 100){
-	myPlayerOne.meter = 100
+		myPlayerOne.meter = 100
 	}
 	if(myPlayerTwo.meter > 100){
-	myPlayerTwo.meter = 100
+		myPlayerTwo.meter = 100
 	}
 	
 	}
 
 	function myOnKeyUpRight(player) {
-	if(player == 'Pl1'){
-	clearInterval(myPlayerOne.myVarRight,10);
-	myPlayerOne.myVarRight = 0
-	myPlayerOne.myMoveRightOn = 0
-	}
-	if(player == 'Pl2'){
-	clearInterval(myPlayerTwo.myVarRight,10);
-	myPlayerTwo.myVarRight = 0
-	myPlayerTwo.myMoveRightOn = 0
-	}
+		if(player == 'Pl1'){
+			clearInterval(myPlayerOne.myVarRight,10);
+			myPlayerOne.myVarRight = 0
+			myPlayerOne.myMoveRightOn = 0
+		}
+		if(player == 'Pl2'){
+			clearInterval(myPlayerTwo.myVarRight,10);
+			myPlayerTwo.myVarRight = 0
+			myPlayerTwo.myMoveRightOn = 0
+		}
 	}
 
 	function myOnKeyUpLeft(player) {
-	if(player == 'Pl1'){
-	clearInterval(myPlayerOne.myVarLeft,10);
-	myPlayerOne.myVarLeft = 0
-	myPlayerOne.myMoveLeftOn = 0
-	}
-	if(player == 'Pl2'){
-	clearInterval(myPlayerTwo.myVarLeft,10);
-	myPlayerTwo.myVarLeft = 0
-	myPlayerTwo.myMoveLeftOn = 0
-	}
-	}
+		if(player == 'Pl1'){
+			clearInterval(myPlayerOne.myVarLeft,10);
+			myPlayerOne.myVarLeft = 0
+			myPlayerOne.myMoveLeftOn = 0
+		}
+		if(player == 'Pl2'){
+			clearInterval(myPlayerTwo.myVarLeft,10);
+			myPlayerTwo.myVarLeft = 0
+			myPlayerTwo.myMoveLeftOn = 0
+		}
+}
 
 function myOnKeyDownLeft (x,player) {
 	if(player == 'Pl1'){
-	if(myPlayerOne.y == myPlayerOne.rockbottom) {
-		myPlayerOne.myMoveLeftOn += 1
-		myPlayerOne.myVarLeft = setInterval(function() {
-		document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - x
+		if(myPlayerOne.y == myPlayerOne.rockbottom) {
+			myPlayerOne.myMoveLeftOn += 1
+			myPlayerOne.myVarLeft = setInterval(function() {
+				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - x
                                                         
-	if (myPlayerOne.myMoveRightOn==1){
-	clearInterval(myPlayerOne.myVarLeft,10)
-	myPlayerOne.myVarLeft = 0
-	myPlayerOne.myMoveLeftOn = 0
-	}
+				if (myPlayerOne.myMoveRightOn==1){
+					clearInterval(myPlayerOne.myVarLeft,10)
+					myPlayerOne.myVarLeft = 0
+					myPlayerOne.myMoveLeftOn = 0
+				}
 	
-	if(myPlayerOne.y < myPlayerOne.rockbottom) {
-	clearInterval(myPlayerOne.myVarLeft,10)
-	myPlayerOne.myVarLeft = 0
-	myPlayerOne.myMoveLeftOn = 0
-	}
+				if(myPlayerOne.y < myPlayerOne.rockbottom) {
+					clearInterval(myPlayerOne.myVarLeft,10)
+					myPlayerOne.myVarLeft = 0
+					myPlayerOne.myMoveLeftOn = 0
+				}
   
-  if (myPlayerOne.myShiftKey==1){
-  x = 2
-  }
+ 				 if (myPlayerOne.myShiftKey==1){
+ 					 x = 2
+			 	 }
   
-  if (myPlayerOne.myShiftKey==0){
-  x = 1
-  }
+			  	if (myPlayerOne.myShiftKey==0){
+					  x = 1
+			 	 }
   
   
-	},10)
-	}
+			},10)
+		}
 	}
 	if(player == 'Pl2'){
-	if(myPlayerTwo.y == myPlayerTwo.rockbottom) {
-		myPlayerTwo.myMoveLeftOn += 1
-		myPlayerTwo.myVarLeft = setInterval(function() {
-		document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) - x
+		if(myPlayerTwo.y == myPlayerTwo.rockbottom) {
+			myPlayerTwo.myMoveLeftOn += 1
+			myPlayerTwo.myVarLeft = setInterval(function() {
+				document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) - x
                                                         
-	if (myPlayerTwo.myMoveRightOn==1){
-	clearInterval(myPlayerTwo.myVarLeft,10)
-	myPlayerTwo.myVarLeft = 0
-	myPlayerTwo.myMoveLeftOn = 0
+				if (myPlayerTwo.myMoveRightOn==1){
+					clearInterval(myPlayerTwo.myVarLeft,10)
+					myPlayerTwo.myVarLeft = 0
+					myPlayerTwo.myMoveLeftOn = 0
 	}
 	
-	if(myPlayerTwo.y < myPlayerTwo.rockbottom) {
-	clearInterval(myPlayerTwo.myVarLeft,10)
-	myPlayerTwo.myVarLeft = 0
-	myPlayerTwo.myMoveLeftOn = 0
-	}
+				if(myPlayerTwo.y < myPlayerTwo.rockbottom) {
+					clearInterval(myPlayerTwo.myVarLeft,10)
+					myPlayerTwo.myVarLeft = 0
+					myPlayerTwo.myMoveLeftOn = 0
+				}
   
-  if (myPlayerTwo.myShiftKey==1){
-  x = 2
-  }
+  				if (myPlayerTwo.myShiftKey==1){
+ 					x = 2
+				}
   
-  if (myPlayerTwo.myShiftKey==0){
-  x = 1
-  }
+  				if (myPlayerTwo.myShiftKey==0){
+  					x = 1
+  				}
   
   
-	},10)
+			},10)
+		}
 	}
-	}
-	}
+}
 	
 function myMoveLeftAir(player){
 	if(player == 'Pl1'){
 		myPlayerOne.myMoveLeftOn += 1
 		myPlayerOne.myVarLeftAir = setInterval(function() {
-		document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - 1
+			document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - 1
                                                         
-	if(myPlayerOne.y == myPlayerOne.rockbottom) {
-	clearInterval(myPlayerOne.myVarLeftAir,10)
-	myPlayerOne.myMoveLeftOn = 0
-	}
+			if(myPlayerOne.y == myPlayerOne.rockbottom) {
+				clearInterval(myPlayerOne.myVarLeftAir,10)
+				myPlayerOne.myMoveLeftOn = 0
+			}
 	
-	if(myPlayerOne.hasDblJumped==1) {
-	clearInterval(myPlayerOne.myVarLeftAir,10)
-	myPlayerOne.myMoveLeftOn = 0
-	}
+			if(myPlayerOne.hasDblJumped==1) {
+				clearInterval(myPlayerOne.myVarLeftAir,10)
+				myPlayerOne.myMoveLeftOn = 0
+			}
   
-	},10)
+		},10)////////////////////////indents
 	}
 	if(player == 'Pl2'){
 		myPlayerTwo.myMoveLeftOn += 1
