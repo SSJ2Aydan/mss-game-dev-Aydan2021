@@ -2854,6 +2854,9 @@ function myGravUp(flip,span,player,bar,meterbar,meternumber,INP,back,neutral,fro
 			this.hasDblJumped = 0;
 			this.hasAirDashed = 0;
 			if(this.myUpHeld > 0 && ((INP[1]==0 && INP[2]==0) || (INP[1]==1 && INP[2]==1))) {
+				this.gravitySpeed = 0;////
+				this.gravity = 0;/////////
+				this.speedY = 0;//////////
 				myJump(player);
 				myCharAnim(span,'jump01')
 				setTimeout(function(){
