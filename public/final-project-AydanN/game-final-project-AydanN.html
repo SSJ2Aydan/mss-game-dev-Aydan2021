@@ -8,6 +8,34 @@ style="height:100%; overflow-y:hidden; overflow-x:hidden;"
 
 onKeyDown="{
   var myArrowKey = event.keyCode
+	   
+	if(myArrowKey == 49) {
+		mySecInp(1)
+	}
+	if(myArrowKey == 50) {
+		mySecInp(2)
+	}
+	if(myArrowKey == 51) {
+		mySecInp(3)
+	}
+	if(myArrowKey == 52) {
+		mySecInp(4)
+	}
+	if(myArrowKey == 53) {
+		mySecInp(5)
+	}
+	if(myArrowKey == 54) {
+		mySecInp(6)
+	}
+	if(myArrowKey == 55) {
+		mySecInp(7)
+	}
+	if(myArrowKey == 56) {
+		mySecInp(8)
+	}
+	if(myArrowKey == 57) {
+		mySecInp(9)
+	}
   
   if (myArrowKey == 16) {
   myPlayerOne.myShiftKey = 1
@@ -758,6 +786,9 @@ function myInputTwo(direction){
 function myAttackTwo(move){
 	myAtkTwo[move] = 1
 }
+function mySecInp(x){
+	mySec[x]=1
+}
 
 function myInputRelease(direction){
 	myInp[direction] = 0;
@@ -771,11 +802,61 @@ function myInputTwoRelease(direction){
 function myAttackTwoRelease(move){
 	myAtkTwo[move] = 0;
 }
+function mySecRelease(x){
+	mySec[x]=0
+}
 
 var myTempDir = null;
 var myTempDirTwo = null;
+var myTempIntSecret = null;
+var document.myRotate = 0
 
 function myTestAttack(){
+//SECRET
+	if(mySec[1]=1){
+		myTempIntSecret = setInterval(function(){
+			if(mySec[2]=1){
+				clearInterval(myTempIntSecret)
+				myTempIntSecret = setInterval(function(){
+					if(mySec[3]=1){
+						clearInterval(myTempIntSecret)
+						myTempIntSecret = setInterval(function(){
+							if(mySec[4]=1){
+								clearInterval(myTempIntSecret)
+								myTempIntSecret = setInterval(function(){
+									if(mySec[5]=1){
+										clearInterval(myTempIntSecret)
+										myTempIntSecret = setInterval(function(){
+											if(mySec[6]=1){
+												clearInterval(myTempIntSecret)
+												myTempIntSecret = setInterval(function(){
+													if(mySec[7]=1){
+														clearInterval(myTempIntSecret)
+														myTempIntSecret = setInterval(function(){
+															if(mySec[8]=1){
+																clearInterval(myTempIntSecret)
+																myTempIntSecret = setInterval(function(){
+																	if(mySec[9]=1){
+																		document.myRotate += 20
+																		document.getElementById('mySpan01').style.transform = 'rotate('+  document.myRotate  +'deg)'
+																		document.getElementById('mySpan02').style.transform = 'rotate('+  document.myRotate  +'deg)'
+																	}
+																},1)
+															}
+														},1)
+													}
+												},1)
+											}
+										},1)
+									}
+								},1)
+							}
+						},1)	
+					}
+				},1)
+			}
+		},1)
+	}
 //INPUTS P1
 	if(myInp[3]==1 && myInp[2]==0){
 		let myTempInt = setInterval(function(){
