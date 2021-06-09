@@ -838,15 +838,13 @@ function myTestAttack(){
 															if(mySec[8]==1){
 																clearInterval(myTempIntSecret)
 																myTempIntSecret = setInterval(function(){
-																	if(mySec[9]==1){
+																	if(mySec[9]==1 && mySecretTrue==0){
 																		setInterval(function(){
-																			if(mySecretTrue==0){
 																			console.log('hi??')
 																				mySecretTrue=1
 																				document.myRotate += 20
 																				document.getElementById('mySpan01').style.transform = 'rotate('+  document.myRotate  +'deg)'
 																				document.getElementById('mySpan02').style.transform = 'rotate('+  document.myRotate  +'deg)'
-																			}
 																		},5)
 																	}
 																},5)
