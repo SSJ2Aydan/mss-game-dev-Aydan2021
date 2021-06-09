@@ -1484,14 +1484,14 @@ function myAIRDASH(player){
 			myEnCharAnim('Pl2')
 			myCharAnim('mySpan02','idle')
 			if(myPlayerTwo.flipped == 0){
-				myTempDir = 0
+				myTempDirTwo = 0
 				myPlayerTwo.AirFront = setInterval(function(){
 					myStopLeftRightMovement()
 					document.getElementById("mySpan02").style.left = parseInt(document.getElementById("mySpan02").style.left) + 2
 				},5)
 			}
 			if(myPlayerTwo.flipped == 1){
-				myTempDir = 1
+				myTempDirTwo = 1
 				myPlayerTwo.AirFront = setInterval(function(){
 					myStopLeftRightMovement()
 					document.getElementById("mySpan02").style.left = parseInt(document.getElementById("mySpan02").style.left) - 2
@@ -1500,12 +1500,12 @@ function myAIRDASH(player){
 			setTimeout(function(){
 				clearInterval(myPlayerTwo.AirFront)
 				myPlayerTwo.myInAnim = 0
-				if(myTempDir == 0){
+				if(myTempDirTwo == 0){
 					myMoveRightAirDbl('Pl2')
 					myEnCharAnim('Pl2')
 					myCharAnim('mySpan02','jumpF04')
 				}
-				if(myTempDir == 1){
+				if(myTempDirTwo == 1){
 					myMoveLeftAirDbl('Pl2')
 					myEnCharAnim('Pl2')
 					myCharAnim('mySpan02','jumpF04')
@@ -1559,14 +1559,14 @@ function myBackAIRDASH(player){
 			myEnCharAnim('Pl2')
 			myCharAnim('mySpan02','idle')
 			if(myPlayerTwo.flipped == 0){
-				myTempDir = 0
+				myTempDirTwo = 0
 				myPlayerTwo.AirBack = setInterval(function(){
 					myStopLeftRightMovement()
 					document.getElementById("mySpan02").style.left = parseInt(document.getElementById("mySpan02").style.left) - 1
 				},3)
 			}
 			if(myPlayerTwo.flipped == 1){
-				myTempDir = 1
+				myTempDirTwo = 1
 				myPlayerTwo.AirBack = setInterval(function(){
 					myStopLeftRightMovement()
 					document.getElementById("mySpan02").style.left = parseInt(document.getElementById("mySpan02").style.left) + 1
@@ -1575,12 +1575,12 @@ function myBackAIRDASH(player){
 			setTimeout(function(){
 				clearInterval(myPlayerTwo.AirBack)
 				myPlayerTwo.myInAnim = 0
-				if(myTempDir == 0){
+				if(myTempDirTwo == 0){
 					myMoveLeftAirDbl('Pl2')
 					myEnCharAnim('Pl2')
 					myCharAnim('mySpan02','jumpB04')
 				}
-				if(myTempDir == 1){
+				if(myTempDirTwo == 1){
 					myMoveRightAirDbl('Pl2')
 					myEnCharAnim('Pl2')
 					myCharAnim('mySpan02','jumpB04')
