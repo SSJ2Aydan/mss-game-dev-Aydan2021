@@ -2853,8 +2853,27 @@ function myGravUp(flip,span,player,bar,meterbar,meternumber,INP,back,neutral,fro
 			this.gravitySpeed = 0;
 			this.hasDblJumped = 0;
 			this.hasAirDashed = 0;
-			if(this.myUpHeld > 0 && ((INP[1]==0 && INP[2]==0) || (INP[1]==1 && INP[2]==1))) {
-				this.gravity = -0.03
+			if(this.myUpHeld > 0 && INP[1]==0 && INP[2]==0) {
+				myJump(player);
+				myCharAnim(span,'jump01')
+				setTimeout(function(){
+					myEnCharAnim(player);
+					myCharAnim(span,'jump02')
+				}.bind(this),140)
+				setTimeout(function(){
+					if(this.hasDblJumped == 0 && this.myInAnim == 0){
+						myEnCharAnim(player);
+						myCharAnim(span,'jump03');
+						setTimeout(function(){
+							if(this.hasDblJumped == 0 && this.myInAnim == 0){
+								myEnCharAnim(player);
+								myCharAnim(span,'jump04')
+							}
+						}.bind(this),neutral)
+					}
+				}.bind(this),400)
+			}
+			if(this.myUpHeld > 0 && INP[1]==1 && INP[2]==1) {
 				myJump(player);
 				myCharAnim(span,'jump01')
 				setTimeout(function(){
@@ -2876,8 +2895,12 @@ function myGravUp(flip,span,player,bar,meterbar,meternumber,INP,back,neutral,fro
 			}
 			if(this.myUpHeld > 0 && INP[1]==1 && INP[2]==0) {
 				myJump(player);
-				if(this.flipped == 0){myCharAnim(span,'jumpB01')}
-				if(this.flipped == 1){myCharAnim(span,'jumpF01')}
+				if(this.flipped == 0){
+					myCharAnim(span,'jumpB01')
+				}
+				if(this.flipped == 1){
+					myCharAnim(span,'jumpF01')
+				}
 				setTimeout(function(){
 					myMoveLeftAir(player);
 					if(this.flipped == 0){
