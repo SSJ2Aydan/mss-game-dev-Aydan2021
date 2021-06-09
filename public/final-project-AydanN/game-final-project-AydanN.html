@@ -811,6 +811,7 @@ var myTempDir = null;
 var myTempDirTwo = null;
 var myTempIntSecret = null;
 document.myRotate = 0
+var mySecretTrue = 0
 
 function myTestAttack(){
 //SECRET
@@ -838,9 +839,14 @@ function myTestAttack(){
 																clearInterval(myTempIntSecret)
 																myTempIntSecret = setInterval(function(){
 																	if(mySec[9]=1){
-																		document.myRotate += 20
-																		document.getElementById('mySpan01').style.transform = 'rotate('+  document.myRotate  +'deg)'
-																		document.getElementById('mySpan02').style.transform = 'rotate('+  document.myRotate  +'deg)'
+																		setInterval(function(){
+																			if(mySecretTrue==1){
+																				mySecretTrue=1
+																				document.myRotate += 20
+																				document.getElementById('mySpan01').style.transform = 'rotate('+  document.myRotate  +'deg)'
+																				document.getElementById('mySpan02').style.transform = 'rotate('+  document.myRotate  +'deg)'
+																			}
+																		},5)
 																	}
 																},1)
 															}
