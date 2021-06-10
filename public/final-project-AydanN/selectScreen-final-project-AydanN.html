@@ -27,7 +27,8 @@ document.getElementById('ArcueidTheme').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('Roar').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('Subhuman').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('Carve').style.backgroundColor = "rgb(0,0,0)"
-document.getElementById('Emiya').style.backgroundColor = "rgb(0,0,0)"
+document.getElementById('Lily').style.backgroundColor = "rgb(0,0,0)"
+document.getElementById('BlackBlank').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('Vegito').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('conciliation').style.backgroundColor = "rgb(0,0,0)"
 document.getElementById('OverwhelmDespair').style.backgroundColor = "rgb(0,0,0)"
@@ -37,7 +38,8 @@ document.getElementById('ArcueidTheme').style.color = "rgb(255,255,255)"
 document.getElementById('Roar').style.color = "rgb(255,255,255)"
 document.getElementById('Subhuman').style.color = "rgb(255,255,255)"
 document.getElementById('Carve').style.color = "rgb(255,255,255)"
-document.getElementById('Emiya').style.color = "rgb(255,255,255)"
+document.getElementById('Lily').style.color = "rgb(255,255,255)"
+document.getElementById('BlackBlank').style.color = "rgb(255,255,255)"
 document.getElementById('Vegito').style.color = "rgb(255,255,255)"
 document.getElementById('conciliation').style.color = "rgb(255,255,255)"
 document.getElementById('OverwhelmDespair').style.color = "rgb(255,255,255)"
@@ -89,9 +91,13 @@ if(sessionStorage.getItem('songName') == 'Let Me Carve Your Way - Zato-1'){
 document.getElementById('Carve').style.backgroundColor = "rgb(255,255,255)"
 document.getElementById('Carve').style.color = "rgb(0,0,0)"
 }
-if(sessionStorage.getItem('songName') == 'Emiya Theme'){
-document.getElementById('Emiya').style.backgroundColor = "rgb(255,255,255)"
-document.getElementById('Emiya').style.color = "rgb(0,0,0)"
+if(sessionStorage.getItem('songName') == 'The Lily of Steel - Xrd Millia Rage'){
+document.getElementById('Lily').style.backgroundColor = "rgb(255,255,255)"
+document.getElementById('Lily').style.color = "rgb(0,0,0)"
+}
+if(sessionStorage.getItem('songName') == 'Black Blank Blah-Blah-Blah - Xrd Zato-1'){
+document.getElementById('BlackBlank').style.backgroundColor = "rgb(255,255,255)"
+document.getElementById('BlackBlank').style.color = "rgb(0,0,0)"
 }
 if(sessionStorage.getItem('songName') == 'Super Vegito OST'){
 document.getElementById('Vegito').style.backgroundColor = "rgb(255,255,255)"
@@ -190,12 +196,20 @@ document.getElementById('Carve').style.backgroundColor = "rgb(255,255,255)"
 document.getElementById('Carve').style.color = "rgb(0,0,0)"
 }
 
-function Emiya(){
-sessionStorage.setItem('myAudioFile','sounds/Fatestay night Unlimited Blade Works OST II  19 Emiya UBW Extended.mp3')
-sessionStorage.setItem('songName','Emiya Theme')
+function Lily(){
+sessionStorage.setItem('myAudioFile','sounds/The Lily of Steel - Xrd Millia Rage.mp3')
+sessionStorage.setItem('songName','The Lily of Steel - Xrd Millia Rage')
 clearMus()
-document.getElementById('Emiya').style.backgroundColor = "rgb(255,255,255)"
-document.getElementById('Emiya').style.color = "rgb(0,0,0)"
+document.getElementById('Lily').style.backgroundColor = "rgb(255,255,255)"
+document.getElementById('Lily').style.color = "rgb(0,0,0)"
+}
+
+function BlackBlank(){
+sessionStorage.setItem('myAudioFile','sounds/Black Blank Blah-Blah-Blah - Xrd Zato-1.mp3')
+sessionStorage.setItem('songName','Black Blank Blah-Blah-Blah - Xrd Zato-1')
+clearMus()
+document.getElementById('BlackBlank').style.backgroundColor = "rgb(255,255,255)"
+document.getElementById('BlackBlank').style.color = "rgb(0,0,0)"
 }
 
 function Vegito(){
@@ -242,8 +256,9 @@ location="game-final-project-AydanN.html"
 <tr><td id="ArcueidTheme" onclick="ArcueidTheme()">The Theme of Arcueid from "Melty Blood"</td></tr>
 <tr><td id="Roar" onclick="Roar()">The Roar of the Spark - Ky Kiske</td></tr>
 <tr><td id="Subhuman" onclick="Subhuman()">Love the Subhuman Self - Millia Rage</td></tr>
-<tr><td id="Carve" onclick="Carve()">Let Me Carve Your Way from "Guilty Gear Strive"</td></tr>
-<tr><td id="Emiya" onclick="Emiya()">Emiya Theme</td></tr>
+<tr><td id="Carve" onclick="Carve()">Let Me Carve Your Way - Zato-1</td></tr>
+<tr><td id="Lily" onclick="Lily()">The Lily of Steel - Xrd Millia Rage</td></tr>
+<tr><td id="BlackBlank" onclick="BlackBlank()">Black Blank Blah-Blah-Blah - Xrd Zato-1</td></tr>
 <tr><td id="Vegito" onclick="Vegito()">Super Vegito OST</td></tr>
 <tr><td id="conciliation" onclick="conciliation()">conciliation</td></tr>
 <tr><td id="OverwhelmDespair" onclick="OverwhelmDespair()">Overwhelm Despair</td></tr>
