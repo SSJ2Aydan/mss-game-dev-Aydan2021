@@ -1117,10 +1117,16 @@ function myTestAttack(){
 		if(myPlayerOne.flipped == 0){
 			myRag236()
 		}
+		if(myPlayerOne.flipped == 1){
+			myRag214()
+		}
 	}
 	if(myAtk[3]==1 && myPlayerOne.y>=myPlayerOne.rockbottom && myPlayerOne.myFinishedInputDBL == 1 && myPlayerOne.myFinishedInputHC == 0 && myPlayerOne.myInAnim == 0){
 		if(myPlayerOne.flipped == 1){
 			myRag236()
+		}
+		if(myPlayerOne.flipped == 0){
+			myRag214()
 		}
 	}
 	if(myAtk[3]==1 && myPlayerOne.myFinishedInputDFR == 0 && myPlayerOne.myFinishedInputDBL == 0 && myPlayerOne.myFinishedInputDD == 1 && myPlayerOne.myFinishedInputHC == 0 && myPlayerOne.myInAnim == 0){
@@ -1609,6 +1615,7 @@ var myTempDeer
 var isDeerOut = 0
 var myTempSnake
 var isSnakeOut = 0
+var myPl1Dir = null
 //Pl1
 function myRag5U(){
 	myPlayerOne.myInAnim = 1
@@ -1803,6 +1810,40 @@ function myRag236(){
 				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 25
 				document.getElementById('effect').style.left = -350
 			},1140)
+		}
+	}
+}
+	
+function myRag214(){
+	myPlayerOne.myFinishedInputDFR = 0
+	myPlayerOne.myFinishedInputDBL = 0
+	if(myPlayerOne.meter >= 50){
+		myPlayerOne.meter -= 50
+		myPl1Dir = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+		if(myPlayerOne.flipped == 0){
+			if(myPl1Dir == 0){
+				myPlayerOne.y = myPlayerTwo.y - parseInt(document.getElementById('mySpan01').style.height)
+				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) + parseInt(document.getElementById('mySpan01').style.width) + parseInt(document.getElementById('mySpan02').style.width)
+			}
+			if(myPl1Dir == 1){
+				myPlayerOne.y = myPlayerTwo.y - parseInt(document.getElementById('mySpan01').style.height)
+				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) + parseInt(document.getElementById('mySpan01').style.width) + parseInt(document.getElementById('mySpan02').style.width)
+			}
+			if(myPl1Dir == 2){
+				myPlayerOne.y = myPlayerTwo.y - parseInt(document.getElementById('mySpan01').style.height)
+				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) + parseInt(document.getElementById('mySpan01').style.width) + parseInt(document.getElementById('mySpan02').style.width)
+			}
+		}
+		if(myPlayerOne.flipped == 1){
+			if(myPl1Dir == 0){
+				//hi
+			}
+			if(myPl1Dir == 1){
+				//hi
+			}
+			if(myPl1Dir == 2){
+				//hi
+			}
 		}
 	}
 }
