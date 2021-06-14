@@ -1826,23 +1826,26 @@ function myRag214(){
 				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) + parseInt(document.getElementById('mySpan01').style.width) + parseInt(document.getElementById('mySpan02').style.width)
 			}
 			if(myPl1Dir == 1){
-				myPlayerOne.y = myPlayerTwo.y - parseInt(document.getElementById('mySpan01').style.height)
-				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) + parseInt(document.getElementById('mySpan01').style.width) + parseInt(document.getElementById('mySpan02').style.width)
+				myPlayerOne.y = myPlayerTwo.y + parseInt(document.getElementById('mySpan02').style.height) - parseInt(document.getElementById('mySpan01').style.height)
+				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) - parseInt(document.getElementById('mySpan01').style.width)
 			}
 			if(myPl1Dir == 2){
 				myPlayerOne.y = myPlayerTwo.y - parseInt(document.getElementById('mySpan01').style.height)
-				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) + parseInt(document.getElementById('mySpan01').style.width) + parseInt(document.getElementById('mySpan02').style.width)
+				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) - parseInt(document.getElementById('mySpan01').style.width)
 			}
 		}
 		if(myPlayerOne.flipped == 1){
 			if(myPl1Dir == 0){
-				//hi
+				myPlayerOne.y = myPlayerTwo.y - parseInt(document.getElementById('mySpan01').style.height)
+				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) - parseInt(document.getElementById('mySpan01').style.width)
 			}
 			if(myPl1Dir == 1){
-				//hi
+				myPlayerOne.y = myPlayerTwo.y + parseInt(document.getElementById('mySpan02').style.height) - parseInt(document.getElementById('mySpan01').style.height)
+				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) + parseInt(document.getElementById('mySpan01').style.width) + parseInt(document.getElementById('mySpan02').style.width)
 			}
 			if(myPl1Dir == 2){
-				//hi
+				myPlayerOne.y = myPlayerTwo.y - parseInt(document.getElementById('mySpan01').style.height)
+				document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan02').style.left) + parseInt(document.getElementById('mySpan01').style.width) + parseInt(document.getElementById('mySpan02').style.width)
 			}
 		}
 	}
