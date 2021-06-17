@@ -2202,6 +2202,8 @@ function myDeer(){
 function myKoopSuper(){
 	if(myPlayerTwo.meter == 100){
 		myPlayerTwo.myInAnim = 1
+		myEnCharAnim('Pl2')
+		myCharAnim('mySpan02','idle')
 		myPlayerTwo.meter = 0
 		setTimeout(
 			myHitInter = setInterval(function(){
@@ -2898,7 +2900,7 @@ function myGravUp(flip,span,player,bar,meterbar,meternumber,INP,back,neutral,fro
 			this.gravitySpeed = 0;
 			this.hasDblJumped = 0;
 			this.hasAirDashed = 0;
-			if(this.myUpHeld > 0 && INP[1]==0 && INP[2]==0) {
+			if(this.myUpHeld > 0 && INP[1]==0 && INP[2]==0 && this.myInAnim==0) {
 				myJump(player);
 				myCharAnim(span,'jump01')
 				setTimeout(function(){
@@ -2918,7 +2920,7 @@ function myGravUp(flip,span,player,bar,meterbar,meternumber,INP,back,neutral,fro
 					}
 				}.bind(this),400)
 			}
-			if(this.myUpHeld > 0 && INP[1]==1 && INP[2]==1) {
+			if(this.myUpHeld > 0 && INP[1]==1 && INP[2]==1 && this.myInAnim==0) {
 				myJump(player);
 				myCharAnim(span,'jump01')
 				setTimeout(function(){
@@ -2938,7 +2940,7 @@ function myGravUp(flip,span,player,bar,meterbar,meternumber,INP,back,neutral,fro
 					}
 				}.bind(this),400)
 			}
-			if(this.myUpHeld > 0 && INP[1]==1 && INP[2]==0) {
+			if(this.myUpHeld > 0 && INP[1]==1 && INP[2]==0 && this.myInAnim==0) {
 				myJump(player);
 				if(this.flipped == 0){
 					myCharAnim(span,'jumpB01')
@@ -2981,7 +2983,7 @@ function myGravUp(flip,span,player,bar,meterbar,meternumber,INP,back,neutral,fro
 					}
 				}.bind(this),450)
 			}
-			if(this.myUpHeld > 0 && INP[1]==0 && INP[2]==1) {
+			if(this.myUpHeld > 0 && INP[1]==0 && INP[2]==1 && this.myInAnim==0) {
 				myJump(player);
 				if(this.flipped == 0){
 					myCharAnim(span,'jumpF01')
