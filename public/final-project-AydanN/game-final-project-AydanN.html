@@ -840,12 +840,12 @@ function myTestAttack(){
 																clearInterval(myTempIntSecret)
 																myTempIntSecret = setInterval(function(){
 																	if(mySec[9]==1 && mySecretTrue==0){
+																		mySecretTrue=1
 																		var spinnyspinspin = setInterval(function(){
-																			mySecretTrue=1
 																			document.myRotate += 20
 																			document.getElementById('mySpan01').style.transform = 'rotate('+  document.myRotate  +'deg)'
 																			document.getElementById('mySpan02').style.transform = 'rotate('+  document.myRotate  +'deg)'
-																		},50)////fix
+																		},50)
 																	}
 																},5)
 															}
