@@ -267,25 +267,33 @@ function myHitOtherSuper(my1,my2){
    }
 }
 var Pl2CharAnim = 0
+function myScaleX(){
+	setInterval(function(){
+		if(myPlayerOne.flipped == 0){
+			if(myPlayerOne.myInAnim == 0){
+				document.getElementById('mySpan01').style.transform = "scaleX(1) rotate('+  document.myRotate  +'deg)"
+			}
+			if(myPlayerTwo.myInAnim == 0){
+				document.getElementById('mySpan02').style.transform = "scaleX(-1) rotate('+  document.myRotate  +'deg)"
+			}
+		}
+		if(myPlayerOne.flipped == 1){
+			if(myPlayerOne.myInAnim == 0){
+				document.getElementById('mySpan01').style.transform = "scaleX(-1) rotate('+  document.myRotate  +'deg)"
+			}
+			if(myPlayerTwo.myInAnim == 0){
+				document.getElementById('mySpan02').style.transform = "scaleX(1) rotate('+  document.myRotate  +'deg)"
+			}
+		}
+	},1)
+}
 function myHitting(){
 	if((parseInt(document.getElementById('mySpan02').style.left) + (parseInt(document.getElementById('mySpan02').style.width)/2)) > (parseInt(document.getElementById('mySpan01').style.left) + (parseInt(document.getElementById('mySpan01').style.width)/2))){
-		if(myPlayerOne.myInAnim == 0){
-			document.getElementById('mySpan01').style.transform = "scaleX(1)"
-		}
-		if(myPlayerTwo.myInAnim == 0){
-			document.getElementById('mySpan02').style.transform = "scaleX(-1)"
-		}
 		myPlayerOne.flipped = 0
 		myPlayerTwo.flipped = 1
 	}
 	
 	if((parseInt(document.getElementById('mySpan01').style.left) + (parseInt(document.getElementById('mySpan01').style.width)/2)) > (parseInt(document.getElementById('mySpan02').style.left) + (parseInt(document.getElementById('mySpan02').style.width)/2))){
-		if(myPlayerOne.myInAnim == 0){
-			document.getElementById('mySpan01').style.transform = "scaleX(-1)"
-		}
-		if(myPlayerTwo.myInAnim == 0){
-			document.getElementById('mySpan02').style.transform = "scaleX(1)"
-		}
 		myPlayerOne.flipped = 1
 		myPlayerTwo.flipped = 0
 	}
@@ -413,32 +421,32 @@ function myHitting(){
 		myPlayerTwo.meter = 100
 	}
 	
-	}
+}
 
-	function myOnKeyUpRight(player) {
-		if(player == 'Pl1'){
-			clearInterval(myPlayerOne.myVarRight,10);
-			myPlayerOne.myVarRight = 0
-			myPlayerOne.myMoveRightOn = 0
-		}
-		if(player == 'Pl2'){
-			clearInterval(myPlayerTwo.myVarRight,10);
-			myPlayerTwo.myVarRight = 0
-			myPlayerTwo.myMoveRightOn = 0
-		}
+function myOnKeyUpRight(player) {
+	if(player == 'Pl1'){
+		clearInterval(myPlayerOne.myVarRight,10);
+		myPlayerOne.myVarRight = 0
+		myPlayerOne.myMoveRightOn = 0
 	}
+	if(player == 'Pl2'){
+		clearInterval(myPlayerTwo.myVarRight,10);
+		myPlayerTwo.myVarRight = 0
+		myPlayerTwo.myMoveRightOn = 0
+	}
+}
 
-	function myOnKeyUpLeft(player) {
-		if(player == 'Pl1'){
-			clearInterval(myPlayerOne.myVarLeft,10);
-			myPlayerOne.myVarLeft = 0
-			myPlayerOne.myMoveLeftOn = 0
-		}
-		if(player == 'Pl2'){
-			clearInterval(myPlayerTwo.myVarLeft,10);
-			myPlayerTwo.myVarLeft = 0
-			myPlayerTwo.myMoveLeftOn = 0
-		}
+function myOnKeyUpLeft(player) {
+	if(player == 'Pl1'){
+		clearInterval(myPlayerOne.myVarLeft,10);
+		myPlayerOne.myVarLeft = 0
+		myPlayerOne.myMoveLeftOn = 0
+	}
+	if(player == 'Pl2'){
+		clearInterval(myPlayerTwo.myVarLeft,10);
+		myPlayerTwo.myVarLeft = 0
+		myPlayerTwo.myMoveLeftOn = 0
+	}
 }
 
 function myOnKeyDownLeft (x,player) {
@@ -843,8 +851,6 @@ function myTestAttack(){
 																		mySecretTrue=1
 																		var spinnyspinspin = setInterval(function(){
 																			document.myRotate += 1
-																			document.getElementById('mySpan01').style.transform = 'rotate('+  document.myRotate  +'deg)'
-																			document.getElementById('mySpan02').style.transform = 'rotate('+  document.myRotate  +'deg)'
 																		},5)
 																	}
 																},5)
@@ -2841,6 +2847,7 @@ var myPlayerTwo;
 function startGame() {
 	myPlayerOne = new myGravUp(0,'mySpan01','Pl1','bar1','meter1','meter1Number',myInp,420,160,180)
 	myPlayerTwo = new myGravUp(1,'mySpan02','Pl2','bar2','meter2','meter2Number',myInpTwo,540,160,160)
+	myScaleX()
 	myVarStart = setInterval(function() {
 		myGameUpdate()
 	},1)
