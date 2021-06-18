@@ -413,32 +413,32 @@ function myHitting(){
 		myPlayerTwo.meter = 100
 	}
 	
-	}
+}
 
-	function myOnKeyUpRight(player) {
-		if(player == 'Pl1'){
-			clearInterval(myPlayerOne.myVarRight,10);
-			myPlayerOne.myVarRight = 0
-			myPlayerOne.myMoveRightOn = 0
-		}
-		if(player == 'Pl2'){
-			clearInterval(myPlayerTwo.myVarRight,10);
-			myPlayerTwo.myVarRight = 0
-			myPlayerTwo.myMoveRightOn = 0
-		}
+function myOnKeyUpRight(player) {
+	if(player == 'Pl1'){
+		clearInterval(myPlayerOne.myVarRight,10);
+		myPlayerOne.myVarRight = 0
+		myPlayerOne.myMoveRightOn = 0
 	}
+	if(player == 'Pl2'){
+		clearInterval(myPlayerTwo.myVarRight,10);
+		myPlayerTwo.myVarRight = 0
+		myPlayerTwo.myMoveRightOn = 0
+	}
+}
 
-	function myOnKeyUpLeft(player) {
-		if(player == 'Pl1'){
-			clearInterval(myPlayerOne.myVarLeft,10);
-			myPlayerOne.myVarLeft = 0
-			myPlayerOne.myMoveLeftOn = 0
-		}
-		if(player == 'Pl2'){
-			clearInterval(myPlayerTwo.myVarLeft,10);
-			myPlayerTwo.myVarLeft = 0
-			myPlayerTwo.myMoveLeftOn = 0
-		}
+function myOnKeyUpLeft(player) {
+	if(player == 'Pl1'){
+		clearInterval(myPlayerOne.myVarLeft,10);
+		myPlayerOne.myVarLeft = 0
+		myPlayerOne.myMoveLeftOn = 0
+	}
+	if(player == 'Pl2'){
+		clearInterval(myPlayerTwo.myVarLeft,10);
+		myPlayerTwo.myVarLeft = 0
+		myPlayerTwo.myMoveLeftOn = 0
+	}
 }
 
 function myOnKeyDownLeft (x,player) {
