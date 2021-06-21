@@ -245,7 +245,15 @@ function myStage(){
 }
 
 function myInfo(){
-	if(mySongName == null){document.getElementById('myInfo').innerHTML = "Stage: " + stage + "<br>Music: ";} else {document.getElementById('myInfo').innerHTML = "Stage: " + stage + "<br>Music: " + mySongName;}
+	if(stage == "This Chair!" && mySongName == null){
+		document.getElementById('myInfo').innerHTML = "Stage: Disappear. This chair is an eyesore. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair.<br>Music: ";
+	} else if(stage == "This Chair!"){
+		document.getElementById('myInfo').innerHTML = "Stage: Disappear. This chair is an eyesore. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair.<br>Music: " + mySongName;
+	} else if(mySongName == null){
+		document.getElementById('myInfo').innerHTML = "Stage: " + stage + "<br>Music: ";
+	} else {
+		document.getElementById('myInfo').innerHTML = "Stage: " + stage + "<br>Music: " + mySongName;
+	}
 }
 
 //MOVEMENT AND myHitOther
