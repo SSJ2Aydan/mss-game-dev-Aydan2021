@@ -188,13 +188,23 @@ time -= 1
 document.getElementById('myTime').innerHTML = "<center>" + time + "</center>"
 }
 
-document.addEventListener('keydown', function(){ if(stage != "This Chair!" || mySongName != null){ myMus.play(); } })
+document.addEventListener('keydown', function(){
+	if(stage != "This Chair!" || mySongName != null){
+		myMus.play();
+	}
+})
 
-var audioFile = sessionStorage.getItem('myAudioFile')
+if(sessionStorage.getItem('myAudioFile') != null){
+	var audioFile = sessionStorage.getItem('myAudioFile')
+	}
 
-var mySongName = sessionStorage.getItem('songName')
+if(sessionStorage.getItem('songName') != null){
+	var mySongName = sessionStorage.getItem('songName')
+	}
 
-let myMus = new Audio(audioFile);
+if(audioFile != null){
+	let myMus = new Audio(audioFile);
+}
 
 myMus.addEventListener('ended', function() {
 	myMus.play();
