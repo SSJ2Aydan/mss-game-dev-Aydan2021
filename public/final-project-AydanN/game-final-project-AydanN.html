@@ -188,7 +188,7 @@ time -= 1
 document.getElementById('myTime').innerHTML = "<center>" + time + "</center>"
 }
 
-document.addEventListener('keydown', function(){myMus.play();})
+document.addEventListener('keydown', function(){ if(stage != "This Chair!" || sessionStorage.getItem('songName') != null){ myMus.play(); } })
 
 var audioFile = sessionStorage.getItem('myAudioFile')
 
@@ -245,10 +245,8 @@ function myStage(){
 }
 
 function myInfo(){
-	if(stage == "This Chair!" && mySongName == null){
-		document.getElementById('myInfo').innerHTML = "Stage: Disappear. This chair is an eyesore. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair.<br>Music: ";
-	} else if(stage == "This Chair!"){
-		document.getElementById('myInfo').innerHTML = "Stage: Disappear. This chair is an eyesore. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair.<br>Music: " + mySongName;
+	if(stage == "This Chair!"){
+		document.getElementById('myInfo').innerHTML = "Stage: Disappear. This chair is an eyesore. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair. This chair!
 	} else if(mySongName == null){
 		document.getElementById('myInfo').innerHTML = "Stage: " + stage + "<br>Music: ";
 	} else {
@@ -2864,7 +2862,9 @@ function startGame() {
 	myTimeStart = setInterval(function() {
 		myTimer()
 	},1000)
-	myMus.play()
+	if(stage != "This Chair!" || sessionStorage.getItem('songName') != null){
+		myMus.play()
+	}
 	myStage()
 	myInfo()
 	sessionStorage.removeItem('myAudioFile')
