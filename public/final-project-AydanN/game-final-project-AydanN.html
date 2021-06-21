@@ -188,7 +188,7 @@ time -= 1
 document.getElementById('myTime').innerHTML = "<center>" + time + "</center>"
 }
 
-document.addEventListener('keydown', function(){ if(stage != "This Chair!" || sessionStorage.getItem('songName') != null){ myMus.play(); } })
+document.addEventListener('keydown', function(){ if(stage != "This Chair!" || mySongName != null){ myMus.play(); } })
 
 var audioFile = sessionStorage.getItem('myAudioFile')
 
@@ -2862,7 +2862,7 @@ function startGame() {
 	myTimeStart = setInterval(function() {
 		myTimer()
 	},1000)
-	if(stage != "This Chair!" || sessionStorage.getItem('songName') != null){
+	if(stage != "This Chair!" || mySongName != null){
 		myMus.play()
 	}
 	myStage()
