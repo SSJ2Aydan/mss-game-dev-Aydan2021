@@ -194,18 +194,6 @@ document.addEventListener('keydown', function(){
 	}
 })
 
-if(sessionStorage.getItem('myAudioFile') != null){
-	var audioFile = sessionStorage.getItem('myAudioFile')
-	}
-
-if(sessionStorage.getItem('songName') != null){
-	var mySongName = sessionStorage.getItem('songName')
-	}
-
-if(audioFile != null){
-	let myMus = new Audio(audioFile);
-}
-
 myMus.addEventListener('ended', function() {
 	myMus.play();
 }, false)
@@ -2872,6 +2860,15 @@ function startGame() {
 	myTimeStart = setInterval(function() {
 		myTimer()
 	},1000)
+	if(sessionStorage.getItem('myAudioFile') != null){
+		var audioFile = sessionStorage.getItem('myAudioFile')
+	}
+	if(sessionStorage.getItem('songName') != null){
+		var mySongName = sessionStorage.getItem('songName')
+	}
+	if(audioFile != null){
+		let myMus = new Audio(audioFile);
+	}
 	if(stage != "This Chair!" || mySongName != null){
 		myMus.play()
 	}
