@@ -885,6 +885,9 @@ function myTestAttack(){
 		},5)
 	}
 //INPUTS P1
+	if(myInp[3]==1 && myAtk[2]==1){
+		myRagFF()
+	}
 	if(myInp[3]==1 && myInp[2]==0){
 		let myTempInt = setInterval(function(){
 			if(myInp[3]==1 && myInp[2]==1){
@@ -1925,6 +1928,12 @@ function myRagSuper(){
 				myPlayerOne.myInAnim = 0
 			},4580)
 		}
+	}
+}
+	
+function myRagFF(){
+	if(myPlayerOne.y<myPlayerOne.rockbottom) {
+		myPlayerOne.y=400
 	}
 }
 
